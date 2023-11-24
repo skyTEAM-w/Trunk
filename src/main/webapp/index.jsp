@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一个登录页面</title>
+    <title>一个</title>
     <style>
         body {
             margin: 0;
@@ -18,7 +18,7 @@
         }
 
         .login-container {
-            background-color: whitesmoke;/* 登录框背景色 - 深灰色 */
+            background-color: whitesmoke; /* 登录框背景色 - 深灰色 */
             padding: 100px 300px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* 模拟光晕效果 */
@@ -27,7 +27,7 @@
         }
 
         h2 {
-            color: gray; /* 登录标题颜色 - 绿色 */
+            color: rgb(128, 128, 128); /* 登录标题颜色 - 绿色 */
             font-size: 60px;
         }
 
@@ -58,9 +58,9 @@
 
         #Register-btn {
             background-color: #790b0b;
-            color:white;
+            color: white;
             border: none;
-            padding:10px;
+            padding: 10px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -70,7 +70,7 @@
             cursor: pointer;
             border-radius: 5px;
         }
-        }
+
     </style>
 </head>
 <body>
@@ -86,11 +86,11 @@
 </div>
 
 <script>
-    function Login{
+    function Login() {
 
     }
 
-    function Register{
+    function Register() {
 
     }
 </script>
