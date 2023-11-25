@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一个登录页面</title>
-    <link rel="stylesheet" type="text/css" href="//css/Login_style.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Login_style.css"/>
 </head>
 <body>
 
@@ -24,8 +24,8 @@
     }
 
     function Register(){
-        alert('将要跳转至注册页面！');
-        window.location.href = "Register.html";
+        alert('即将跳转至注册页面!');
+        window.location.href = "Register.jsp";
     }
 </script>
 

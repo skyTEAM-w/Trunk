@@ -11,7 +11,7 @@ body {
 }
 
 .login-container {
-    background-color: whitespace;/* 登录框背景色 */
+    background-color: whitesmoke;/* 登录框背景色 */
     padding: 100px 300px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* 模拟光晕效果 */
@@ -58,7 +58,6 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    text-decoration: none;
     margin: 4px 2px 4px 44px;
     cursor: pointer;
     border-radius: 5px;
