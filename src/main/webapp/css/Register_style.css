@@ -1,0 +1,64 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #DE6262, #FFB88C);
+}
+
+.registration-container {
+    background-color: whitespace;
+    /* 容器背景色 - 白色 */
+    padding: 100px 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* 模拟光晕效果 */
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+    color: #333;
+    /* 标题颜色 - 深灰色 */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    /* 输入框边框颜色 - 浅灰色 */
+    border-radius: 5px;
+}
+
+#Register-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4285f4;
+    /* 按钮背景色 - 蓝色 */
+    color: #fff;
+    /* 按钮文字颜色 - 白色 */
+    cursor: pointer;
+}
+
+#BackToLogin-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: auto auto auto 60px;
+    background-color: #4CAF50;
+    /* 按钮背景色 - 绿色 */
+    color: #fff;
+    /* 按钮文字颜色 - 白色 */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #357ae8;
+    /* 鼠标悬停时按钮背景色 - 深蓝色 */
+}
