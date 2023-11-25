@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一个登录页面</title>
     <link rel="stylesheet" type="text/css" href="css/Login_style.css"/>
-    <script type="text/javascript" src="js/Login.js"></script>
 </head>
 <body>
 
@@ -19,5 +18,15 @@
     </form>
 </div>
 
+<script>
+    function Login(){
+        alert('666');
+    }
+
+    function Register(){
+        alert('即将跳转至注册页面!');
+        window.location.href = "Register.jsp";
+    }
+</script>
 </body>
 </html>
