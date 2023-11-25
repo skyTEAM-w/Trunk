@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一个登录页面</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Login_style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/Login_style.css"/>
+    <script type="text/javascript" src="js/Login.js"></script>
 </head>
 <body>
 
@@ -17,17 +18,6 @@
         <button id="Register-btn" onclick="Register()">注册</button>
     </form>
 </div>
-
-<script>
-    function Login(){
-
-    }
-
-    function Register(){
-        alert('即将跳转至注册页面!');
-        window.location.href = "Register.jsp";
-    }
-</script>
 
 </body>
 </html>
