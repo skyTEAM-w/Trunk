@@ -91,7 +91,8 @@
     }
 
     function Register() {
-
+        alert('将要跳转至注册页面！');
+        window.location.href = "Register.html";
     }
 </script>
 
