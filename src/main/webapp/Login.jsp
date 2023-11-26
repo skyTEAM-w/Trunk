@@ -23,6 +23,8 @@
         <input type="password" placeholder="密码" name="password" required>
         <button id="Login-btn" type=submit>登录</button>
         <button id="Register-btn" onclick="Register()">注册</button>
+<%--        afhuafioasfiopajf--%>
+<%--        asfjioasfhjiaojfiafjo--%>
     </form>
 </div>
 
