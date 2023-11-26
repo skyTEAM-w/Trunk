@@ -14,15 +14,15 @@
     <div class="first">
         <form th:action="@{/index}" method="post">
             <h3>请输入车辆传感器数据1：</h3>
-            <input type="text" name="data" placeholder="传感器数据1" class="text">
-            <input type="submit" name="submit" value="提交" class="submit">
+            <input type="text" name="data_1" placeholder="传感器数据1" class="text" required>
+            <input type="submit" name="submit_1" value="提交" class="submit" required>
         </form>
     </div>
     <div class="second">
         <form th:action="@{/index}" method="post">
             <h3>请输入车辆传感器数据2：</h3>
-            <input type="text" name="data" placeholder="传感器数据2" class="text">
-            <input type="submit" name="submit" value="提交" class="submit">
+            <input type="text" name="data_2" placeholder="传感器数据2" class="text">
+            <input type="submit" name="submit_2" value="提交" class="submit">
         </form>
     </div>
     <div class="third">
