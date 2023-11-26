@@ -1,0 +1,32 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #DE6262, #FFB88C);
+}
+
+.hall-container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 250px;
+}
+
+.function-buttons button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 16px;
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.function-buttons button:hover {
+    background-color: #00796b;
+}
+
