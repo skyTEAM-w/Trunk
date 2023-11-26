@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,10 +18,10 @@
 
 <div class="login-container">
     <h2>登录</h2>
-    <form>
-        <input type="text" placeholder="用户名" required>
-        <input type="password" placeholder="密码" required>
-        <button id="Login-btn" type=submit onclick="Login()">登录</button>
+    <form action="LoginTest" method="post">
+        <input type="text" placeholder="用户名" name="user_name" required>
+        <input type="password" placeholder="密码" name="password" required>
+        <button id="Login-btn" type=submit>登录</button>
         <button id="Register-btn" onclick="Register()">注册</button>
     </form>
 </div>

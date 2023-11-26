@@ -9,13 +9,22 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
+  <servlet>
+    <servlet-name>LoginTest</servlet-name>
+    <servlet-class>org.whut.trunk.login.LoginTest</servlet-class>
+  </servlet>
+
   <welcome-file-list>
-    <welcome-file>Hall.jsp</welcome-file>
+    <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
 
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/css/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginTest</servlet-name>
+    <url-pattern>/LoginTest</url-pattern>
   </servlet-mapping>
 
 </web-app>
