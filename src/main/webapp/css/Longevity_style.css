@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #DE6262, #FFB88C);
+}
+
+.longevity-container {
+    height: 200px;
+    width: 500px;
+    background-color: whitesmoke;
+    margin: 250px auto;
+    border-radius: 15px;
+}
+
+.longevity-container h3 {
+    padding: 80px 20px;
+}

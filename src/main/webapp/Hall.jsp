@@ -13,7 +13,7 @@
 
     <div class="function-buttons">
         <button onclick="goToLogin()">登录/注册</button>
-        <button onclick="goToFaultDetection()">故障检测</button>
+        <button onclick="goToFaultDetection()">故障检测和预测性维护</button>
         <button onclick="goToVehicleMonitoring()">车辆信息监控</button>
     </div>
 </div>

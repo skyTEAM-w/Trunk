@@ -7,9 +7,9 @@ body {
 
 .hall-container {
     text-align: center;
-    margin: 50px auto;
+    margin: 100px auto;
     max-width: 600px;
-    padding: 250px;
+    padding: 100px;
 }
 
 .function-buttons button {
