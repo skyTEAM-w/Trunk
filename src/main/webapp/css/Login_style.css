@@ -67,3 +67,18 @@ input {
     cursor: pointer;
     border-radius: 5px;
 }
+
+#Hall-btn {
+    display: block;
+    width: 60%;
+    padding: 15px;
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    bottom: 30px;
+    position: fixed;
+    font-size: larger;
+}

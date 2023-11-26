@@ -26,6 +26,10 @@
     </form>
 </div>
 
+<button id="Hall-btn" onclick="BackToHall()">
+    返回大厅!
+</button>
+
 <script>
     function Login(){
         alert('666');
@@ -34,6 +38,11 @@
     function Register(){
         alert('即将跳转至注册页面!');
         window.location.href = "Register.jsp";
+    }
+
+    function BackToHall(){
+        alert('即将回到大厅！');
+        window.location.href = "Hall.jsp"
     }
 </script>
 </body>

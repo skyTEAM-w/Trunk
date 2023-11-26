@@ -14,6 +14,12 @@
     <servlet-class>org.whut.trunk.login.LoginTest</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>VSDetective</servlet-name>
+    <servlet-class>org.whut.trunk.VSDetect.VSDetective</servlet-class>
+  </servlet>
+
+
   <welcome-file-list>
     <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
@@ -25,6 +31,10 @@
   <servlet-mapping>
     <servlet-name>LoginTest</servlet-name>
     <url-pattern>/LoginTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VSDetective</servlet-name>
+    <url-pattern>/VSDetective</url-pattern>
   </servlet-mapping>
 
 </web-app>
