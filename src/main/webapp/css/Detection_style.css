@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #DE6262, #FFB88C);
+}
+
+h1 {
+    padding-top: 30px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+h3 {
+    float: left;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+.detection-container {
+    height: 300px;
+    width: 500px;
+    background-color: whitesmoke;
+    margin: 200px auto;
+    border-radius: 15px;
+}
+
+.detection-container .first {
+    padding: 0 20px;
+    height: 40px;
+    width: 400px;
+    margin: 30px auto;
+}
+
+.detection-container .first .text {
+    float: left;
+    width: 100px;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 15px;
+    margin-left: 10px;
+}
+
+.detection-container .first .submit {
+    float: left;
+    width: 50px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+.detection-container .first .submit:hover {
+    background-color: #00a4ff;
+}
+
+.detection-container .second {
+    padding: 0 20px;
+    height: 40px;
+    width: 400px;
+    margin: 30px auto;
+}
+
+.detection-container .second .text {
+    float: left;
+    width: 100px;
+    height: 39px;
+    border: 1px solid #00a4ff;
+    color: #bfbfbf;
+    font-size: 14px;
+    padding-left: 15px;
+    margin-left: 10px;
+}
+
+.detection-container .second .submit {
+    float: left;
+    width: 50px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+.detection-container .second .submit:hover {
+    background-color: #00a4ff;
+}
+
+.detection-container .third {
+    padding: 5px 80px;
+}
+
+.detection-container .third button {
+    width: 80px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.detection-container .third button:hover {
+    background-color: #4285f4;
+}
