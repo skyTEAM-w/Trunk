@@ -22,7 +22,7 @@ public class VSDetective extends  HttpServlet {
     }
 
     public VSDetective() {
-
+//留空
     }
     public String getVehicleNumber() {
         return vehicleNumber;
