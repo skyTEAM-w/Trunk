@@ -24,7 +24,7 @@
     }
 
     function goToFaultDetection() {
-        window.location.href = "Detection.jsp";
+        window.location.href = "Detection.jsp ";
     }
 
     function goToVehicleMonitoring() {

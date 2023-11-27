@@ -22,7 +22,7 @@ public class LoginTest extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws SecurityException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
@@ -33,7 +33,6 @@ public class LoginTest extends HttpServlet {
         printWriter.write("<h1>欢迎你</h1>");
         printWriter.println("<p>" + username + "</p>");
         printWriter.println("<p>" + password + "</p>");
-
 
         SystemAdminDto systemAdminDto = this.systemAdminService.login(username, password);
         switch (systemAdminDto.getMsg()){
