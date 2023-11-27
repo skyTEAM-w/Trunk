@@ -30,8 +30,6 @@
     返回大厅!
 </button>
 
-<%--czcacxaca--%>
-<%--tserdfgyhj--%>
 <script>
     function Login(){
         alert('666');
