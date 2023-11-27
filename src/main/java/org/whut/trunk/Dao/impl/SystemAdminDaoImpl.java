@@ -18,6 +18,12 @@ public class SystemAdminDaoImpl implements SystemAdminDao {
         ResultSet resultSet = null;
         try {
             resultSet = statement.executeQuery();
+            if(resultSet.next()) {
+                int id = resultSet.getInt(1);
+
+                SystemAdmin systemAdmin = new SystemAdmin();    //封装
+            }
+
 
         }catch (SQLException throwables) {
             throwables.printStackTrace();
