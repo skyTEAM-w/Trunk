@@ -29,5 +29,9 @@ public class LoginTest extends HttpServlet {
         printWriter.println("<p>" + username + "</p>");
         printWriter.println("<p>" + password + "</p>");
         resp.sendRedirect("Hall.jsp");
+
+        //返回密码错误或用户名不存在
+//        printWriter.flush();
+//        printWriter.println("<script>alert('用户名或密码错误');history.back();</script>");
     }
 }
