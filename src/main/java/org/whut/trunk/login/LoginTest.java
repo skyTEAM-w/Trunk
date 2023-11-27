@@ -17,7 +17,7 @@ public class LoginTest extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws SecurityException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
@@ -28,7 +28,10 @@ public class LoginTest extends HttpServlet {
         printWriter.write("<h1>欢迎你</h1>");
         printWriter.println("<p>" + username + "</p>");
         printWriter.println("<p>" + password + "</p>");
-        //System.out.println(username);
-//        resp.sendRedirect("Hall.jsp");
+        resp.sendRedirect("Hall.jsp");
+
+        //返回密码错误或用户名不存在
+//        printWriter.flush();
+//        printWriter.println("<script>alert('用户名或密码错误');history.back();</script>");
     }
 }
