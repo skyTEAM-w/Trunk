@@ -31,7 +31,15 @@
 <button id="Hall-btn" onclick="BackToHall()">
     返回大厅!
 </button>
-
+<%--ersfdghj--%>
+<%--<>--%>
+<%--casdassadadaddzcacxaca--%>
+<%--wssb--%>
+<%--afsdfsdafdghad--%>
+<%--tserdfgyhj--%>
+<%--<--%>
+<%--sfuihsafhwfuihwuief--%>
+<%--test pull--%>
 <script>
     function Login(){
         alert('666');
