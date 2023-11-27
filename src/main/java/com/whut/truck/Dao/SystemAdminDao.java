@@ -1,6 +1,6 @@
-package org.whut.trunk.Dao;
+package com.whut.truck.Dao;
 
-import org.whut.trunk.entity.SystemAdmin;
+import com.whut.truck.entity.SystemAdmin;
 
 public interface SystemAdminDao {
     public SystemAdmin findByUsername(String username);

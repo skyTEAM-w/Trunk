@@ -11,17 +11,17 @@
 
   <servlet>
     <servlet-name>LoginTest</servlet-name>
-    <servlet-class>org.whut.trunk.login.LoginTest</servlet-class>
+    <servlet-class>com.whut.truck.login.LoginTest</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>VSDetective</servlet-name>
-    <servlet-class>org.whut.trunk.VSDetect.VSDetective</servlet-class>
+    <servlet-class>com.whut.truck.VSDetect.VSDetective</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>DetectionTest</servlet-name>
-    <servlet-class>org.whut.trunk.DetectionTest.DetectionTest</servlet-class>
+    <servlet-class>com.whut.truck.DetectionTest.DetectionTest</servlet-class>
   </servlet>
 
 

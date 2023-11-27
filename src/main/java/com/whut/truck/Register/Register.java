@@ -1,4 +1,4 @@
-package org.whut.trunk.Register;
+package com.whut.truck.Register;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

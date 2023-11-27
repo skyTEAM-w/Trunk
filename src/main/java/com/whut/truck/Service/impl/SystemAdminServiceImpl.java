@@ -1,12 +1,12 @@
-package org.whut.trunk.Service.impl;
+package com.whut.truck.Service.impl;
 
-import org.whut.trunk.Dao.SystemAdminDao;
-import org.whut.trunk.Dao.impl.SystemAdminDaoImpl;
-import  org.whut.trunk.Dto.SystemAdminDto;
-import  org.whut.trunk.Service.SystemAdminService;
-import org.whut.trunk.entity.SystemAdmin;
+import com.whut.truck.Dto.SystemAdminDto;
+import com.whut.truck.Service.SystemAdminService;
+import com.whut.truck.entity.SystemAdmin;
+import com.whut.truck.Dao.SystemAdminDao;
+import com.whut.truck.Dao.impl.SystemAdminDaoImpl;
 
-public class SystemAdminServiceImpl implements SystemAdminService{
+public class SystemAdminServiceImpl implements SystemAdminService {
     private SystemAdminDao systemAdminDao = new SystemAdminDaoImpl();
     @Override
     public SystemAdminDto login(String username, String password) {

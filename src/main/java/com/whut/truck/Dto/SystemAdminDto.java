@@ -1,6 +1,6 @@
-package org.whut.trunk.Dto;
+package com.whut.truck.Dto;
 
-import org.whut.trunk.entity.SystemAdmin;
+import com.whut.truck.entity.SystemAdmin;
 
 public class SystemAdminDto {
     //错误信息封装
@@ -15,11 +15,11 @@ public class SystemAdminDto {
         this.msg = msg;
     }
 
-    public org.whut.trunk.entity.SystemAdmin getSystemAdmin() {
+    public com.whut.truck.entity.SystemAdmin getSystemAdmin() {
         return SystemAdmin;
     }
 
-    public void setSystemAdmin(org.whut.trunk.entity.SystemAdmin systemAdmin) {
+    public void setSystemAdmin(com.whut.truck.entity.SystemAdmin systemAdmin) {
         SystemAdmin = systemAdmin;
     }
 }

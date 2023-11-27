@@ -1,4 +1,4 @@
-package org.whut.trunk.Util;
+package com.whut.truck.Util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
