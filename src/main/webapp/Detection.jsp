@@ -68,7 +68,6 @@
                     const image = document.createElement('img');
                     image.src = URL.createObjectURL(file);
 
-                    listItem.appendChild(image);
                     listItem.appendChild(para);
                 } else {
                     para.textContent = '文件' + file.name + '为非有效文件类型';
