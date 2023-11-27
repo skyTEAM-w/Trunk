@@ -19,9 +19,14 @@
     <servlet-class>org.whut.trunk.VSDetect.VSDetective</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>DetectionTest</servlet-name>
+    <servlet-class>org.whut.trunk.DetectionTest.DetectionTest</servlet-class>
+  </servlet>
+
 
   <welcome-file-list>
-    <welcome-file>Detection.jsp</welcome-file>
+    <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
 
   <servlet-mapping>
@@ -31,6 +36,10 @@
   <servlet-mapping>
     <servlet-name>LoginTest</servlet-name>
     <url-pattern>/LoginTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DetectionTest</servlet-name>
+    <url-pattern>/DetectionTest</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>VSDetective</servlet-name>
