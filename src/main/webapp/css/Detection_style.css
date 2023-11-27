@@ -14,13 +14,6 @@ h1 {
     text-align: center;
 }
 
-h3 {
-    float: left;
-    text-decoration: none;
-    font-size: 14px;
-    margin-top: 9px;
-}
-
 .detection-container {
     height: 300px;
     width: 500px;
@@ -29,82 +22,92 @@ h3 {
     border-radius: 15px;
 }
 
-.detection-container .first {
+.detection-container .VehicleData {
     padding: 0 20px;
-    height: 40px;
+    height: 120px;
     width: 400px;
     margin: 30px auto;
 }
 
-.detection-container .first .text {
-    float: left;
-    width: 100px;
-    height: 38px;
-    border: 1px solid #00a4ff;
-    color: #bfbfbf;
-    font-size: 14px;
-    padding-left: 15px;
-    margin-left: 10px;
+.VehicleData form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 5px;
 }
 
-.detection-container .first .submit {
-    float: left;
-    width: 50px;
-    height: 40px;
-    border: 1px solid #00a4ff;
-    font-size: 14px;
-    padding-left: 2px;
+form ol {
+    padding-left: 0;
 }
 
-.detection-container .first .submit:hover {
-    background-color: #00a4ff;
+form li,
+div>p {
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    list-style-type: none;
+    border: 1px solid black;
 }
 
-.detection-container .second {
-    padding: 0 20px;
-    height: 40px;
-    width: 400px;
+form img {
+    height: 64px;
+    order: 1;
+}
+
+form p {
+    line-height: 32px;
+    padding-left: 10px;
+}
+
+form label,
+form button {
+    display: block;
+    background-color: #4CAF50;
+    margin: 0 auto;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px ridge black;
+    font-size: 0.8rem;
+    height: auto;
+}
+
+form label:hover,
+form button:hover {
+    background-color: #4285f4;
+    color: white;
+}
+
+form label:active,
+form button:active {
+    background-color: #0D3F8F;
+    color: white;
+}
+
+.detection-container .jump {
     margin: 30px auto;
+    width: 100%;
+    padding: 5px 95px;
 }
 
-.detection-container .second .text {
-    float: left;
-    width: 100px;
-    height: 39px;
-    border: 1px solid #00a4ff;
-    color: #bfbfbf;
-    font-size: 14px;
-    padding-left: 15px;
-    margin-left: 10px;
-}
-
-.detection-container .second .submit {
-    float: left;
-    width: 50px;
-    height: 40px;
-    border: 1px solid #00a4ff;
-    font-size: 14px;
-    padding-left: 2px;
-}
-
-.detection-container .second .submit:hover {
-    background-color: #00a4ff;
-}
-
-.detection-container .third {
-    padding: 5px 80px;
-}
-
-.detection-container .third button {
+.detection-container .jump .Detection {
     width: 80px;
     height: 40px;
-    color: #fff;
     font-size: 14px;
     background-color: #4CAF50;
     border-radius: 5px;
-    margin-left: 50px;
+    margin-left: 0px;
 }
 
-.detection-container .third button:hover {
+.detection-container .jump .Fix {
+    width: 80px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    margin-left: 145px;
+}
+
+.detection-container .jump button:hover {
     background-color: #4285f4;
+    color: white;
 }
