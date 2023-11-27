@@ -4,8 +4,21 @@ public class SystemAdmin {
     private Integer id;
     private String username;
     private String password;
-    private String name;
-    private String telephone;
+    private String email;
+
+
+    public SystemAdmin(Integer id, String username, String password, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    public SystemAdmin(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 
     public Integer getId() {
         return id;
@@ -31,20 +44,12 @@ public class SystemAdmin {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 
