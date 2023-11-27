@@ -28,6 +28,7 @@ public class LoginTest extends HttpServlet {
         printWriter.write("<h1>欢迎你</h1>");
         printWriter.println("<p>" + username + "</p>");
         printWriter.println("<p>" + password + "</p>");
-        resp.sendRedirect("Hall.jsp");
+        //System.out.println(username);
+//        resp.sendRedirect("Hall.jsp");
     }
 }
