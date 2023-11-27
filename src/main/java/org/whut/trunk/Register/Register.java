@@ -42,4 +42,4 @@ public class Register extends HttpServlet {
             out.println("<script>alert('两次密码输入不一致，请重新输入');history.back();</script>");
         }
     }
-}        //获取前端数据
+}        //获取前端数据!
