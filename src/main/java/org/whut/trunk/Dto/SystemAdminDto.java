@@ -1,23 +1,25 @@
 package org.whut.trunk.Dto;
 
+import org.whut.trunk.entity.SystemAdmin;
+
 public class SystemAdminDto {
     //错误信息封装
-    private String msg;
-    private String SystemAdmin;
+    private Integer msg;
+    private SystemAdmin SystemAdmin;
 
-    public String getMsg() {
+    public Integer getMsg() {
         return msg;
     }
 
-    public void setMsg(String msg) {
+    public void setMsg(Integer msg) {
         this.msg = msg;
     }
 
-    public String getSystemAdmin() {
+    public org.whut.trunk.entity.SystemAdmin getSystemAdmin() {
         return SystemAdmin;
     }
 
-    public void setSystemAdmin(String systemAdmin) {
+    public void setSystemAdmin(org.whut.trunk.entity.SystemAdmin systemAdmin) {
         SystemAdmin = systemAdmin;
     }
 }
