@@ -45,20 +45,20 @@ public class Register extends HttpServlet {
                 SystemAdminDto systemAdminDto = this.systemAdminService.save(new SystemAdmin(username, user_pass, user_email));
                 if (user_pass.equals(confirm_pass)) {
                     out.flush();
-                    out.println("<script>alert('注册成功');</script>");
-                    req.getRequestDispatcher("Login.jsp").forward(req, resp);
+                    out.println("<script>alert('注册成功');window.location.href = \"Login.jsp\";</script>");
+                    /*req.getRequestDispatcher("Login.jsp").forward(req, resp);*/
                 } else {
                     out.flush();
-                    out.println("<script>alert('两次密码输入不一致，请重新输入');");
-                    req.getRequestDispatcher("Register.jsp").forward(req, resp);
+                    out.println("<script>alert('两次密码输入不一致，请重新输入');history.back();</script>");
+                    /*req.getRequestDispatcher("Register.jsp").forward(req, resp);*/
                 }
                 //req.getRequestDispatcher("Register.jsp").forward(req, resp);
                 break;
             case 3:
                 req.setAttribute("usernameError", "用户名已被注册，请重新注册");
                 out.flush();
-                out.println("<script>alert('用户名已被注册，请重新注册');</script>");
-                req.getRequestDispatcher("Register.jsp").forward(req, resp);
+                out.println("<script>alert('用户名已被注册，请重新注册');history.back();</script>");
+                /*req.getRequestDispatcher("Register.jsp").forward(req, resp);*/
                 break;
         }
     }
