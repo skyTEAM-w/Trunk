@@ -51,17 +51,17 @@ input {
     cursor: pointer;
 }
 
-#BackToLogin-btn {
+/*#BackToLogin-btn {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    margin: auto auto auto 60px;
     background-color: #4CAF50;
-    /* 按钮背景色 - 绿色 */
+    !* 按钮背景色 - 绿色 *!
     color: #fff;
-    /* 按钮文字颜色 - 白色 */
+    !* 按钮文字颜色 - 白色 *!
     cursor: pointer;
-}
+    margin: 10px auto auto auto;
+}*/
 
 button:hover {
     background-color: #357ae8;

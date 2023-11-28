@@ -52,6 +52,7 @@ input {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
+    width: 50%;
 }
 
 #Register-btn {
@@ -66,19 +67,4 @@ input {
     margin: 4px 2px 4px 44px;
     cursor: pointer;
     border-radius: 5px;
-}
-
-#Hall-btn {
-    display: block;
-    width: 60%;
-    padding: 15px;
-    background-color: whitesmoke;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    bottom: 30px;
-    position: fixed;
-    font-size: larger;
 }

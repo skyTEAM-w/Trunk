@@ -16,16 +16,19 @@
         <input type="password" id="password" placeholder="密码" name="password" required>
         <input type="password" id="confirmPassword" placeholder="确认密码" name="confirm_pass" required>
         <button id="Register-btn" type="submit">注册</button>
-        <button id="BackToLogin-btn" onclick="BackToLogin()">点此返回登录页面</button>
+    </form>
+    <form action="ReBackToLo" method="get">
+        <input type="submit" value="点击回到登录页面"
+               <%--按钮属性，改了按钮就会错位！-From DDD--%>
+               style="padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #4CAF50;
+                    color: #fff;
+                    cursor: pointer;
+                    margin: 10px auto auto auto;">
     </form>
 </div>
-
-<script>
-    function BackToLogin(){
-        alert('即将跳转！');
-        window.location.href = "Login.jsp";
-    }
-</script>
 
 </body>
 </html>
