@@ -6,5 +6,6 @@ import com.whut.truck.entity.SystemAdmin;
 public interface SystemAdminService {
     public SystemAdminDto login(String username , String password);
 
-    void save(SystemAdmin systemAdmin);
+    SystemAdminDto check(String username);
+    SystemAdminDto save(SystemAdmin systemAdmin);
 }

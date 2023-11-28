@@ -1,16 +1,21 @@
-package com.whut.truck.Dao.impl;
+package org.whut.trunk.Dao.impl;
 
-import com.whut.truck.Dao.SystemAdminDao;
-import com.whut.truck.Util.JDBC_UTL;
-import com.whut.truck.entity.SystemAdmin;
-
+import com.mysql.cj.jdbc.JdbcConnection;
+import com.mysql.cj.protocol.Resultset;
+import org.whut.trunk.Dao.SystemAdminDao;
+import org.whut.trunk.Util.JDBC_UTL;
+import org.whut.trunk.entity.SystemAdmin;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.*;
 
-public class SystemAdminDaoImpl implements SystemAdminDao {
+public class SystemAdminDaoImpl implements SystemAdminDao{
     @Override
     public SystemAdmin findByUsername(String username) {
         Connection connection = JDBC_UTL.getconnection();
-        String sql = "select * from game.用户 where username = '"+username+"'";    //用username进行查询
+        String sql = "SELECT * FROM `game`.`用户` where `用户名` = '"+username+"'";    //用username进行查询
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -24,8 +29,6 @@ public class SystemAdminDaoImpl implements SystemAdminDao {
 
                 return new SystemAdmin(id, username, password, email);    //封装
             }
-
-
         }catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
@@ -37,10 +40,15 @@ public class SystemAdminDaoImpl implements SystemAdminDao {
     @Override
     public Integer save(SystemAdmin systemAdmin) {
             Connection connection = JDBC_UTL.getconnection();
-            String sql = "insert into game.用户(username, password, email)values (?,?,?)";
+            //String alterQuery = "SELECT MAX(用户id) + 1 FROM `game`.`用户`";
+            String sql = "insert into `game`.`用户`(用户名, 密码, 邮箱)values (?,?,?)";
+
             PreparedStatement statement = null;
             Integer result = null;
             try {
+                 //Statement alterStatement = connection.createStatement();
+                 //alterStatement.executeUpdate(alterQuery);
+
                  statement = connection.prepareStatement(sql);
                  statement.setString(1, systemAdmin.getUsername());
                  statement.setString(2, systemAdmin.getPassword());
@@ -52,6 +60,6 @@ public class SystemAdminDaoImpl implements SystemAdminDao {
             }finally {
                 JDBC_UTL.release(connection, statement, null);
             }
-        return null;
+        return result;
     }
 }
