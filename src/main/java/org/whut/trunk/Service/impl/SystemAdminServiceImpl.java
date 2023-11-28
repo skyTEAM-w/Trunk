@@ -30,8 +30,23 @@ public class SystemAdminServiceImpl implements SystemAdminService{
     }
 
     @Override
-    public void save(SystemAdmin systemAdmin){
+    public SystemAdminDto check(String username) {
+        SystemAdmin systemAdmin = this.systemAdminDao.findByUsername(username);
+        SystemAdminDto systemAdminDto = new SystemAdminDto();
+        if (systemAdmin == null) {
+            systemAdminDto.setMsg(0);           //0表示用户名不存在
+        } else {
+            systemAdminDto.setMsg(3);               //3表示用户名已被注册
+            systemAdminDto.setSystemAdmin(systemAdmin);
+
+        }
+        return systemAdminDto;
+    }
+
+    @Override
+    public SystemAdminDto save(SystemAdmin systemAdmin){
         Integer save = this.systemAdminDao.save(systemAdmin);
         if(save != 1) throw new RuntimeException("注册信息添加失败");
+        return null;
     }
 }

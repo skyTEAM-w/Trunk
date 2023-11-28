@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 public class JDBC_UTL {
     //Class.forName( "com.mysql.jdbc.Driver");
     // 定义数据库连接信息
@@ -13,7 +14,13 @@ public class JDBC_UTL {
     private static String username = "root";
     private static String password = "1234";
 
-
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static Connection getconnection() {
         Connection connection = null;
         try {
@@ -44,4 +51,6 @@ public class JDBC_UTL {
     public static void main(String[] arg) {
         //System.out.println(JDBC_UTL.getconnection());
     }
+
+
 }
