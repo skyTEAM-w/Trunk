@@ -1,6 +1,6 @@
-package org.whut.trunk.Service;
+package com.whut.truck.Service;
 
-import org.whut.trunk.entity.VehicleStatus;
+import com.whut.truck.entity.VehicleStatus;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package org.whut.trunk.Dao.impl;
+package com.whut.truck.Dao.impl;
 
 import com.mysql.cj.jdbc.JdbcConnection;
 import com.mysql.cj.protocol.Resultset;
-import org.whut.trunk.Dao.SystemAdminDao;
-import org.whut.trunk.Util.JDBC_UTL;
-import org.whut.trunk.entity.SystemAdmin;
+import com.whut.truck.Dao.SystemAdminDao;
+import com.whut.truck.Util.JDBC_UTL;
+import com.whut.truck.entity.SystemAdmin;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

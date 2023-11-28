@@ -1,9 +1,9 @@
 package com.whut.truck.Register;
 
-import org.whut.trunk.Service.SystemAdminService;
-import org.whut.trunk.Service.impl.SystemAdminServiceImpl;
-import org.whut.trunk.entity.SystemAdmin;
-import org.whut.trunk.Dto.SystemAdminDto;
+import com.whut.truck.Service.SystemAdminService;
+import com.whut.truck.Service.impl.SystemAdminServiceImpl;
+import com.whut.truck.entity.SystemAdmin;
+import com.whut.truck.Dto.SystemAdminDto;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -1,9 +1,9 @@
-package org.whut.trunk.controller;
+package com.whut.truck.controller;
 
-import org.whut.trunk.Dto.SystemAdminDto;
-import org.whut.trunk.Service.SystemAdminService;
-import org.whut.trunk.Service.impl.SystemAdminServiceImpl;
-import org.whut.trunk.entity.SystemAdmin;
+import com.whut.truck.Dto.SystemAdminDto;
+import com.whut.truck.Service.SystemAdminService;
+import com.whut.truck.Service.impl.SystemAdminServiceImpl;
+import com.whut.truck.entity.SystemAdmin;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

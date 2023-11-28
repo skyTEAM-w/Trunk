@@ -1,8 +1,8 @@
-package org.whut.trunk.controller;
+package com.whut.truck.controller;
 
-import org.whut.trunk.Dto.SystemAdminDto;
-import org.whut.trunk.Service.VehicleStatusService;
-import org.whut.trunk.Service.impl.VehicleStatusServiceImpl;
+import com.whut.truck.Dto.SystemAdminDto;
+import com.whut.truck.Service.VehicleStatusService;
+import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

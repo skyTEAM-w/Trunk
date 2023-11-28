@@ -1,4 +1,4 @@
-package org.whut.trunk.entity;
+package com.whut.truck.entity;
 
 public class VehicleStatus {
     private Integer vehicle_id ;

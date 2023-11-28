@@ -1,9 +1,9 @@
-package org.whut.trunk.Dao.impl;
+package com.whut.truck.Dao.impl;
 
-import org.whut.trunk.Dao.VehicleStatusDao;
-import org.whut.trunk.Util.JDBC_UTL;
-import org.whut.trunk.entity.SystemAdmin;
-import org.whut.trunk.entity.VehicleStatus;
+import com.whut.truck.Dao.VehicleStatusDao;
+import com.whut.truck.Util.JDBC_UTL;
+import com.whut.truck.entity.SystemAdmin;
+import com.whut.truck.entity.VehicleStatus;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -30,7 +30,7 @@ public class DetectionTest extends HttpServlet {
             System.out.println(fileName);
 
             // 将文件保存到服务器指定目录
-            filePart.write("D:\\truck\\GitProject\\resource\\" + fileName);
+            filePart.write("\\resources\\" + fileName);
         }
 
         // 处理完文件上传后，可以进行其他操作，比如数据库操作等

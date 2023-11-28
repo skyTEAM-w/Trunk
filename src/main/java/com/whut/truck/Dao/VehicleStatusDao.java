@@ -1,6 +1,6 @@
-package org.whut.trunk.Dao;
+package com.whut.truck.Dao;
 
-import org.whut.trunk.entity.VehicleStatus;
+import com.whut.truck.entity.VehicleStatus;
 
 import java.util.List;
 

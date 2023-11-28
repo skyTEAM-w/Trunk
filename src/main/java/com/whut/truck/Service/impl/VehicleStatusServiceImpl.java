@@ -1,9 +1,9 @@
-package org.whut.trunk.Service.impl;
+package com.whut.truck.Service.impl;
 
-import org.whut.trunk.Dao.VehicleStatusDao;
-import org.whut.trunk.Dao.impl.VehicleStatusDaoImpl;
-import org.whut.trunk.Service.VehicleStatusService;
-import org.whut.trunk.entity.VehicleStatus;
+import com.whut.truck.Dao.VehicleStatusDao;
+import com.whut.truck.Dao.impl.VehicleStatusDaoImpl;
+import com.whut.truck.Service.VehicleStatusService;
+import com.whut.truck.entity.VehicleStatus;
 import java.util.List;
 
 public class VehicleStatusServiceImpl implements VehicleStatusService {
