@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-    <!-- MySQL Database Configuration -->
-    <!-- 使用时，更改本机的数据库url、用户名、与密码 -->
-    <entry key="database.url">jdbc:mysql://localhost:3306/game</entry>
-    <entry key="database.username">root</entry>
-    <entry key="database.password">040331</entry>
-</properties>
