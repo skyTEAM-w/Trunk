@@ -24,7 +24,6 @@
     <servlet-class>com.whut.truck.DetectionTest.DetectionTest</servlet-class>
   </servlet>
 
-
   <welcome-file-list>
     <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
