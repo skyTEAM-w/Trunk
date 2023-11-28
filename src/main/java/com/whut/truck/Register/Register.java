@@ -1,4 +1,4 @@
-package org.whut.trunk.Register;
+package com.whut.truck.Register;
 
 import org.whut.trunk.Service.SystemAdminService;
 import org.whut.trunk.Service.impl.SystemAdminServiceImpl;

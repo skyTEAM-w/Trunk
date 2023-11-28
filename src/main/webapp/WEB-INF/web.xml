@@ -11,12 +11,17 @@
 
   <servlet>
     <servlet-name>LoginTest</servlet-name>
-    <servlet-class>org.whut.trunk.login.LoginTest</servlet-class>
+    <servlet-class>com.whut.truck.login.LoginTest</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>VSDetective</servlet-name>
-    <servlet-class>org.whut.trunk.VSDetect.VSDetective</servlet-class>
+    <servlet-class>com.whut.truck.VSDetect.VSDetective</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DetectionTest</servlet-name>
+    <servlet-class>com.whut.truck.DetectionTest.DetectionTest</servlet-class>
   </servlet>
 
 
@@ -31,6 +36,10 @@
   <servlet-mapping>
     <servlet-name>LoginTest</servlet-name>
     <url-pattern>/LoginTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DetectionTest</servlet-name>
+    <url-pattern>/DetectionTest</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>VSDetective</servlet-name>

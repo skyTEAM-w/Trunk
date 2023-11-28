@@ -13,7 +13,7 @@
     <h1>故障检测和预测性维护</h1>
     <!-- 车辆数据表单 -->
     <div class="VehicleData">
-        <form action="@{/index}" method="post">
+        <form action="DetectionTest" method="post" enctype="multipart/form-data">
             <!-- 文件上传部分 -->
             <div>
                 <label for="upload">请选择要上传的数据：(.txt)</label>
@@ -25,7 +25,7 @@
             </div>
             <!-- 提交按钮 -->
             <div>
-                <button>提交</button>
+                <button id="File-btn" type="submit">提交</button>
             </div>
         </form>
     </div>
@@ -90,7 +90,6 @@
                     image.src = URL.createObjectURL(file);
 
                     // 将图像元素添加到列表项
-                    listItem.appendChild(image);
                     listItem.appendChild(para);
                 } else {
                     // 如果文件类型无效，显示提示信息
