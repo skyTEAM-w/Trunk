@@ -18,7 +18,7 @@
 
 <div class="login-container">
     <h2>登录</h2>
-    <form action="LoginTest" method="post">
+    <form action="Login" method="post">
         <input type="text" placeholder="用户名" name="user_name" required>
         <input type="password" placeholder="密码" name="password" required>
         <button id="Login-btn" type=submit>登录</button>
@@ -31,9 +31,6 @@
 </button>
 
 <script>
-    function Login(){
-        alert('666');
-    }
 
     function Register(){
         alert('即将跳转至注册页面!');

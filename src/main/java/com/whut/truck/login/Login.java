@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "loginTest", value = "/loginTest")
-public class LoginTest extends HttpServlet {
+@WebServlet(name = "Login", value = "/Login")
+public class Login extends HttpServlet {
     private SystemAdminService systemAdminService = new SystemAdminServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,13 +39,13 @@ public class LoginTest extends HttpServlet {
             case 0:
                 req.setAttribute("usernameError","用户名不存在");
                 out.flush();
-                out.println("<script>alert('用戶名不存在，请重新输入');</script>");
-                req.getRequestDispatcher("Login.jsp" ).forward(req,resp);break;
+                out.println("<script>alert('用戶名不存在，请重新输入');history.back();</script>");
+                req.getRequestDispatcher("Login.jsp").forward(req,resp);break;
             case 1:
                 req.setAttribute( "passwordError","密码错误");
                 out.flush();
-                out.println("<script>alert('密碼錯誤，请重新输入');</script>");
-                req.getRequestDispatcher("Login.jsp" ).forward(req,resp);break;
+                out.println("<script>alert('密码错误，请重新输入');history.back();</script>");
+                /*req.getRequestDispatcher("Login.jsp" ).forward(req,resp);*/break;
             case 2:
                 System.out.println("登录成功! ");
                 //跳转登录页面

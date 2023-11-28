@@ -10,8 +10,8 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>LoginTest</servlet-name>
-    <servlet-class>com.whut.truck.login.LoginTest</servlet-class>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.whut.truck.login.Login</servlet-class>
   </servlet>
 
   <servlet>
@@ -34,8 +34,8 @@
     <url-pattern>/css/*</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>LoginTest</servlet-name>
-    <url-pattern>/LoginTest</url-pattern>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DetectionTest</servlet-name>
