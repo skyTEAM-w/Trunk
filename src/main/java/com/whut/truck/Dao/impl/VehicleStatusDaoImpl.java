@@ -4,6 +4,8 @@ import com.whut.truck.Dao.VehicleStatusDao;
 import com.whut.truck.Util.JDBC_UTL;
 import com.whut.truck.entity.SystemAdmin;
 import com.whut.truck.entity.VehicleStatus;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +15,7 @@ import java.util.List;
 
 public class VehicleStatusDaoImpl implements VehicleStatusDao {
     @Override
-    public List<VehicleStatus> list() {
+    public List<VehicleStatus> list() throws IOException {
         Connection connection = JDBC_UTL.getconnection();
         String sql = "select * from game.车辆状态";     //用username进行查询
         PreparedStatement statement = null;

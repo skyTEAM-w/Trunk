@@ -6,10 +6,12 @@ import com.whut.truck.entity.SystemAdmin;
 import com.whut.truck.Dao.SystemAdminDao;
 import com.whut.truck.Dao.impl.SystemAdminDaoImpl;
 
+import java.io.IOException;
+
 public class SystemAdminServiceImpl implements SystemAdminService {
     private SystemAdminDao systemAdminDao = new SystemAdminDaoImpl();
     @Override
-    public SystemAdminDto login(String username, String password) {
+    public SystemAdminDto login(String username, String password) throws IOException {
 
         //1、通过username查询数据库//
         //2、查询结果为空，username错误
@@ -30,7 +32,7 @@ public class SystemAdminServiceImpl implements SystemAdminService {
     }
 
     @Override
-    public SystemAdminDto check(String username) {
+    public SystemAdminDto check(String username) throws IOException {
         SystemAdmin systemAdmin = this.systemAdminDao.findByUsername(username);
         SystemAdminDto systemAdminDto = new SystemAdminDto();
         if (systemAdmin == null) {
@@ -44,7 +46,7 @@ public class SystemAdminServiceImpl implements SystemAdminService {
     }
 
     @Override
-    public SystemAdminDto save(SystemAdmin systemAdmin){
+    public SystemAdminDto save(SystemAdmin systemAdmin) throws IOException {
         Integer save = this.systemAdminDao.save(systemAdmin);
         if(save != 1) throw new RuntimeException("注册信息添加失败");
         return null;

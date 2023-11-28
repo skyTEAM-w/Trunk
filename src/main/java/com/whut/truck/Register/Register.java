@@ -46,7 +46,7 @@ public class Register extends HttpServlet {
                 if (user_pass.equals(confirm_pass)) {
                     out.flush();
                     out.println("<script>alert('注册成功');</script>");
-                    //req.getRequestDispatcher("Login.jsp").forward(req, resp);
+                    req.getRequestDispatcher("Login.jsp").forward(req, resp);
                 } else {
                     out.flush();
                     out.println("<script>alert('两次密码输入不一致，请重新输入');");

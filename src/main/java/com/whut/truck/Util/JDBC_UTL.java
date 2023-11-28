@@ -1,18 +1,18 @@
 package com.whut.truck.Util;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 
 public class JDBC_UTL {
     //Class.forName( "com.mysql.jdbc.Driver");
     // 定义数据库连接信息
-    private static String url = "jdbc:mysql://localhost:3306/game";
-    private static String username = "root";
-    private static String password = "1234";
 
     static {
         try {
@@ -21,7 +21,16 @@ public class JDBC_UTL {
             throw new RuntimeException(e);
         }
     }
-    public static Connection getconnection() {
+    public static Connection getconnection() throws IOException {
+        InputStream inputStream = JDBC_UTL.class.getClassLoader().getResourceAsStream("db_connect.xml");
+        Properties properties = new Properties();
+        properties.loadFromXML(inputStream);
+        String url = properties.getProperty("database.url");
+        String username = properties.getProperty("database.username");
+        String password = properties.getProperty("database.password");
+        System.out.println(url);
+        System.out.println(username);
+        System.out.println(password);
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url, username, password);

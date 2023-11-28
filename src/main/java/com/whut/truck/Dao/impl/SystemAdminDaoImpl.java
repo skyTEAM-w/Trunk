@@ -5,6 +5,8 @@ import com.mysql.cj.protocol.Resultset;
 import com.whut.truck.Dao.SystemAdminDao;
 import com.whut.truck.Util.JDBC_UTL;
 import com.whut.truck.entity.SystemAdmin;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +15,7 @@ import java.sql.*;
 
 public class SystemAdminDaoImpl implements SystemAdminDao{
     @Override
-    public SystemAdmin findByUsername(String username) {
+    public SystemAdmin findByUsername(String username) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
         String sql = "SELECT * FROM `game`.`用户` where `用户名` = '"+username+"'";    //用username进行查询
         PreparedStatement statement = null;
@@ -38,7 +40,7 @@ public class SystemAdminDaoImpl implements SystemAdminDao{
     }
 
     @Override
-    public Integer save(SystemAdmin systemAdmin) {
+    public Integer save(SystemAdmin systemAdmin) throws IOException {
             Connection connection = JDBC_UTL.getconnection();
             //String alterQuery = "SELECT MAX(用户id) + 1 FROM `game`.`用户`";
             String sql = "insert into `game`.`用户`(用户名, 密码, 邮箱)values (?,?,?)";
