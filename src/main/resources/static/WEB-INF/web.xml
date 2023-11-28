@@ -1,0 +1,49 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>LoginTest</servlet-name>
+    <servlet-class>com.whut.truck.login.LoginTest</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>VSDetective</servlet-name>
+    <servlet-class>com.whut.truck.VSDetect.VSDetective</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DetectionTest</servlet-name>
+    <servlet-class>com.whut.truck.DetectionTest.DetectionTest</servlet-class>
+  </servlet>
+
+
+  <welcome-file-list>
+    <welcome-file>Login.jsp</welcome-file>
+  </welcome-file-list>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/css/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginTest</servlet-name>
+    <url-pattern>/LoginTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DetectionTest</servlet-name>
+    <url-pattern>/DetectionTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VSDetective</servlet-name>
+    <url-pattern>/VSDetective</url-pattern>
+  </servlet-mapping>
+
+</web-app>

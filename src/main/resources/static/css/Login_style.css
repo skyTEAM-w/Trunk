@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #DE6262, #FFB88C);
+    color: #fff; /* 文字颜色 - 白色 */
+    font-family: 'Arial', sans-serif;
+}
+
+.login-container {
+    background-color: whitesmoke;/* 登录框背景色 */
+    padding: 100px 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* 模拟光晕效果 */
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    color: black; /* 登录标题颜色 - 绿色 */
+    font-size: 40px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #fff; /* 输入框边框颜色 - 白色 */
+    border-radius: 5px;
+    background-color: white; /* 输入框背景色 - 白色 */
+    color: black; /* 输入框文字颜色 - 白色 */
+}
+
+#Login-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#Register-btn {
+    background-color: #4285f4;
+    color:white;
+    border: none;
+    padding:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px 4px 44px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#Hall-btn {
+    display: block;
+    width: 60%;
+    padding: 15px;
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    bottom: 30px;
+    position: fixed;
+    font-size: larger;
+}

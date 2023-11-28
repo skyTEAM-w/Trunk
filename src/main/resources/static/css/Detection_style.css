@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #DE6262, #FFB88C);
+}
+
+h1 {
+    padding-top: 30px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+.detection-container {
+    height: 300px;
+    width: 500px;
+    background-color: whitesmoke;
+    margin: 200px auto;
+    border-radius: 15px;
+}
+
+.detection-container .VehicleData {
+    padding: 0 20px;
+    height: 120px;
+    width: 400px;
+    margin: 30px auto;
+}
+
+.VehicleData form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+form ol {
+    padding-left: 0;
+}
+
+form li,
+div>p {
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    list-style-type: none;
+    border: 1px solid black;
+}
+
+form img {
+    height: 64px;
+    order: 1;
+}
+
+form p {
+    line-height: 32px;
+    padding-left: 10px;
+}
+
+form label,
+form button {
+    display: block;
+    background-color: #4CAF50;
+    margin: 0 auto;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px ridge black;
+    font-size: 0.8rem;
+    height: auto;
+}
+
+form label:hover,
+form button:hover {
+    background-color: #4285f4;
+    color: white;
+}
+
+form label:active,
+form button:active {
+    background-color: #0D3F8F;
+    color: white;
+}
+
+.detection-container .jump {
+    margin: 30px auto;
+    width: 100%;
+    padding: 5px 95px;
+}
+
+.detection-container .jump .Detection {
+    width: 80px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    margin-left: 0px;
+}
+
+.detection-container .jump .Fix {
+    width: 80px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    margin-left: 145px;
+}
+
+.detection-container .jump button:hover {
+    background-color: #4285f4;
+    color: white;
+}
