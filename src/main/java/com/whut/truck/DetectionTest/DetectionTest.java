@@ -17,8 +17,8 @@ import javax.servlet.http.Part;
 
 @WebServlet(name = "DetectionTest", value = "/DetectionTest")
 @MultipartConfig(
-        fileSizeThreshold = 1024 * 1024 * 2,  // 2MB
-        maxFileSize = 1024 * 1024 * 10,        // 10MB
+        fileSizeThreshold = 1024 * 1024 * 10,  // 10MB
+        maxFileSize = 1024 * 1024 * 20,        // 20MB
         maxRequestSize = 1024 * 1024 * 50      // 50MB
 )
 public class DetectionTest extends HttpServlet {
