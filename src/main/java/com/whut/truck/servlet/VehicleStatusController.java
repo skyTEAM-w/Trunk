@@ -1,11 +1,9 @@
 package com.whut.truck.servlet;
 
-import com.whut.truck.Dto.SystemAdminDto;
-import com.whut.truck.Service.SystemAdminService;
+import java.util.List;
+
 import com.whut.truck.Service.VehicleStatusService;
-import com.whut.truck.Service.impl.SystemAdminServiceImpl;
 import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
-import com.whut.truck.entity.VehicleStatus;
 import com.whut.truck.Dto.VehicleStatusDto;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,18 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 @WebServlet(name = "VehicleStatusController", value = "/VehicleStatusController")
 public class VehicleStatusController extends HttpServlet {
     private VehicleStatusService vehicleStatusService = new VehicleStatusServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从请求参数中获取车辆编号
-        super.doGet(request, response);
         doPost(request, response);
     }
 
+    @GetMapping("/latestData")
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
@@ -37,15 +40,34 @@ public class VehicleStatusController extends HttpServlet {
             case 0 -> {                                     //0表示车辆编号不存在
                 PrintWriter out = response.getWriter();
                 out.flush();
-                out.println("<script>alert('车辆编号不存在，请重新输入');history.back();</script>");break;
+                out.println("<script>alert('车辆编号不存在，请重新输入');history.back();</script>");
             }
             case 1 -> {                                     //1表示有此车辆编号，可以查询
-                PrintWriter printWriter = response.getWriter();
-                printWriter.println("<p>" + "汽车编号为" + VehicleID + "</p>");
-                printWriter.println("<p>" + "汽车维护状态为" + vehicleStatusDto.getVehicleStatus().getMaintenance_status() + "</p>");
-                printWriter.println("<p>" + "汽车剩余维护时间为" + vehicleStatusDto.getVehicleStatus().getEstimated_maintenance_time() + "分钟" + "</p>");
-                printWriter.println("<p>" + "汽车故障状态为" + vehicleStatusDto.getVehicleStatus().getPrevious_failure_status() + "</p>");break;
+                String Maintenance_status = vehicleStatusDto.getVehicleStatus().getMaintenance_status();
+                int Maintenance_time = vehicleStatusDto.getVehicleStatus().getEstimated_maintenance_time();
+                String Failure_status = vehicleStatusDto.getVehicleStatus().getPrevious_failure_status();
+                List<Object> data = List.of(Maintenance_status, Maintenance_time, Failure_status);
+                String jsonData = convertDataToJson(data);
+                System.out.print(jsonData);
+                response.setContentType("application/json;charset=utf-8");
+                response.getWriter().write(jsonData);
+                request.getRequestDispatcher("DetectionResult.jsp" ).forward(request,response);
             }
         }
+    }
+
+
+    private String convertDataToJson(List<Object> data) {
+        //将数据转换为json
+        StringBuilder jsonData = new StringBuilder("[");
+        for (Object item : data) {
+            jsonData.append("\"").append(item).append("\",");
+        }
+        if (!data.isEmpty()) {
+            jsonData.deleteCharAt(jsonData.length() - 1);
+        }
+        jsonData.append("]");
+
+        return jsonData.toString();
     }
 }

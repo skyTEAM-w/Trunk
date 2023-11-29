@@ -21,15 +21,14 @@
     <form action="Login" method="post">
         <input type="text" placeholder="用户名" name="user_name" required>
         <input type="password" placeholder="密码" name="password" required>
-        <button id="Login-btn" type=submit>登录</button>
-
+        <button id="Login-btn" type=submit style="width: 100%">登录</button>
     </form>
     <form action="LoToRe" method="get">
     <input type="submit" value="注册"
     <%--按钮属性，改了按钮就会错位！-From DDD--%>
            style="background-color: #4285f4;
                         color:white;
-                        width: 18%;
+                        width: 100%;
                         border: none;
                         padding:10px;
                         text-align: center;

@@ -1,4 +1,4 @@
-﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
@@ -18,38 +18,46 @@
 <body>
 
 <h1>车辆状态监控</h1>
-
-<div class="Text-Container">
-    <form id="VehicleStatusForm" action="VehicleStatusController" method="post">
-        <label for="VehicleID">输入车辆编号：</label>
-        <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
-        <button id="GetStatus-btn"  type="submit" onclick="updateData()">获取状态</button>
-    </form>
-</div>
-<div id="Status-Container" class="Status-Container">
+<p id="Status-Container" class="Status-Container">
     <%--车辆状态将显示在这里--%>
-</div>
+</p>
+<button onclick="updateData()">点击</button>
 
-<%--<script type="text/javascript">
+<script type="text/javascript">
     function updateData() {
-        var formData = $('#VehicleStatusForm').serialize();
-
         $.ajax({
             url: '/api/VehicleStatus/latestData',
             method: 'POST',
-            data: formData,
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             success: function (Data) {
-                var jsonObj = eval(Data);
+                let jsonObj = eval(Data);
                 var display = document.getElementById('Status-Container');
                 display.innerHTML = '<p>车辆编号：' + jsonObj[0] + '</p>';
+                alert('Fuck You');
             },
             error: function (error) {
-                alert('ERROR');
+                var display = document.getElementById('Status-Container');
+                display.innerHTML = "ERROR";
             }
         });
     }
-</script>--%>
+    /*function getDataAndUpdate() {
+        // 使用 Fetch API 发送请求到后端 Servlet
+        fetch('VehicleStatusController')
+            .then(response => response.text())
+            .then(data => {
+                // 获取数据成功后更新页面容器
+                updateContainer(data);
+            })
+            .catch(error => {
+                console.error('获取数据失败：', error);
+            });
+    }*/
+    function updateContainer() {
+        var display = document.getElementById('Status-Container');
+        display.innerHTML = "<p>车辆编号:666</p>";
+    }
+</script>
 </body>
 </html>

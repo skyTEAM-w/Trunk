@@ -112,6 +112,20 @@
             <scope>runtime</scope>
             <version>2.0.0</version>
         </dependency>
+
+        <!-- Spring Core Container -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.21.RELEASE</version> <!-- 请替换为最新版本 -->
+        </dependency>
+
+        <!-- Spring Web module for web applications -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.0.0</version> <!-- 请替换为最新版本 -->
+        </dependency>
     </dependencies>
 
     <build>
