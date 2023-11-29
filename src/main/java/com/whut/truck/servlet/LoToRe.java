@@ -16,7 +16,7 @@ public class LoToRe extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // 处理 GET 请求
-        System.out.println("LoToRe Servlet doGet method called");
+//        System.out.println("LoToRe Servlet doGet method called");
         // 回到注册页面
         response.sendRedirect("Register.jsp");
     }

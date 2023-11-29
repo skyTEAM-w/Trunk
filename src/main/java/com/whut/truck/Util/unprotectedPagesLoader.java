@@ -30,7 +30,7 @@ public class unprotectedPagesLoader {
                 Element pageElement = (Element) nodeList.item(i);
                 // 获取 <page> 元素的文本内容，即页面路径
                 String pagePath = pageElement.getTextContent();
-                System.out.println(pagePath);
+//                System.out.println(pagePath);
                 unprotectedPages.add(contextPath + pagePath);
             }
         }catch (Exception e) {

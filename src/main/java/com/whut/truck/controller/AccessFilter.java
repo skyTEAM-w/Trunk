@@ -26,11 +26,10 @@ public class AccessFilter implements Filter {
         //回话获取
         HttpSession httpSession = httpServletRequest.getSession();
         String requestURI = httpServletRequest.getRequestURI();
-        System.out.println(requestURI);
+//        System.out.println(requestURI);
         List<String> unprotectedPages = unprotectedPagesLoader.getUnprotectedPages(httpServletRequest.getContextPath());
 
         if (requestURI.endsWith("Login.jsp") || isUserLoggedIn(httpSession) || unprotectedPages.contains(requestURI)) {
-
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             // 否则，重定向到登录页面
