@@ -1,4 +1,4 @@
-package com.whut.truck.login;
+package com.whut.truck.servlet;
 
 import com.whut.truck.Dto.SystemAdminDto;
 import com.whut.truck.Service.SystemAdminService;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "LoginTest", value = "/LoginTest")
-public class LoginTest extends HttpServlet {
+@WebServlet(name = "Login", value = "/Login")
+public class Login extends HttpServlet {
     private SystemAdminService systemAdminService = new SystemAdminServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,25 +35,29 @@ public class LoginTest extends HttpServlet {
         printWriter.println("<p>" + password + "</p>");*/
 
         SystemAdminDto systemAdminDto = this.systemAdminService.login(username, password);
-        switch (systemAdminDto.getMsg()){
-            case 0:
-                req.setAttribute("usernameError","用户名不存在");
+        switch (systemAdminDto.getMsg()) {
+            case 0 -> {
+                req.setAttribute("usernameError", "用户名不存在");
                 out.flush();
-                out.println("<script>alert('用戶名不存在，请重新输入');</script>");
-                req.getRequestDispatcher("Login.jsp" ).forward(req,resp);break;
-            case 1:
-                req.setAttribute( "passwordError","密码错误");
+                out.println("<script>alert('用戶名不存在，请重新输入');history.back();</script>");
+                req.getRequestDispatcher("Login.jsp").forward(req, resp);
+            }
+            case 1 -> {
+                req.setAttribute("passwordError", "密码错误");
                 out.flush();
-                out.println("<script>alert('密碼錯誤，请重新输入');</script>");
-                req.getRequestDispatcher("Login.jsp" ).forward(req,resp);break;
-            case 2:
+                out.println("<script>alert('密码错误，请重新输入');history.back();</script>");
+            }
+            /*req.getRequestDispatcher("Login.jsp" ).forward(req,resp);*/
+            case 2 -> {
                 System.out.println("登录成功! ");
                 //跳转登录页面
                 PrintWriter printWriter = resp.getWriter();
                 printWriter.write("<h1>你好</h1>");
                 printWriter.println("<p>" + username + "</p>");
                 printWriter.println("<p>" + password + "</p>");
-                break;
+                req.getSession().setAttribute("systemAdmin", systemAdminDto);
+                resp.sendRedirect("Hall.jsp");
+            }
         }
 //        resp.sendRedirect("Hall.jsp");
     }

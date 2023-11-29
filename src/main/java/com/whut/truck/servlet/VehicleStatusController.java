@@ -1,4 +1,4 @@
-package com.whut.truck.VehicleStatusController;
+package com.whut.truck.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
