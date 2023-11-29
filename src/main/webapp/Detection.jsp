@@ -100,10 +100,10 @@
                 const para = document.createElement('p');
 
                 if (validFileType(file)) {
-                    // 如果文件类型有效，显示文件名和大小，并创建图像元素
+                    // 如果文件类型有效，显示文件名和大小
                     para.textContent = '文件名：' + file.name + ', 文件大小：' + returnFileSize(file.size) + '.';
-                    const image = document.createElement('img');
-                    image.src = URL.createObjectURL(file);
+                    //const image = document.createElement('img');
+                    //image.src = URL.createObjectURL(file);
 
                     // 将图像元素添加到列表项
                     listItem.appendChild(para);
