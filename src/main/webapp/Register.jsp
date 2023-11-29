@@ -15,7 +15,7 @@
         <input type="email" id="email" placeholder="邮箱" name="email" required>
         <input type="password" id="password" placeholder="密码" name="password" required>
         <input type="password" id="confirmPassword" placeholder="确认密码" name="confirm_pass" required>
-        <button id="Register-btn" type="submit">注册</button>
+        <button id="Register-btn" type="submit" style="width: 100%">注册</button>
     </form>
     <form action="ReBackToLo" method="get">
         <input type="submit" value="点击回到登录页面"
