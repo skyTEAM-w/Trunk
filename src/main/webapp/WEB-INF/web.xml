@@ -11,7 +11,7 @@
 
   <servlet>
     <servlet-name>Login</servlet-name>
-    <servlet-class>com.whut.truck.login.Login</servlet-class>
+    <servlet-class>com.whut.truck.servlet.Login</servlet-class>
   </servlet>
 
   <servlet>
@@ -23,6 +23,16 @@
     <servlet-name>DetectionTest</servlet-name>
     <servlet-class>com.whut.truck.DetectionTest.DetectionTest</servlet-class>
   </servlet>
+  
+  <servlet>
+    <servlet-name>LoToRe</servlet-name>
+    <servlet-class>com.whut.truck.servlet.LoToRe</servlet-class>
+  </servlet>
+
+  <filter>
+    <filter-name>LoginAccessFilter</filter-name>
+    <filter-class>com.whut.truck.controller.AccessFilter</filter-class>
+  </filter>
 
   <welcome-file-list>
     <welcome-file>Login.jsp</welcome-file>
@@ -44,5 +54,14 @@
     <servlet-name>VSDetective</servlet-name>
     <url-pattern>/VSDetective</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoToRe</servlet-name>
+    <url-pattern>/LoToRe</url-pattern>
+  </servlet-mapping>
+
+  <filter-mapping>
+    <filter-name>LoginAccessFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
 
 </web-app>
