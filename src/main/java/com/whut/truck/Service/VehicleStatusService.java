@@ -1,10 +1,9 @@
 package com.whut.truck.Service;
 
-import com.whut.truck.entity.VehicleStatus;
+import com.whut.truck.Dto.VehicleStatusDto;
 
 import java.io.IOException;
-import java.util.List;
 
 public interface VehicleStatusService {
-    public List<VehicleStatus> list() throws IOException;
+    public VehicleStatusDto find(String vehicle_id) throws IOException;
 }

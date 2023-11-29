@@ -31,18 +31,18 @@
 </button>
 
 <script>
-    function Login(){
-        alert('666');
-    }
-
-    function Register(){
-        alert('即将跳转至注册页面!');
-        window.location.href = "Register.jsp";
-    }
-
+    // function Login(){
+    //     alert('666');
+    // }
+    //
+    // function Register(){
+    //     alert('即将跳转至注册页面!');
+    //     window.location.href = "Register.jsp";
+    // }
+    //
     function BackToHall(){
         alert('即将回到大厅！');
-        window.location.href = "Hall.jsp"
+        window.location.href = "Hall.jsp";
     }
 </script>
 </body>

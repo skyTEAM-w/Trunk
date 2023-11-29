@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "loginTest", value = "/loginTest")
+@WebServlet(name = "LoginTest", value = "/LoginTest")
 public class LoginTest extends HttpServlet {
     private SystemAdminService systemAdminService = new SystemAdminServiceImpl();
     @Override
