@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<python-host>
+    <url>http://localhost:</url>
+    <port>19911</port>
+    <routes>
+        <route key="classifier">/classify</route>
+        <route key="prediction">/predict</route>
+    </routes>
+</python-host>

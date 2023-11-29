@@ -39,4 +39,3 @@ build/
 .DS_Store
 /.idea/
 /src/main/resources/db_connect.xml
-/.idea/

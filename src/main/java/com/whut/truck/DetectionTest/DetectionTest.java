@@ -1,6 +1,7 @@
 package com.whut.truck.DetectionTest;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import javax.servlet.http.Part;
         maxRequestSize = 1024 * 1024 * 50      // 50MB
 )
 public class DetectionTest extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
