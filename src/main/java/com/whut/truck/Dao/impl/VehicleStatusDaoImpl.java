@@ -30,7 +30,6 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
                 //list.add(new VehicleStatus(vehicle_id, maintenance_status, estimated_maintenance_time, previous_failure_status));
                 return new VehicleStatus(vehicle_id, maintenance_status, estimated_maintenance_time, previous_failure_status);
             }
-            System.out.println(444);
         }catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {

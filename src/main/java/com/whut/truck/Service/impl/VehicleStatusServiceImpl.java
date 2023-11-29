@@ -12,8 +12,7 @@ import java.io.IOException;
 public class VehicleStatusServiceImpl implements VehicleStatusService {
     private VehicleStatusDao vehicleStatusDao = new VehicleStatusDaoImpl();
     @Override
-    public VehicleStatusDto find(String vehicle_id) throws IOException {
-            //通过vehicle_id进行查询，
+    public VehicleStatusDto find(String vehicle_id) throws IOException {             //通过vehicle_id进行查询
         VehicleStatus vehicleStatus = this.vehicleStatusDao.findByVehicle_id(vehicle_id);
         VehicleStatusDto vehicleStatusDto = new VehicleStatusDto();
 
