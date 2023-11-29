@@ -1,14 +1,11 @@
 package com.whut.truck.Dao.impl;
 
-import com.mysql.cj.jdbc.JdbcConnection;
-import com.mysql.cj.protocol.Resultset;
 import com.whut.truck.Dao.SystemAdminDao;
-import com.whut.truck.Util.JDBC_UTL;
+import com.whut.truck.utils.JDBC_UTL;
 import com.whut.truck.entity.SystemAdmin;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;

@@ -2,14 +2,13 @@ package com.whut.truck.controller;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-import com.whut.truck.Util.unprotectedPagesLoader;
+import com.whut.truck.utils.unprotectedPagesLoader;
 
 @WebFilter("*.jsp")
 public class AccessFilter implements Filter {

@@ -1,6 +1,6 @@
 package com.test.util;
 
-import com.whut.truck.Util.unprotectedPagesLoader;
+import com.whut.truck.utils.unprotectedPagesLoader;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

@@ -1,8 +1,7 @@
 package com.whut.truck.Dao.impl;
 
 import com.whut.truck.Dao.VehicleStatusDao;
-import com.whut.truck.Util.JDBC_UTL;
-import com.whut.truck.entity.SystemAdmin;
+import com.whut.truck.utils.JDBC_UTL;
 import com.whut.truck.entity.VehicleStatus;
 
 import java.io.IOException;

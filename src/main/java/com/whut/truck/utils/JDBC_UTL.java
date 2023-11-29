@@ -1,4 +1,4 @@
-package com.whut.truck.Util;
+package com.whut.truck.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

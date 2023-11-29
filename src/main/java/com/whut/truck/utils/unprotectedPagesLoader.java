@@ -1,4 +1,4 @@
-package com.whut.truck.Util;
+package com.whut.truck.utils;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
