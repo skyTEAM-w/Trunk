@@ -2,7 +2,18 @@ package com.test.pytorch;
 
 import com.google.gson.JsonObject;
 import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -29,9 +40,22 @@ public class jsonHttpTest {
         }
     }
 
-   private static HttpURLConnection getHttpURLConnection() throws IOException {
+    private static HttpURLConnection getHttpURLConnection() throws IOException, ParserConfigurationException, SAXException {
+        InputStream xmlLoader = jsonHttpTest.class.getClassLoader().getResourceAsStream("python_host.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(xmlLoader);
+
+        document.getDocumentElement().normalize();
+        Element root = document.getDocumentElement();
+
+        String pythonHost = getTextContent(root, "url");
+        String pythonPort = getTextContent(root, "port");
+        String Route = getTextContent(root, "router");
+
+        System.out.println(pythonHost + pythonPort + Route);
         // 创建一个URL对象，指定要连接的地址
-        URL url = new URL("http://localhost:19911/predict");
+        URL url = new URL(pythonHost + pythonPort + Route);
         // 打开一个HttpURLConnection连接
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         // 设置请求方式
@@ -63,4 +87,16 @@ public class jsonHttpTest {
         }
         return connection;
     }
+
+    private static String getTextContent(Element element, String xpath) {
+        NodeList nodeList = element.getElementsByTagName(xpath);
+        if (nodeList.getLength() > 0) {
+            Node node = nodeList.item(0);
+            if (node != null) {
+                return node.getTextContent().trim();
+            }
+        }
+        return "";  // 或者抛出异常，具体取决于你的需求
+    }
+
 }
