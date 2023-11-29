@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.whut.truck.utils.unprotectedPagesLoader;
 
-@WebFilter("*.jsp")
+@WebFilter(value = "*.jsp", filterName = "LoginAccessFilter")
 public class AccessFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

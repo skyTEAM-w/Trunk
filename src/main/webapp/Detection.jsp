@@ -55,6 +55,22 @@
     // 将文件上传元素设为不可见
     input.style.opacity = 0;
 
+
+    // 获取表单元素
+    const form = document.querySelector('form');
+
+    // 添加表单提交事件监听器
+    form.addEventListener('submit', function (event) {
+        // 获取当前选择的文件列表
+        const curFiles = input.files;
+
+        // 如果没有选择文件，阻止表单提交
+        if (curFiles.length === 0) {
+            alert('请先选择要上传的文件！');
+            event.preventDefault();
+        }
+    });
+
     // 添加文件选择变化事件监听器
     input.addEventListener('change', updateImageDisplay);
 
@@ -121,6 +137,8 @@
             return (number / 1048576).toFixed(1) + 'MB';
         }
     }
+
+
 </script>
 </body>
 </html>
