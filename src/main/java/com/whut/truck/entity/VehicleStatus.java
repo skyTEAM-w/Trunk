@@ -1,16 +1,16 @@
 package com.whut.truck.entity;
 
 public class VehicleStatus {
-    private Integer vehicle_id ;
+    private String vehicle_id ;
     private String maintenance_status;
-    private String estimated_maintenance_time ;
+    private Integer estimated_maintenance_time ;
     private String previous_failure_status;
 
-    public Integer getVehicle_id() {
+    public String getVehicle_id() {
         return vehicle_id;
     }
 
-    public void setVehicle_id(Integer vehicle_id) {
+    public void setVehicle_id(String vehicle_id) {
         this.vehicle_id = vehicle_id;
     }
 
@@ -22,11 +22,11 @@ public class VehicleStatus {
         this.maintenance_status = maintenance_status;
     }
 
-    public String getEstimated_maintenance_time() {
+    public Integer getEstimated_maintenance_time() {
         return estimated_maintenance_time;
     }
 
-    public void setEstimated_maintenance_time(String estimated_maintenance_time) {
+    public void setEstimated_maintenance_time(Integer estimated_maintenance_time) {
         this.estimated_maintenance_time = estimated_maintenance_time;
     }
 
@@ -38,7 +38,7 @@ public class VehicleStatus {
         this.previous_failure_status = previous_failure_status;
     }
 
-    public VehicleStatus(Integer vehicle_id, String maintenance_status, String estimated_maintenance_time, String previous_failure_status) {
+    public VehicleStatus(String vehicle_id, String maintenance_status, Integer estimated_maintenance_time, String previous_failure_status) {
         this.vehicle_id = vehicle_id;
         this.maintenance_status = maintenance_status;
         this.estimated_maintenance_time = estimated_maintenance_time;

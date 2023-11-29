@@ -48,9 +48,6 @@ public class SystemAdminDaoImpl implements SystemAdminDao{
             PreparedStatement statement = null;
             Integer result = null;
             try {
-                 //Statement alterStatement = connection.createStatement();
-                 //alterStatement.executeUpdate(alterQuery);
-
                  statement = connection.prepareStatement(sql);
                  statement.setString(1, systemAdmin.getUsername());
                  statement.setString(2, systemAdmin.getPassword());

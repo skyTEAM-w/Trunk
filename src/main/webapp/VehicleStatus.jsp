@@ -20,8 +20,8 @@
 
 <div class="Text-Container">
     <form action="VehicleStatusController" method="post">
-        <label for="vehicleNumber">输入车辆编号：</label>
-        <input type="text" id="vehicleNumber" name="VehicleID" placeholder="请输入车辆编号">
+        <label for="VehicleID">输入车辆编号：</label>
+        <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
         <button id="GetStatus-btn"  type="submit">获取状态</button>
     </form>
 </div>
