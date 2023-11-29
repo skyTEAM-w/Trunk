@@ -24,4 +24,11 @@ public class VehicleStatusServiceImpl implements VehicleStatusService {
         }
         return vehicleStatusDto;
     }
+
+    @Override
+    public VehicleStatusDto save(VehicleStatus vehicleStatus) throws IOException {
+        Integer save = this.vehicleStatusDao.save(vehicleStatus);
+        if(save != 1) throw new RuntimeException("车辆信息添加失败");
+        return null;
+    }
 }

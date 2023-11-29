@@ -41,7 +41,10 @@ public class VehicleStatusController extends HttpServlet {
             }
             case 1 -> {                                     //1表示有此车辆编号，可以查询
                 PrintWriter printWriter = response.getWriter();
-                printWriter.println("<p>" + "汽车编号为" + VehicleID + "</p>");break;
+                printWriter.println("<p>" + "汽车编号为" + VehicleID + "</p>");
+                printWriter.println("<p>" + "汽车维护状态为" + vehicleStatusDto.getVehicleStatus().getMaintenance_status() + "</p>");
+                printWriter.println("<p>" + "汽车剩余维护时间为" + vehicleStatusDto.getVehicleStatus().getEstimated_maintenance_time() + "分钟" + "</p>");
+                printWriter.println("<p>" + "汽车故障状态为" + vehicleStatusDto.getVehicleStatus().getPrevious_failure_status() + "</p>");break;
             }
         }
     }
