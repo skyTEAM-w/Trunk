@@ -1,10 +1,13 @@
 package com.whut.truck.servlet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.whut.truck.Service.VehicleStatusService;
 import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
 import com.whut.truck.Dto.VehicleStatusDto;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,15 +30,17 @@ public class VehicleStatusController extends HttpServlet {
         doPost(request, response);
     }
 
-    @GetMapping("/latestData")
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException, ServletException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
         String VehicleID = request.getParameter("VehicleName");
         VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(VehicleID);
+//        response.sendRedirect("VehicleStatus.jsp");
+
+
         switch (vehicleStatusDto.getMsg()) {
             case 0 -> {                                     //0表示车辆编号不存在
                 PrintWriter out = response.getWriter();
@@ -48,13 +53,26 @@ public class VehicleStatusController extends HttpServlet {
                 String Failure_status = vehicleStatusDto.getVehicleStatus().getPrevious_failure_status();
                 List<Object> data = List.of(Maintenance_status, Maintenance_time, Failure_status);
                 String jsonData = convertDataToJson(data);
-                System.out.print(jsonData);
+//                System.out.print(jsonData);
+                String arr = jsonData.substring(1,jsonData.length()-1);
+                String[] result = arr.split(",");
+                for (int i = 0; i < 3; i++) {
+
+                }
+
+
                 response.setContentType("application/json;charset=utf-8");
                 response.getWriter().write(jsonData);
-                request.getRequestDispatcher("DetectionResult.jsp" ).forward(request,response);
+//                request.getRequestDispatcher("DetectionResult.jsp" ).forward(request,response);
+
+//                把json传到VehicleStatus.jsp
+                request.setAttribute("jsonData",jsonData);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/VehicleStatus.jsp");
+                dispatcher.forward(request,response);
             }
         }
     }
+
 
 
     private String convertDataToJson(List<Object> data) {

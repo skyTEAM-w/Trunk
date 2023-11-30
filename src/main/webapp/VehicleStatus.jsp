@@ -13,23 +13,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>车辆状态监控</title>
     <link rel="stylesheet" type="text/css" href="css/VehicleStatus_style.css"/>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
 
 <h1>车辆状态监控</h1>
 
 <div class="Text-Container">
-    <form id="VehicleStatusForm" action="VehicleStatusController" method="post">
+    <form action="VehicleStatusController" method="post">
         <label for="VehicleID">输入车辆编号：</label>
         <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
-        <button id="GetStatus-btn"  type="submit" onclick="updateData()">获取状态</button>
+        <button id="GetStatus-btn" type="submit">获取状态</button>
     </form>
 </div>
-<div id="Status-Container" class="Status-Container">
-    <%--车辆状态将显示在这里--%>
+<div class="Status-Container">
+    <!-- 状态信息将在此显示 -->
+${jsonData}
+    <script>
+
+    </script>
 </div>
 
+<%--动态更新Status-Container--%>
+<%--<script>
+    function getData() {
+        var Data = eval(${output});
+        var display = document.getElementById('Status-Container');
+        display.innerHTML = '<p>Maintenance_status:' + Data[0] + '</p>'
+                            '<p>Maintenance_time:' + Data[1] + '</p>'
+                            '<p>Failure_status:' + Data[2] + '</p>';
+    }
+</script>--%>
 <%--<script type="text/javascript">
     function updateData() {
         var formData = $('#VehicleStatusForm').serialize();
