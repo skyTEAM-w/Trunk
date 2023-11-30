@@ -78,7 +78,7 @@
                     event.preventDefault(); //阻止提交
                     break; //如果一个文件不合要求就不再检查其他文件
                 }
-                if(!validFileName(file)){
+                if(!validFileName(file.name)){
                     alert('文件名格式必须为YYYYmmDD_hhMMss_id.txt');
                     event.preventDefault(); //阻止提交
                     break; //如果一个文件不合要求就不再检查其他文件'
