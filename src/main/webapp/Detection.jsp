@@ -85,11 +85,14 @@
                     break; // 如果一个文件不合要求就不再检查其他文件'
                 }
             }
-
-            // 如果文件上传成功，显示成功消息
+            // 在文件上传成功后执行
             if (uploadSuccess) {
+                // 设置成功消息显示
                 document.getElementById('successMessage').style.display = 'block';
             }
+
+
+
         }
     });
 

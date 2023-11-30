@@ -101,10 +101,12 @@
 
         package com.whut.truck.DetectionTest;
 
+        import com.google.gson.JsonObject;
+        import com.google.gson.JsonParser;
+        import com.google.gson.JsonSyntaxException;
         import com.whut.truck.utils.HttpCommunicationLayer;
 
-        import java.io.IOException;
-        import java.io.Serial;
+        import java.io.*;
         import java.util.List;
 
         import javax.servlet.ServletException;
@@ -131,20 +133,25 @@ public class DetectionTest extends HttpServlet {
         // 获取上传的文件
         List<Part> fileParts = (List<Part>) request.getParts();
 
+        boolean uploadSuccess = true; // 标记是否所有文件上传成功
+
         for (Part filePart : fileParts) {
             String fileName = getFileName(filePart);
             System.out.println(fileName);
 
-            System.out.println(connection.connectToPython(filePart.getInputStream(), fileName, "detection"));
-            // 将文件保存到服务器指定目录
-//            filePart.write(request.getServletContext().getRealPath("/resources/") + fileName);
+            // 修改这里，将文件内容读取到字节数组中，然后创建一个ByteArrayInputStream对象传递给connectToPython方法
+            byte[] fileContent = getFileContent(filePart);
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(fileContent);
+
+            if (!connection.connectToPython(inputStream, fileName, "detection").has("success")
+                    || connection.connectToPython(inputStream, fileName, "detection").get("success").isJsonNull()) {
+                uploadSuccess = false;
+                break;
+            }
         }
 
-        // 处理完文件上传后，可以进行其他操作，比如数据库操作等
-        // ...
-
-        // 重定向到其他页面或返回响应
-        response.sendRedirect("success.jsp");
+        // 设置属性，用于在页面上判断是否显示提交成功的消息
+        request.setAttribute("uploadSuccess", uploadSuccess);
     }
 
     // 从Part中提取文件名
@@ -158,6 +165,18 @@ public class DetectionTest extends HttpServlet {
         return null;
     }
 
-
+    // 读取文件内容到字节数组
+    private byte[] getFileContent(Part filePart) throws IOException {
+        try (InputStream inputStream = filePart.getInputStream()) {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+            return outputStream.toByteArray();
+        }
+    }
 }
+
 
