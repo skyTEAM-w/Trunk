@@ -100,10 +100,6 @@
 //}
 
         package com.whut.truck.DetectionTest;
-
-        import com.google.gson.JsonObject;
-        import com.google.gson.JsonParser;
-        import com.google.gson.JsonSyntaxException;
         import com.whut.truck.utils.HttpCommunicationLayer;
 
         import java.io.*;
