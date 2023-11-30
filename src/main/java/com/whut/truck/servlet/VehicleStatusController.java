@@ -56,19 +56,19 @@ public class VehicleStatusController extends HttpServlet {
 //                System.out.print(jsonData);
                 String arr = jsonData.substring(1,jsonData.length()-1);
                 String[] result = arr.split(",");
-                for (int i = 0; i < 3; i++) {
+                String r = "<p>Maintenance_status:" + result[0] + "</p>" + "\n";
+                String rr = r.concat("<p>Maintenance_time:" + result[1] + "</p>" + "\n").concat("<p>Failure_status:" + result[2] + "</p>");
 
-                }
-
-
-                response.setContentType("application/json;charset=utf-8");
-                response.getWriter().write(jsonData);
+                System.out.println(rr);
+                request.setAttribute("jsonData",rr);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/VehicleStatus.jsp");
+                dispatcher.forward(request,response);
+//                response.setContentType("application/json;charset=utf-8");
+//                response.getWriter().write(jsonData);
 //                request.getRequestDispatcher("DetectionResult.jsp" ).forward(request,response);
 
 //                把json传到VehicleStatus.jsp
-                request.setAttribute("jsonData",jsonData);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/VehicleStatus.jsp");
-                dispatcher.forward(request,response);
+
             }
         }
     }
