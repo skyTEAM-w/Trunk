@@ -13,6 +13,9 @@
     <h1>故障检测和预测性维护</h1>
     <!-- 车辆数据表单 -->
     <div class="VehicleData">
+        <!-- 提示消息 -->
+        <div id="successMessage" style="display: none;">文件上传成功！</div>
+
         <form id="uploadForm" action="DetectionTest" method="post" enctype="multipart/form-data">
             <!-- 文件上传部分 -->
             <div>
@@ -48,14 +51,12 @@
         window.location.href = "Fix.jsp";
     }
 
-
     // 获取页面中的文件上传元素和预览元素
     const input = document.querySelector('input');
     const preview = document.querySelector('.preview');
 
     // 将文件上传元素设为不可见
     input.style.opacity = 0;
-
 
     // 获取表单元素
     const form = document.querySelector('form');
@@ -68,21 +69,26 @@
         // 如果没有选择文件，阻止表单提交
         if (curFiles.length === 0) {
             alert('请先选择要上传的文件！');
-            event.preventDefault(); //阻止提交
+            event.preventDefault(); // 阻止提交
         } else {
             // 遍历选择的文件列表
             for (const file of curFiles) {
                 // 检查文件类型是否为text/plain
                 if (!validFileType(file)) {
                     alert('只能上传.txt文件');
-                    event.preventDefault(); //阻止提交
-                    break; //如果一个文件不合要求就不再检查其他文件
+                    event.preventDefault(); // 阻止提交
+                    break; // 如果一个文件不合要求就不再检查其他文件
                 }
-                if(!validFileName(file.name)){
+                if (!validFileName(file.name)) {
                     alert('文件名格式必须为YYYYmmDD_hhMMss_id.txt');
-                    event.preventDefault(); //阻止提交
-                    break; //如果一个文件不合要求就不再检查其他文件'
+                    event.preventDefault(); // 阻止提交
+                    break; // 如果一个文件不合要求就不再检查其他文件'
                 }
+            }
+
+            // 如果文件上传成功，显示成功消息
+            if (uploadSuccess) {
+                document.getElementById('successMessage').style.display = 'block';
             }
         }
     });
@@ -146,7 +152,7 @@
     // 检查文件名是否符合特定格式的函数
     function validFileName(fileName) {
         // 使用正则表达式匹配特定格式
-        const regex = /^\d{8}_\d{6}_\d+\.txt$/;
+        const regex = /^\d{8}_\d{6}_\w{1,10}\.txt$/;
         return regex.test(fileName);
     }
 
@@ -160,8 +166,6 @@
             return (number / 1048576).toFixed(1) + 'MB';
         }
     }
-
-
 </script>
 </body>
 </html>
