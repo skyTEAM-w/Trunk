@@ -15,16 +15,19 @@ h1 {
 }
 
 .detection-container {
-    height: 300px;
+    height: 350px;
+    /* 调整容器高度 */
     width: 500px;
     background-color: whitesmoke;
-    margin: 200px auto;
+    margin: 150px auto;
+    /* 调整垂直居中的位置 */
     border-radius: 15px;
 }
 
 .detection-container .VehicleData {
     padding: 0 20px;
-    height: 120px;
+    height: 150px;
+    /* 调整高度 */
     width: 400px;
     margin: 30px auto;
 }
@@ -32,7 +35,8 @@ h1 {
 .VehicleData form {
     width: 300px;
     margin: 0 auto;
-    padding: 5px;
+    padding: 15px;
+    /* 调整内边距 */
 }
 
 form ol {
@@ -55,8 +59,12 @@ form img {
 }
 
 form p {
-    line-height: 32px;
+    line-height: 24px;
+    /* 调整行高 */
     padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 form label,
@@ -84,27 +92,23 @@ form button:active {
 }
 
 .detection-container .jump {
-    margin: 30px auto;
+    margin: 20px auto;
     width: 100%;
-    padding: 5px 95px;
+    text-align: center;
+    /* 居中按钮 */
+    padding: 5px;
 }
 
-.detection-container .jump .Detection {
-    width: 80px;
-    height: 40px;
-    font-size: 14px;
-    background-color: #4CAF50;
-    border-radius: 5px;
-    margin-left: 0px;
-}
-
+.detection-container .jump .Detection,
 .detection-container .jump .Fix {
-    width: 80px;
+    width: 100px;
+    /* 统一按钮宽度 */
     height: 40px;
     font-size: 14px;
     background-color: #4CAF50;
     border-radius: 5px;
-    margin-left: 145px;
+    margin: 0 10px;
+    /* 调整按钮间距 */
 }
 
 .detection-container .jump button:hover {
