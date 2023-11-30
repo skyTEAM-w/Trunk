@@ -40,7 +40,6 @@ public class VehicleStatusController extends HttpServlet {
         VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(VehicleID);
 //        response.sendRedirect("VehicleStatus.jsp");
 
-
         switch (vehicleStatusDto.getMsg()) {
             case 0 -> {                                     //0表示车辆编号不存在
                 PrintWriter out = response.getWriter();
@@ -57,13 +56,11 @@ public class VehicleStatusController extends HttpServlet {
                 String arr = jsonData.substring(1,jsonData.length()-1);
                 String[] result = arr.split(",");
                 for (int i = 0; i < 3; i++) {
-
                 }
-
 
                 response.setContentType("application/json;charset=utf-8");
                 response.getWriter().write(jsonData);
-//                request.getRequestDispatcher("DetectionResult.jsp" ).forward(request,response);
+//                request.getRequestDispatcher("Detection.jsp" ).forward(request,response);
 
 //                把json传到VehicleStatus.jsp
                 request.setAttribute("jsonData",jsonData);

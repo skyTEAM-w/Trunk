@@ -29,6 +29,11 @@
     <servlet-class>com.whut.truck.servlet.LoToRe</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>com.whut.truck.servlet.Logout</servlet-class>
+  </servlet>
+
   <filter>
     <filter-name>LoginAccessFilter</filter-name>
     <filter-class>com.whut.truck.controller.AccessFilter</filter-class>
@@ -57,6 +62,10 @@
   <servlet-mapping>
     <servlet-name>LoToRe</servlet-name>
     <url-pattern>/LoToRe</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 
   <filter-mapping>
