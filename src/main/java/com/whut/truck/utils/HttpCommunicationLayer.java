@@ -55,8 +55,17 @@ public class HttpCommunicationLayer {
      * 连接到 Python 服务器，发送由 InputStream 表示的文件以及附加的元数据，并从服务器接收 JSON 响应。
      *
      * @param inputStream 表示要发送到 Python 服务器的文件的 InputStream。
-     * @param fileName    要发送的文件的名称。
-     * @param fileType    文件的类型或格式（例如，"txt"、"pdf"）。
+     * @param fileName    要发送的文件的名称。命名为：
+     *                    <p> YYYYmmDD_hhMMss_id.txt
+     *                    <p> 其中 id 是车辆id
+     *                    <p> 例如：20200101_000000_1.txt
+     * @param fileType    预测类型。
+     *                    <p>
+     *                          预测性维护： "predict"
+     *                    </p>
+     *                    <p>
+     *                          故障预测："classify"
+     *                    </p>
      * @return 代表从 Python 服务器接收到的响应的 JsonObject。
      * @throws IOException 如果在从 InputStream 读取或与服务器通信时发生 I/O 错误。
      */
