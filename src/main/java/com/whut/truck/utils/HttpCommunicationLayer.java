@@ -101,7 +101,7 @@ public class HttpCommunicationLayer {
 
         // 将 JsonObject 转换为 JSON 字符串
         String jsonData = jsonObject.toString();
-        System.out.println(jsonData);
+//        System.out.println(jsonData);
 
         // 将 JSON 数据发送到服务器
         try (OutputStream outputStream = connection.getOutputStream()) {
