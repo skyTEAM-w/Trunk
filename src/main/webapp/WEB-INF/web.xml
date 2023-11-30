@@ -35,7 +35,7 @@
   </filter>
 
   <welcome-file-list>
-    <welcome-file>Login.jsp</welcome-file>
+    <welcome-file>Detection.jsp</welcome-file>
   </welcome-file-list>
 
   <servlet-mapping>

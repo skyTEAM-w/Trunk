@@ -60,21 +60,6 @@
     // 获取表单元素
     const form = document.querySelector('form');
 
-    // // 添加表单提交事件监听器
-    // form.addEventListener('submit', function (event) {
-    //     // 获取当前选择的文件列表
-    //     const curFiles = input.files;
-    //
-    //     // 如果没有选择文件，阻止表单提交
-    //     if (curFiles.length === 0) {
-    //         alert('请先选择要上传的文件！');
-    //     }
-    //     else if (curFiles.type!=='text/plain'){
-    //         alert('只能上传.txt文件');
-    //     }
-    // });
-
-
     // 添加表单提交事件监听器
     form.addEventListener('submit', function (event) {
         // 获取当前选择的文件列表
@@ -92,6 +77,11 @@
                     alert('只能上传.txt文件');
                     event.preventDefault(); //阻止提交
                     break; //如果一个文件不合要求就不再检查其他文件
+                }
+                if(!validFileName(file)){
+                    alert('文件名格式必须为YYYYmmDD_hhMMss_id.txt');
+                    event.preventDefault(); //阻止提交
+                    break; //如果一个文件不合要求就不再检查其他文件'
                 }
             }
         }
@@ -151,6 +141,13 @@
     // 检查文件类型是否合法的函数
     function validFileType(file) {
         return fileTypes.includes(file.type);
+    }
+
+    // 检查文件名是否符合特定格式的函数
+    function validFileName(fileName) {
+        // 使用正则表达式匹配特定格式
+        const regex = /^\d{8}_\d{6}_\d+\.txt$/;
+        return regex.test(fileName);
     }
 
     // 返回文件大小的格式化字符串的函数
