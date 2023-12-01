@@ -50,7 +50,10 @@ public class VehicleStatusController extends HttpServlet {
                 String Maintenance_status = vehicleStatusDto.getVehicleStatus().getMaintenance_status();
                 int Maintenance_time = vehicleStatusDto.getVehicleStatus().getEstimated_maintenance_time();
                 String Failure_status = vehicleStatusDto.getVehicleStatus().getPrevious_failure_status();
-                List<Object> data = List.of(Maintenance_status, Maintenance_time, Failure_status);
+                String Last_Maintenance_date = vehicleStatusDto.getVehicleStatus().getLast_Maintenance_date();
+                String Maintenance_Frequency = vehicleStatusDto.getVehicleStatus().getMaintenance_Frequency();
+
+                List<Object> data = List.of(Maintenance_status, Maintenance_time, Failure_status, Last_Maintenance_date, Maintenance_Frequency);
                 String jsonData = convertDataToJson(data);
 //                System.out.print(jsonData);
                 String arr = jsonData.substring(1,jsonData.length()-1);
@@ -65,15 +68,11 @@ public class VehicleStatusController extends HttpServlet {
 //                response.setContentType("application/json;charset=utf-8");
 //                response.getWriter().write(jsonData);
 //                request.getRequestDispatcher("DetectionResult.jsp" ).forward(request,response);
-
 //                把json传到VehicleStatus.jsp
 
             }
         }
     }
-
-
-
     private String convertDataToJson(List<Object> data) {
         //将数据转换为json
         StringBuilder jsonData = new StringBuilder("[");
