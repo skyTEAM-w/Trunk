@@ -1,4 +1,4 @@
-package com.whut.truck.Register;
+package com.whut.truck.servlet;
 
 import com.whut.truck.Service.SystemAdminService;
 import com.whut.truck.Service.impl.SystemAdminServiceImpl;
