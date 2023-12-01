@@ -1,5 +1,7 @@
 package com.whut.truck.DetectionTest;
 
+import com.whut.truck.utils.HttpCommunicationLayer;
+
 import java.io.IOException;
 import java.io.Serial;
 import java.util.List;
@@ -14,8 +16,8 @@ import javax.servlet.http.Part;
 
 @WebServlet(name = "DetectionTest", value = "/DetectionTest")
 @MultipartConfig(
-        fileSizeThreshold = 1024 * 1024 * 2,  // 2MB
-        maxFileSize = 1024 * 1024 * 10,        // 10MB
+        fileSizeThreshold = 1024 * 1024 * 10,  // 10MB
+        maxFileSize = 1024 * 1024 * 20,        // 20MB
         maxRequestSize = 1024 * 1024 * 50      // 50MB
 )
 public class DetectionTest extends HttpServlet {
@@ -24,6 +26,7 @@ public class DetectionTest extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpCommunicationLayer connection = new HttpCommunicationLayer();
         // 获取上传的文件
         List<Part> fileParts = (List<Part>) request.getParts();
 
@@ -31,8 +34,9 @@ public class DetectionTest extends HttpServlet {
             String fileName = getFileName(filePart);
             System.out.println(fileName);
 
+            System.out.println(connection.connectToPython(filePart.getInputStream(), fileName, "detection"));
             // 将文件保存到服务器指定目录
-            filePart.write(request.getServletContext().getRealPath("/resources/") + fileName);
+//            filePart.write(request.getServletContext().getRealPath("/resources/") + fileName);
         }
 
         // 处理完文件上传后，可以进行其他操作，比如数据库操作等

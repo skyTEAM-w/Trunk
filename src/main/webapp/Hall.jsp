@@ -12,24 +12,71 @@
     <h1>智能车辆大厅</h1>
 
     <div class="function-buttons">
-        <button onclick="goToLogin()">登录/注册</button>
-        <button onclick="goToFaultDetection()">故障检测和预测性维护</button>
-        <button onclick="goToVehicleMonitoring()">车辆信息监控</button>
+        <button id="faultDetectionButton">故障检测和预测性维护</button>
+        <button id="vehicleMonitoringButton">车辆信息监控</button>
+        <button id="logoutButton">退出登录</button>
     </div>
 </div>
 
 <script>
-    function goToLogin() {
-        window.location.href = "Login.jsp";
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+        var functionButtons = document.querySelector(".function-buttons");
 
-    function goToFaultDetection() {
-        window.location.href = "Detection.jsp ";
-    }
+        functionButtons.addEventListener("click", function(event) {
+            var targetButton = event.target;
 
-    function goToVehicleMonitoring() {
-        window.location.href = "VehicleStatus.jsp";
-    }
+            if (targetButton.tagName === "BUTTON") {
+                var buttonId = targetButton.id;
+
+                switch (buttonId) {
+                    case "faultDetectionButton":
+                        goToFaultDetection();
+                        break;
+                    case "vehicleMonitoringButton":
+                        goToVehicleMonitoring();
+                        break;
+                    case "logoutButton":
+                        logout();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        function goToFaultDetection() {
+            window.location.href = "Detection.jsp";
+        }
+
+        function goToVehicleMonitoring() {
+            window.location.href = "VehicleStatus.jsp";
+        }
+
+        function logout() {
+            // 使用XMLHttpRequest对象发送GET请求
+            var xhr = new XMLHttpRequest();
+
+            // 设置请求方法和URL
+            xhr.open("GET", "Logout", true);
+
+            // 定义请求完成时的回调函数
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // 请求成功时的处理
+                    console.log("Logout successful");
+                    // 这里你可以根据后端返回的响应执行相应的前端逻辑
+                    window.location.href = "Login.jsp";
+                } else {
+                    // 请求失败时的处理
+                    console.error("Logout failed");
+                }
+            };
+
+            // 发送请求
+            xhr.send();
+        }
+    });
+
 </script>
 
 </body>

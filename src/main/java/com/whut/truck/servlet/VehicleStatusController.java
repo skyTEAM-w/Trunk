@@ -40,7 +40,6 @@ public class VehicleStatusController extends HttpServlet {
         VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(VehicleID);
 //        response.sendRedirect("VehicleStatus.jsp");
 
-
         switch (vehicleStatusDto.getMsg()) {
             case 0 -> {                                     //0表示车辆编号不存在
                 PrintWriter out = response.getWriter();
