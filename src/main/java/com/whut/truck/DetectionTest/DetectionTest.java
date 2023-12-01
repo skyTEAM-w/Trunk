@@ -99,8 +99,12 @@
 //
 //}
 
-        package com.whut.truck.DetectionTest;
-        import com.whut.truck.utils.HttpCommunicationLayer;
+package com.whut.truck.DetectionTest;
+import com.whut.truck.utils.HttpCommunicationLayer;
+
+import java.io.IOException;
+import java.io.Serial;
+import java.util.List;
 
         import java.io.*;
         import java.util.List;
@@ -134,6 +138,7 @@ public class DetectionTest extends HttpServlet {
         for (Part filePart : fileParts) {
             String fileName = getFileName(filePart);
             System.out.println(fileName);
+
 
             // 修改这里，将文件内容读取到字节数组中，然后创建一个ByteArrayInputStream对象传递给connectToPython方法
             byte[] fileContent = getFileContent(filePart);

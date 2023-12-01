@@ -26,8 +26,11 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
                 String maintenance_status = resultSet.getString(2);
                 Integer estimated_maintenance_time = resultSet.getInt(3);
                 String previous_failure_status = resultSet.getString(4);
+                String Last_Maintenance_date = resultSet.getString(5);
+                String Maintenance_Frequency = resultSet.getString(6);
+
                 //list.add(new VehicleStatus(vehicle_id, maintenance_status, estimated_maintenance_time, previous_failure_status));
-                return new VehicleStatus(vehicle_id, maintenance_status, estimated_maintenance_time, previous_failure_status);
+                return new VehicleStatus(vehicle_id, maintenance_status, estimated_maintenance_time, previous_failure_status, Last_Maintenance_date, Maintenance_Frequency);
             }
         }catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -41,7 +44,7 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
     public Integer save(VehicleStatus vehicleStatus) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
         //String alterQuery = "SELECT MAX(用户id) + 1 FROM `game`.`用户`";
-        String sql = "insert into `game`.`车辆状态`(维护状态, 剩余维护时间（分钟）, 故障状态)values (?,?,?)";
+        String sql = "insert into `game`.`车辆状态`(维护状态, 剩余维护时间（分钟）, 故障状态, 上次维护时间， 维护次数)values (?,?,?,?,?)";
         PreparedStatement statement = null;
         Integer result = null;
         try {
@@ -49,6 +52,9 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
             statement.setString(1, vehicleStatus.getMaintenance_status());
             statement.setInt(2, vehicleStatus.getEstimated_maintenance_time());
             statement.setString(3, vehicleStatus.getPrevious_failure_status());
+            statement.setString(4, vehicleStatus.getLast_Maintenance_date());
+            statement.setString(5, vehicleStatus.getMaintenance_Frequency());
+
             result = statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

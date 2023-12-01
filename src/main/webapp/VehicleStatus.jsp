@@ -34,15 +34,6 @@ ${jsonData}
 </div>
 
 <%--动态更新Status-Container--%>
-<%--<script>
-    function getData() {
-        var Data = eval(${output});
-        var display = document.getElementById('Status-Container');
-        display.innerHTML = '<p>Maintenance_status:' + Data[0] + '</p>'
-                            '<p>Maintenance_time:' + Data[1] + '</p>'
-                            '<p>Failure_status:' + Data[2] + '</p>';
-    }
-</script>--%>
 <%--<script type="text/javascript">
     function updateData() {
         var formData = $('#VehicleStatusForm').serialize();
