@@ -60,7 +60,7 @@ public class Login extends HttpServlet {
                 printWriter.write("<h1>你好</h1>");
                 printWriter.println("<p>" + username + "</p>");
                 printWriter.println("<p>" + password + "</p>");
-                req.getSession().setAttribute("systemAdmin", systemAdminDto);
+                req.getSession().setAttribute("systemAdmin", username);
                 resp.sendRedirect("Hall.jsp");
             }
         }

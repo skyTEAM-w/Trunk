@@ -24,9 +24,9 @@
         <button id="Login-btn" type=submit style="width: 100%">登录</button>
     </form>
     <form action="LoToRe" method="get">
-    <input type="submit" value="注册"
-    <%--按钮属性，改了按钮就会错位！-From DDD--%>
-           style="background-color: #4285f4;
+        <input type="submit" value="注册"
+        <%--按钮属性，改了按钮就会错位！-From DDD--%>
+               style="background-color: #4285f4;
                         color:white;
                         width: 100%;
                         border: none;
@@ -38,7 +38,7 @@
                         margin: 10px auto auto auto;
                         cursor: pointer;
                         border-radius: 5px;">
-</form>
+    </form>
 </div>
 </body>
 </html>

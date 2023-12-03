@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web App</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #282c34, #1f2227);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        header {
+            background: #2a2e33;
+            color: #61dafb;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            width: 200px;
+            height: 100vh;
+            background: #2a2e33;
+            padding-top: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            display: block;
+            padding: 10px;
+            color: #61dafb;
+            text-decoration: none;
+            border-bottom: 1px solid #61dafb;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(97, 218, 251, 0.2);
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        main h2 {
+            color: #61dafb;
+            border-bottom: 2px solid #61dafb;
+            padding-bottom: 10px;
+        }
+
+        /* Add more styles for your specific content */
+
+        /* Simple animation for the component transition */
+        main {
+            transition: margin-left 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Your Web App</h1>
+    <p id="username">Username</p>
+</header>
+
+<nav>
+    <a href="#" onclick="loadComponent('dashboard')">Dashboard</a>
+    <a href="#" onclick="loadComponent('profile')">Profile</a>
+    <a href="#" onclick="loadComponent('settings')">Settings</a>
+    <!-- Add more links for other functionalities -->
+</nav>
+
+<main id="main-content">
+    <!-- The content of the selected component will be loaded here -->
+</main>
+
+<script>
+    function loadComponent(componentName) {
+        // You can add logic here to fetch and load the appropriate component
+        // For simplicity, I'm just displaying a message for each component
+        switch (componentName) {
+            case 'dashboard':
+                document.getElementById('main-content').innerHTML = '<h2>Dashboard Content</h2>';
+                break;
+            case 'profile':
+                document.getElementById('main-content').innerHTML = '<h2>Profile Content</h2>';
+                break;
+            case 'settings':
+                document.getElementById('main-content').innerHTML = '<h2>Settings Content</h2>';
+                break;
+            // Add cases for other components
+            default:
+                document.getElementById('main-content').innerHTML = '<h2>Welcome</h2>';
+        }
+    }
+
+    // Set the initial username (replace with actual username logic)
+    document.getElementById('username').innerText = 'John Doe';
+
+    // Load the default component
+    loadComponent('dashboard');
+</script>
+
+</body>
+</html>

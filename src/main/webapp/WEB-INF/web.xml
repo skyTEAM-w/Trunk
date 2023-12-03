@@ -40,7 +40,7 @@
   </filter>
 
   <welcome-file-list>
-    <welcome-file>Fuckyou.jsp</welcome-file>
+    <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
 
   <servlet-mapping>
