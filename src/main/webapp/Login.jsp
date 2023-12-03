@@ -16,7 +16,7 @@
 </head>
 <body>
 <%--一个注释--%>
-<div class="login-container">
+<div class="login-container" id="login-container">
     <h2>登录</h2>
     <form action="Login" method="post">
         <input type="text" placeholder="用户名" name="user_name" required>
