@@ -1,4 +1,11 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +23,18 @@
         <!-- 提示消息 -->
         <div id="successMessage" style="display: none;">文件上传成功！</div>
 
+        <!-- 表单开始 -->
         <form id="uploadForm" enctype="multipart/form-data">
             <!-- 文件上传部分 -->
             <div>
+                <!-- 文件选择标签 -->
                 <label for="upload">请选择要上传的数据：(.txt)</label>
+                <!-- 文件选择输入框 -->
                 <input type="file" class="upload" name="upload" id="upload" accept=".txt" multiple>
             </div>
             <!-- 文件预览部分 -->
             <div class="preview">
+                <!-- 提示信息 -->
                 <p>目前还未选择文件</p>
             </div>
             <!-- 提交按钮 -->
@@ -31,6 +42,7 @@
                 <button id="File-btn" type="button">提交</button>
             </div>
         </form>
+        <!-- 表单结束 -->
     </div>
     <!-- 跳转按钮 -->
     <div class="jump">
@@ -39,13 +51,14 @@
 
 <!-- JavaScript部分 -->
 <script>
+    console.log('Detection.jsp JavaScript code executed');
+
     // 获取页面中的文件上传元素和预览元素
     const input = document.querySelector('#upload');
     const preview = document.querySelector('.preview');
 
     // 获取提交按钮元素
     const submitBtn = document.querySelector('#File-btn');
-
 
     // 将文件上传元素设为不可见
     input.style.opacity = 0;
