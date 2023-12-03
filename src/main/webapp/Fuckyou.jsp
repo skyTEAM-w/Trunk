@@ -2,11 +2,16 @@
 <html lang="en">
 
 <head>
-    <title>主页面</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
     <script>
+        // 函数用于加载页面内容
         function loadContent(page) {
+            // 清空内容容器
             document.getElementById('contentContainer').innerHTML = '';
 
+            // 使用Fetch API获取页面内容
             fetch(page)
                 .then(response => {
                     if (!response.ok) {
@@ -15,6 +20,7 @@
                     return response.text();
                 })
                 .then(data => {
+                    // 将获取的页面内容填充到内容容器中
                     document.getElementById('contentContainer').innerHTML = data;
 
                     // 在加载新内容后重新执行 JavaScript 代码
@@ -30,6 +36,7 @@
 
 <body>
 <div>
+    <!-- 按钮用于加载不同页面内容 -->
     <button onclick="loadContent('Login.jsp')">显示登录</button>
     <button onclick="loadContent('Register.jsp')">显示注册</button>
     <button onclick="loadContent('Detection.jsp')">显示上传文件</button>
