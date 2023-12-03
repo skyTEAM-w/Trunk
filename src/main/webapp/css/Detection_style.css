@@ -15,11 +15,11 @@ h1 {
 }
 
 .detection-container {
-    height: 350px;
+    height: 300px;
     /* 调整容器高度 */
     width: 500px;
     background-color: whitesmoke;
-    margin: 150px auto;
+    margin: 200px auto;
     /* 调整垂直居中的位置 */
     border-radius: 15px;
 }
@@ -29,7 +29,7 @@ h1 {
     height: 150px;
     /* 调整高度 */
     width: 400px;
-    margin: 30px auto;
+    margin: 40px auto;
 }
 
 .VehicleData form {
@@ -97,21 +97,4 @@ form button:active {
     text-align: center;
     /* 居中按钮 */
     padding: 5px;
-}
-
-.detection-container .jump .Detection,
-.detection-container .jump .Fix {
-    width: 100px;
-    /* 统一按钮宽度 */
-    height: 40px;
-    font-size: 14px;
-    background-color: #4CAF50;
-    border-radius: 5px;
-    margin: 0 10px;
-    /* 调整按钮间距 */
-}
-
-.detection-container .jump button:hover {
-    background-color: #4285f4;
-    color: white;
 }
