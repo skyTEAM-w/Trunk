@@ -1,5 +1,6 @@
 package com.whut.truck.servlet;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +53,10 @@ public class VehicleStatusController extends HttpServlet {
                 String Failure_status = vehicleStatusDto.getVehicleStatus().getPrevious_failure_status();
                 String Last_Maintenance_date = vehicleStatusDto.getVehicleStatus().getLast_Maintenance_date();
                 String Maintenance_Frequency = vehicleStatusDto.getVehicleStatus().getMaintenance_Frequency();
+                Blob Vehicle_file = vehicleStatusDto.getVehicleStatus().getVehicle_file();
 
-                List<Object> data = List.of(Maintenance_status, Maintenance_time, Failure_status, Last_Maintenance_date, Maintenance_Frequency);
+
+                List<Object> data = List.of(Maintenance_status, Maintenance_time, Failure_status, Last_Maintenance_date, Maintenance_Frequency, Vehicle_file);
                 String jsonData = convertDataToJson(data);
 //                System.out.print(jsonData);
                 String arr = jsonData.substring(1,jsonData.length()-1);

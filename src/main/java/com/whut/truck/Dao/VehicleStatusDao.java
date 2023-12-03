@@ -9,4 +9,5 @@ public interface VehicleStatusDao {
     //public List<VehicleStatus> list() throws IOException;
     public VehicleStatus findByVehicle_id(String vehicle_id) throws IOException;
     public Integer save(VehicleStatus vehicleStatus) throws IOException;
+    public Integer Insert_file(Integer id) throws IOException;
 }
