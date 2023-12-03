@@ -10,4 +10,5 @@ public interface SystemAdminService {
 
     SystemAdminDto check(String username) throws IOException;
     SystemAdminDto save(SystemAdmin systemAdmin) throws IOException;
+    
 }

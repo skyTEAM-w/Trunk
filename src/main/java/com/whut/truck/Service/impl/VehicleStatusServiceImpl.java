@@ -31,4 +31,13 @@ public class VehicleStatusServiceImpl implements VehicleStatusService {
         if(save != 1) throw new RuntimeException("车辆信息添加失败");
         return null;
     }
+
+    @Override
+    public VehicleStatusDto Insertfile(Integer id) throws IOException {
+        Integer Insert = this.vehicleStatusDao.Insert_file(id);
+        SystemAdminDto systemAdminDto = new SystemAdminDto();
+        if(Insert != 1) throw new RuntimeException("文件信息添加失败");
+        return null;
+    }
+
 }
