@@ -306,3 +306,20 @@ header {
     height: 2px;
     background-color: var(--color-line-bg);
 }
+
+.mainbody {
+    height: 92vh;
+    position: relative;
+}
+
+.component {
+    height: 92vh;
+    width: calc(100% - 250px);
+    /* 动态计算宽度 */
+    background-color: black;
+    /* 与侧边栏宽度相同 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+}
