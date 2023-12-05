@@ -1,102 +1,3 @@
-/**{*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
-/*body {*/
-/*    font-family: 'Arial', sans-serif;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    background: linear-gradient(to right, #DE6262, #FFB88C);*/
-/*}*/
-
-/*.hall-container {*/
-/*    text-align: center;*/
-/*    margin: 100px auto;*/
-/*    max-width: 600px;*/
-/*    padding: 100px;*/
-/*}*/
-
-/*.function-buttons button {*/
-/*    display: block;*/
-/*    width: 100%;*/
-/*    padding: 15px;*/
-/*    margin: 10px 0;*/
-/*    font-size: 16px;*/
-/*    background-color: whitesmoke;*/
-/*    color: black;*/
-/*    border: none;*/
-/*    border-radius: 10px;*/
-/*    cursor: pointer;*/
-/*    transition: background-color 0.3s;*/
-/*}*/
-
-/*.function-buttons button:hover {*/
-/*    background-color: #00796b;*/
-/*}*/
-
-/*header {*/
-/*    height: 50px;*/
-/*    background-color: #333; !* 设置顶部背景颜色 *!*/
-/*    color: white; !* 设置文本颜色为白色 *!*/
-/*    padding: 10px 20px; !* 设置顶部内边距 *!*/
-/*    display: flex; !* 使用 Flex 布局使得子元素横向排列 *!*/
-/*    justify-content: space-between; !* 使得子元素在水平方向上均匀分布 *!*/
-/*    position: relative; !* 固定在页面顶部 *!*/
-/*    width: 100%; !* 使得 header 占满整个屏幕宽度 *!*/
-/*    z-index: 1000; !* 提高层级，确保 header 处于最上层 *!*/
-/*}*/
-
-/*#logoutButtonContainer {*/
-/*    background-color: rgba(255, 255, 255, 0.5); !* 半透明白色背景 *!*/
-/*    padding: 5px 10px; !* 设置内边距 *!*/
-/*    border-radius: 5px; !* 圆角边框 *!*/
-/*    display: flex; !* 使用 Flex 布局，使子元素横向排列 *!*/
-/*    position: absolute;*/
-/*    right: 50px;*/
-/*    align-items: center; !* 垂直居中子元素 *!*/
-/*}*/
-
-/*#logoutButton {*/
-/*    background-color: #007bff; !* 设置按钮背景颜色 *!*/
-/*    color: white; !* 设置按钮文本颜色为白色 *!*/
-/*    border: none; !* 去除按钮边框 *!*/
-/*    padding: 8px 12px; !* 设置按钮内边距 *!*/
-/*    border-radius: 3px; !* 圆角边框 *!*/
-/*    cursor: pointer; !* 设置光标样式为手型 *!*/
-/*}*/
-
-/*!* 调整侧边栏样式 *!*/
-/*#sidebar {*/
-/*    height: 100%; !* 设置侧边栏高度为100% *!*/
-/*    background-color: #333; !* 设置侧边栏背景颜色 *!*/
-/*    color: white; !* 设置文本颜色为白色 *!*/
-/*    padding-top: 10px; !* 设置上边距 *!*/
-/*    position: fixed; !* 固定在页面左侧 *!*/
-/*    width: 250px; !* 设置侧边栏宽度 *!*/
-/*    z-index: 1; !* 提高层级，确保侧边栏处于最上层 *!*/
-/*}*/
-
-/*#sidebar ul.components {*/
-/*    padding: 20px 0; !* 设置列表内边距 *!*/
-/*}*/
-
-/*#sidebar ul li a {*/
-/*    color: white; !* 设置链接文本颜色为白色 *!*/
-/*    text-decoration: none; !* 去除链接下划线 *!*/
-/*    display: block; !* 设置链接为块级元素，占满整个宽度 *!*/
-/*    padding: 10px; !* 设置列表项内边距 *!*/
-/*    transition: background-color 0.3s; !* 添加背景颜色渐变效果 *!*/
-/*}*/
-
-/*#sidebar ul li a:hover {*/
-/*    background-color: #555; !* 设置鼠标悬停时的背景颜色 *!*/
-/*}*/
-
-/*#content {*/
-/*    margin-left: 250px; !* 设置内容区域左边距，与侧边栏宽度相同 *!*/
-/*}*/
-
 * {
     margin: 0;
     padding: 0;
@@ -277,15 +178,7 @@ header {
 
 /* 选项，若 n 项，就 n * 40px */
 .menu-item>input#menu-item1:checked~.menu-content {
-    height: calc(3 * 40px);
-}
-
-.menu-item>input#menu-item2:checked~.menu-content {
-    height: calc(2 * 40px);
-}
-
-.menu-item>input#menu-item3:checked~.menu-content {
-    height: calc(3 * 40px);
+    height: calc(4 * 40px);
 }
 
 .menu-content>span {
@@ -305,4 +198,21 @@ header {
     width: 100%;
     height: 2px;
     background-color: var(--color-line-bg);
+}
+
+.mainbody {
+    height: 92vh;
+    position: relative;
+}
+
+.component {
+    height: 92vh;
+    width: calc(100% - 250px);
+    /* 动态计算宽度 */
+    background-color: black;
+    /* 与侧边栏宽度相同 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
 }
