@@ -1,15 +1,21 @@
 body {
     font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
     background: linear-gradient(to right, #DE6262, #FFB88C);
 }
 
 h1 {
     color: #333;
     text-align: center;
-    padding: 20px; /* 设置标题背景颜色 */
-    margin: 0;
+    position: fixed;
+    top: 180px;
+    margin-bottom: 10px;
+    font-size: 50px;
+    white-space: nowrap;
 }
 
 label {
@@ -27,17 +33,21 @@ input {
 }
 
 .Status-Container {
-    margin: 20px;
-    padding: 20px;
+    /*margin: 20px;*/
+    /*
+    padding: 20px 100px;
+    */
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px
-;
-    text-align: center;
+    border-radius: 10px;
+    /*text-align: center;*/
+    width:100%;
+    overflow-x: scroll;
+    white-space: nowrap;
 }
 
 #GetStatus-btn {
-    background-color: skyblue;
+    background-color: #1784af;
     color: white;
     border: none;
     padding: 10px;
@@ -60,5 +70,6 @@ input {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* 模拟光晕效果 */
     width: 300px;
     text-align: center;
+    justify-content: center;
     margin: 0 auto;
 }

@@ -39,7 +39,6 @@ public class VehicleStatusController extends HttpServlet {
 
         String VehicleID = request.getParameter("VehicleName");
         VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(VehicleID);
-//        response.sendRedirect("VehicleStatus.jsp");
 
         switch (vehicleStatusDto.getMsg()) {
             case 0 -> {                                     //0表示车辆编号不存在
@@ -55,23 +54,18 @@ public class VehicleStatusController extends HttpServlet {
                 String Maintenance_Frequency = vehicleStatusDto.getVehicleStatus().getMaintenance_Frequency();
                 Blob Vehicle_file = vehicleStatusDto.getVehicleStatus().getVehicle_file();
 
-
-                List<Object> data = List.of(Maintenance_status, Maintenance_time, Failure_status, Last_Maintenance_date, Maintenance_Frequency, Vehicle_file);
-                String jsonData = convertDataToJson(data);
-//                System.out.print(jsonData);
-                String arr = jsonData.substring(1,jsonData.length()-1);
-                String[] result = arr.split(",");
-                String r = "<p>Maintenance_status:" + result[0] + "</p>" + "\n";
-                String rr = r.concat("<p>Maintenance_time:" + result[1] + "</p>" + "\n").concat("<p>Failure_status:" + result[2] + "</p>");
-
-                System.out.println(rr);
-                request.setAttribute("jsonData",rr);
+                String result = Maintenance_status + "\n";
+                request.setAttribute("Data1",result);
+                result = Maintenance_time + "\n";
+                request.setAttribute("Data2",result);
+                result = Failure_status + "\n";
+                request.setAttribute("Data3",result);
+                result = Last_Maintenance_date + "\n";
+                request.setAttribute("Data4",result);
+                result = Maintenance_Frequency;
+                request.setAttribute("Data5",result);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/VehicleStatus.jsp");
                 dispatcher.forward(request,response);
-//                response.setContentType("application/json;charset=utf-8");
-//                response.getWriter().write(jsonData);
-//                request.getRequestDispatcher("DetectionResult.jsp" ).forward(request,response);
-//                把json传到VehicleStatus.jsp
 
             }
         }
