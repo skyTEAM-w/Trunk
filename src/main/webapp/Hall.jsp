@@ -134,7 +134,18 @@
 <%--</body>--%>
 
 <%--</html>--%>
-
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
+<%@page import="com.whut.truck.entity.SystemAdmin" %>
+<%@page import="java.lang.String" %>
+<%@page import="javax.servlet.http.HttpSession" %>
+<%@ page import="java.util.Objects" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+    HttpSession httpSession = (HttpSession) request.getSession();
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,7 +154,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>维护系统</title>
     <!-- 导入阿里的图标样式文件 -->
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/Hall_style.css">
@@ -153,7 +164,8 @@
 <div class="content">
     <!-- Header 开始 -->
     <header>
-        <p id="username">用户名称</p>
+        <p id="username"><%= getUserName(httpSession)%>
+        </p>
         <div id="logoutButtonContainer">
             <button id="logoutButton" onclick="logout()">退出登录</button>
         </div>
@@ -191,7 +203,33 @@
 
         </div>
     </div>
+    <div class="content">
+
+    </div>
 </div>
 </body>
+
+<%!
+    String getUserName(HttpSession session) {
+        String systemAdmin = (String) session.getAttribute("systemAdmin");
+        return Objects.requireNonNullElse(systemAdmin, "游客");
+    }
+%>
+
+<script>
+    function logout() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "Logout", true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log("Logout successful");
+                window.location.href = "Login.jsp";
+            } else {
+                console.error("Logout failed");
+            }
+        };
+        xhr.send();
+    }
+</script>
 
 </html>
