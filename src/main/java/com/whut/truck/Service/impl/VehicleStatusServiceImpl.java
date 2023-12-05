@@ -10,7 +10,7 @@ import com.whut.truck.entity.VehicleStatus;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class VehicleStatusServiceImpl implements VehicleStatusService {
+public class VehicleStatusServiceImpl implements VehicleStatusService {       //根据车辆id查找车辆数据
     private VehicleStatusDao vehicleStatusDao = new VehicleStatusDaoImpl();
     @Override
     public VehicleStatusDto find(String vehicle_id) throws IOException {             //通过vehicle_id进行查询
@@ -27,14 +27,14 @@ public class VehicleStatusServiceImpl implements VehicleStatusService {
     }
 
     @Override
-    public VehicleStatusDto save(VehicleStatus vehicleStatus) throws IOException {
+    public VehicleStatusDto save(VehicleStatus vehicleStatus) throws IOException {    //添加车辆数据
         Integer save = this.vehicleStatusDao.save(vehicleStatus);
         if(save != 1) throw new RuntimeException("车辆信息添加失败");
         return null;
     }
 
     @Override
-    public VehicleStatusDto Insertfile(Integer id, InputStream inputStream) throws IOException {
+    public VehicleStatusDto Insertfile(Integer id, InputStream inputStream) throws IOException {     //根据车辆id插入数据文件
         Integer Insert = this.vehicleStatusDao.Insert_file(id, inputStream);
         SystemAdminDto systemAdminDto = new SystemAdminDto();
         if(Insert != 1) throw new RuntimeException("文件信息添加失败");

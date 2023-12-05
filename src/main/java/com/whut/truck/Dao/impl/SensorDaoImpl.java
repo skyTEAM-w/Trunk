@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 public class SensorDaoImpl implements SensorDao{
     @Override
-    public Integer csvSave(Sensor sensor) throws IOException {
+    public Integer csvSave(Sensor sensor) throws IOException {                   //将csv保存进数据库
         Connection connection = JDBC_UTL.getconnection();
         String sql_check = "SELECT * FROM `game`.`传感器数据` where `车辆id` = ? and `运行轮数` = ?";
         PreparedStatement statement_check = null;
@@ -88,7 +88,7 @@ public class SensorDaoImpl implements SensorDao{
     @Override
     public Sensor findBysensorline(String line) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
-        String sql = "SELECT * FROM `game`.`传感器数据` where `列数` = '"+line+"'";    //用username进行查询
+        String sql = "SELECT * FROM `game`.`传感器数据` where `列数` = '"+line+"'";    //根据列数查找数据库的csv数据
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -113,7 +113,7 @@ public class SensorDaoImpl implements SensorDao{
     @Override
     public Integer csvDelete(Sensor sensor) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
-        String sql = "DELETE FROM `game`.`传感器数据` where `车辆id` between '0' and '30'";    //用username进行查询
+        String sql = "DELETE FROM `game`.`传感器数据` where `车辆id` between '0' and '30'";    //删除数据库中csv的前30行
         PreparedStatement statement = null;
         Integer result = null;
         try {

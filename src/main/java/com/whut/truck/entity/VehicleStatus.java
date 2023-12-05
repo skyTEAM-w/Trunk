@@ -3,15 +3,25 @@ package com.whut.truck.entity;
 import java.sql.Blob;
 
 public class VehicleStatus {
-    private String vehicle_id ;
+    // 车辆 ID
+    private String vehicle_id;
+
+    // 维护状态
     private String maintenance_status;
-    private Integer estimated_maintenance_time ;
+
+    // 预计维护时间
+    private Integer estimated_maintenance_time;
+
+    // 上次故障状态
     private String previous_failure_status;
 
+    // 上次维护日期
     private String Last_Maintenance_date;
 
+    // 维护频率
     private String Maintenance_Frequency;
 
+    // 车辆文件
     private Blob Vehicle_file;
 
     public String getVehicle_id() {

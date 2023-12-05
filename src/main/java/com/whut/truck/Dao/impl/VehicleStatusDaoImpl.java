@@ -67,7 +67,7 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
     }
 
     @Override            //更改文件
-    public Integer Insert_file(Integer id, InputStream inputStream) throws IOException {
+    public Integer Insert_file(Integer id, InputStream inputStream) throws IOException {    //插入文件
         //InputStream file = new FileInputStream("D:/000001/1/222.txt");
 //        InputStream file = new FileInputStream("D:/Anaconda3/python311.pdb");
 
