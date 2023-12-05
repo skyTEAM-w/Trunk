@@ -204,7 +204,7 @@
             </div>
         </div>
         <div class="component">
-            <jsp:include page="Longevity.jsp"/>
+            <jsp:include page="VehicleStatus.jsp"/>
         </div>
     </div>
 </div>

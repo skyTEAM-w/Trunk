@@ -19,10 +19,6 @@
 </head>
 
 <div>
-
-    <h1>车辆状态监控</h1>
-
-    <div class="Text-Container">
         <!-- 表单用于输入车辆编号 -->
         <form action="VehicleStatusController" method="post">
             <label for="VehicleID">输入车辆编号：</label>
@@ -49,7 +45,6 @@
             </tr>
             </tbody>
         </table>
-    </div>
 </div>
 
 </html>

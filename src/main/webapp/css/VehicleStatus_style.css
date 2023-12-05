@@ -1,17 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    display: flex;
     align-items: center;
+    text-align: center;
     justify-content: center;
     height: 100vh;
-    margin: 0;
     background: linear-gradient(to right, #DE6262, #FFB88C);
 }
 
 h1 {
     color: #333;
-    text-align: center;
-    position: fixed;
     top: 180px;
     margin-bottom: 10px;
     font-size: 50px;
@@ -40,7 +42,6 @@ input {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    /*text-align: center;*/
     width:100%;
     overflow-x: scroll;
     white-space: nowrap;
