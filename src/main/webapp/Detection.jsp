@@ -1,19 +1,17 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
+<% String path=request.getContextPath(); String basePath=request.getScheme() + "://" + request.getServerName() + ":"
+        + request.getServerPort() + path + "/" ; %>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>故障检测和预测性维护</title>
     <link rel="stylesheet" href="css/Detection_style.css">
 </head>
+
 <body>
 <!-- 外层容器 -->
 <div class="detection-container">
@@ -27,6 +25,10 @@
         <form id="uploadForm" enctype="multipart/form-data">
             <!-- 文件上传部分 -->
             <div>
+                <select class="select">
+                    <option value="1">传感器数据</option>
+                    <option value="2">震动数据</option>
+                </select>
                 <!-- 文件选择标签 -->
                 <label for="upload">请选择要上传的数据：(.txt)</label>
                 <!-- 文件选择输入框 -->
@@ -155,4 +157,5 @@
     });
 </script>
 </body>
+
 </html>

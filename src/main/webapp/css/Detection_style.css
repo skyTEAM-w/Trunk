@@ -29,7 +29,7 @@ h1 {
     height: 150px;
     /* 调整高度 */
     width: 400px;
-    margin: 40px auto;
+    margin: 20px auto;
 }
 
 .VehicleData form {
@@ -97,4 +97,21 @@ form button:active {
     text-align: center;
     /* 居中按钮 */
     padding: 5px;
+}
+
+.select {
+    display: inline-block;
+    width: 300px;
+    position: relative;
+    vertical-align: middle;
+    padding: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #aaa;
+    text-shadow: none;
+    border-radius: 4px;
+    transition: box-shadow 0.25s ease;
+    z-index: 2;
+    margin-bottom: 15px;
 }
