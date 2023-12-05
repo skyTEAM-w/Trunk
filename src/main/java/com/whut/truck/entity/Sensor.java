@@ -1,9 +1,16 @@
 package com.whut.truck.entity;
 
 public class Sensor {
+    //列数
     private String line;
+
+    //传感器id
     private String sensor_id ;
+
+    //运行次数
     private String describe;
+
+    //21个状态
     private String s1 ;
     private String s2 ;
     private String s3 ;

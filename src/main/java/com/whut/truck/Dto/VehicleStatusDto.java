@@ -4,7 +4,9 @@ import com.whut.truck.entity.SystemAdmin;
 import com.whut.truck.entity.VehicleStatus;
 
 public class VehicleStatusDto {
+    //错误信息封装
     private Integer msg;
+    // 车辆对象
     private VehicleStatus vehicleStatus;
 
     public Integer getMsg() {

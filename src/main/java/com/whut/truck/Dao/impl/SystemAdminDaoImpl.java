@@ -37,7 +37,7 @@ public class SystemAdminDaoImpl implements SystemAdminDao{
     }
 
     @Override
-    public Integer save(SystemAdmin systemAdmin) throws IOException {
+    public Integer save(SystemAdmin systemAdmin) throws IOException {          //注册用户信息
             Connection connection = JDBC_UTL.getconnection();
             //String alterQuery = "SELECT MAX(用户id) + 1 FROM `game`.`用户`";
             String sql = "insert into `game`.`用户`(用户名, 密码, 邮箱)values (?,?,?)";
