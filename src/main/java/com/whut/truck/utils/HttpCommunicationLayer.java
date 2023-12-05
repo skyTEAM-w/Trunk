@@ -89,10 +89,8 @@ public class HttpCommunicationLayer {
         // 将经过 Base64 编码的文件数据添加到 JsonObject
         jsonObject.addProperty("file_data", Base64.getEncoder().encodeToString(bytes));
 
-        // 建立与 Python 服务器的连接
-        // URL url = new URL(PYTHON_SERVER_URL);
-        String pythonBackendUrl = "http://localhost:11200/test";
-        URL url = new URL(pythonBackendUrl);
+
+        URL url = new URL(PYTHON_SERVER_URL);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         // 将请求方式设置为 POST
         connection.setRequestMethod("POST");

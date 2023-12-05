@@ -8,6 +8,7 @@ import com.whut.truck.Service.VehicleStatusService;
 import com.whut.truck.entity.SystemAdmin;
 import com.whut.truck.entity.VehicleStatus;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class VehicleStatusServiceImpl implements VehicleStatusService {
     private VehicleStatusDao vehicleStatusDao = new VehicleStatusDaoImpl();
@@ -33,8 +34,8 @@ public class VehicleStatusServiceImpl implements VehicleStatusService {
     }
 
     @Override
-    public VehicleStatusDto Insertfile(Integer id) throws IOException {
-        Integer Insert = this.vehicleStatusDao.Insert_file(id);
+    public VehicleStatusDto Insertfile(Integer id, InputStream inputStream) throws IOException {
+        Integer Insert = this.vehicleStatusDao.Insert_file(id, inputStream);
         SystemAdminDto systemAdminDto = new SystemAdminDto();
         if(Insert != 1) throw new RuntimeException("文件信息添加失败");
         return null;

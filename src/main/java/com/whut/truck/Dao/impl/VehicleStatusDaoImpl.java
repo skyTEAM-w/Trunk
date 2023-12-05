@@ -67,9 +67,9 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
     }
 
     @Override            //更改文件
-    public Integer Insert_file(Integer id) throws IOException {
+    public Integer Insert_file(Integer id, InputStream inputStream) throws IOException {
         //InputStream file = new FileInputStream("D:/000001/1/222.txt");
-        InputStream file = new FileInputStream("D:/Anaconda3/python311.pdb");
+//        InputStream file = new FileInputStream("D:/Anaconda3/python311.pdb");
 
         Connection connection = JDBC_UTL.getconnection();
         PreparedStatement statement = null;
@@ -80,12 +80,12 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
 
         try {
             statement = connection.prepareStatement(sql);
-            statement.setBlob(1, file);
+            statement.setBlob(1, inputStream);
             result = statement.executeUpdate();
 
 
             System.out.println("文件已成功添加到数据库中！");
-            System.out.println(file);
+            System.out.println(inputStream);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

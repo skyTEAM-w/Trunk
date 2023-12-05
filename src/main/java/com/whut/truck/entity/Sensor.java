@@ -272,4 +272,37 @@ public class Sensor {
         this.setting2 = setting2;
         this.setting3 = setting3;
     }
+
+    @Override
+    public String toString() {
+        return "Sensor{" +
+                "line='" + line + '\'' +
+                ", sensor_id='" + sensor_id + '\'' +
+                ", describe='" + describe + '\'' +
+                ", s1='" + s1 + '\'' +
+                ", s2='" + s2 + '\'' +
+                ", s3='" + s3 + '\'' +
+                ", s4='" + s4 + '\'' +
+                ", s5='" + s5 + '\'' +
+                ", s6='" + s6 + '\'' +
+                ", s7='" + s7 + '\'' +
+                ", s8='" + s8 + '\'' +
+                ", s9='" + s9 + '\'' +
+                ", s10='" + s10 + '\'' +
+                ", s11='" + s11 + '\'' +
+                ", s12='" + s12 + '\'' +
+                ", s13='" + s13 + '\'' +
+                ", s14='" + s14 + '\'' +
+                ", s15='" + s15 + '\'' +
+                ", s16='" + s16 + '\'' +
+                ", s17='" + s17 + '\'' +
+                ", s18='" + s18 + '\'' +
+                ", s19='" + s19 + '\'' +
+                ", s20='" + s20 + '\'' +
+                ", s21='" + s21 + '\'' +
+                ", setting1='" + setting1 + '\'' +
+                ", setting2='" + setting2 + '\'' +
+                ", setting3='" + setting3 + '\'' +
+                '}';
+    }
 }

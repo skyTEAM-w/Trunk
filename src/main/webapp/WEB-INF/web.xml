@@ -34,6 +34,11 @@
     <servlet-class>com.whut.truck.servlet.Logout</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>HallServlet</servlet-name>
+    <servlet-class>com.whut.truck.servlet.HallServlet</servlet-class>
+  </servlet>
+
   <filter>
     <filter-name>LoginAccessFilter</filter-name>
     <filter-class>com.whut.truck.controller.AccessFilter</filter-class>
@@ -66,6 +71,10 @@
   <servlet-mapping>
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HallServlet</servlet-name>
+    <url-pattern>/HallServlet</url-pattern>
   </servlet-mapping>
 
   <filter-mapping>

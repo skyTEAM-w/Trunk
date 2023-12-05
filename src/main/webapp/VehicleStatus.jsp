@@ -18,35 +18,38 @@
     <link rel="stylesheet" type="text/css" href="css/VehicleStatus_style.css"/>
 </head>
 
-<h1>车辆状态监控</h1>
+<div>
 
-<div class="Text-Container">
-    <!-- 表单用于输入车辆编号 -->
-    <form action="VehicleStatusController" method="post">
-        <label for="VehicleID">输入车辆编号：</label>
-        <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
-        <button id="GetStatus-btn" type="submit">获取状态</button>
-    </form>
-    <table class="Status-Container">
-        <thead>
-        <tr>
-            <th>维护状态</th>
-            <th>剩余维护时间</th>
-            <th>故障状态</th>
-            <th>上次维护时间</th>
-            <th>维护次数</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>${Data1}</td>
-            <td>${Data2}</td>
-            <td>${Data3}</td>
-            <td>${Data4}</td>
-            <td>${Data5}</td>
-        </tr>
-        </tbody>
-    </table>
+    <h1>车辆状态监控</h1>
+
+    <div class="Text-Container">
+        <!-- 表单用于输入车辆编号 -->
+        <form action="VehicleStatusController" method="post">
+            <label for="VehicleID">输入车辆编号：</label>
+            <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
+            <button id="GetStatus-btn" type="submit">获取状态</button>
+        </form>
+        <table class="Status-Container">
+            <thead>
+            <tr>
+                <th>维护状态</th>
+                <th>剩余维护时间</th>
+                <th>故障状态</th>
+                <th>上次维护时间</th>
+                <th>维护次数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>${Data1}</td>
+                <td>${Data2}</td>
+                <td>${Data3}</td>
+                <td>${Data4}</td>
+                <td>${Data5}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 </html>
