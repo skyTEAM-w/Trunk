@@ -171,7 +171,7 @@
         </div>
     </header>
     <!-- Header 结束 -->
-
+    <div class="mainbody">
     <div class="menu-box">
         <!-- 展示与隐藏侧边栏 开始-->
         <input type="checkbox" id="menu-btn">
@@ -203,8 +203,7 @@
 
         </div>
     </div>
-    <div class="content">
-
+        <div class="component">123</div>
     </div>
 </div>
 </body>
