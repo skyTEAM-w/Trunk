@@ -172,38 +172,40 @@
     </header>
     <!-- Header 结束 -->
     <div class="mainbody">
-    <div class="menu-box">
-        <!-- 展示与隐藏侧边栏 开始-->
-        <input type="checkbox" id="menu-btn">
-        <label for="menu-btn"><i class="iconfont icon-yemianfanhui"></i></label>
-        <!-- 展示与隐藏侧边栏 结束-->
-        <div class="menu">
-            <!-- 侧边栏的标题 开始-->
-            <div class="menu-title">
-                <h1>Menu</h1>
-            </div>
-            <!-- 侧边栏的标题 结束-->
-
-            <!-- 每一项导航 -->
-            <div class="menu-item">
-                <input type="checkbox" id="menu-item1">
-                <label for="menu-item1">
-                    <i class="menu-item-icon iconfont icon-a-01-shujuzhongxin"></i>
-                    <span>选项</span>
-                    <i class="menu-item-last iconfont icon-down"></i>
-                </label>
-                <div class="menu-content">
-                    <span>状态更新</span>
-                    <span>故障检测</span>
-                    <span>预测性维护</span>
-                    <span>车辆信息监控</span>
+        <div class="menu-box">
+            <!-- 展示与隐藏侧边栏 开始-->
+            <input type="checkbox" id="menu-btn">
+            <label for="menu-btn"><i class="iconfont icon-yemianfanhui"></i></label>
+            <!-- 展示与隐藏侧边栏 结束-->
+            <div class="menu">
+                <!-- 侧边栏的标题 开始-->
+                <div class="menu-title">
+                    <h1>Menu</h1>
                 </div>
-            </div>
-            <!-- 其他导航项可以继续添加 -->
+                <!-- 侧边栏的标题 结束-->
 
+                <!-- 每一项导航 -->
+                <div class="menu-item">
+                    <input type="checkbox" id="menu-item1">
+                    <label for="menu-item1">
+                        <i class="menu-item-icon iconfont icon-a-01-shujuzhongxin"></i>
+                        <span>选项</span>
+                        <i class="menu-item-last iconfont icon-down"></i>
+                    </label>
+                    <div class="menu-content">
+                        <span>状态更新</span>
+                        <span>故障检测</span>
+                        <span>预测性维护</span>
+                        <span>车辆信息监控</span>
+                    </div>
+                </div>
+                <!-- 其他导航项可以继续添加 -->
+
+            </div>
         </div>
-    </div>
-        <div class="component">123</div>
+        <div class="component">
+            <jsp:include page="Longevity.jsp"/>
+        </div>
     </div>
 </div>
 </body>

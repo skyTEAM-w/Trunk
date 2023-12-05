@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一个登录页面</title>
+    <title>登录</title>
     <link rel="stylesheet" type="text/css" href="css/Login_style.css"/>
 </head>
 <body>

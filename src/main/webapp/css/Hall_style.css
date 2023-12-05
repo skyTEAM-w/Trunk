@@ -277,7 +277,7 @@ header {
 
 /* 选项，若 n 项，就 n * 40px */
 .menu-item>input#menu-item1:checked~.menu-content {
-    height: calc(3 * 40px);
+    height: calc(4 * 40px);
 }
 
 .menu-item>input#menu-item2:checked~.menu-content {
@@ -307,6 +307,24 @@ header {
     background-color: var(--color-line-bg);
 }
 
+/*.component-container {*/
+/*    flex: 1; !* 占据剩余可伸缩空间 *!*/
+/*    padding: 10px;*/
+/*    transition: margin-left 0.3s ease; !* 过渡效果，变换时长为0.3秒 *!*/
+/*    z-index: 0; !* 确保空白区域在顶栏和侧栏之下 *!*/
+/*}*/
+
+/* 侧栏收起时调整空白区域大小 */
+.menu-box input[type="checkbox"]:checked~.component {
+    margin-left: 60px; /* 侧栏宽度 */
+}
+
+/*.component {*/
+/*    background-color: #f0f0f0;*/
+/*    height: 100%;*/
+/*    overflow-y: auto; !* 如果内容高度溢出，显示滚动条 *!*/
+/*}*/
+
 .mainbody {
     height: 92vh;
     position: relative;
@@ -316,10 +334,10 @@ header {
     height: 92vh;
     width: calc(100% - 250px);
     /* 动态计算宽度 */
-    background-color: black;
     /* 与侧边栏宽度相同 */
     position: absolute;
     top: 0;
     right: 0;
     border-radius: 5px;
+    overflow-y: auto;
 }
