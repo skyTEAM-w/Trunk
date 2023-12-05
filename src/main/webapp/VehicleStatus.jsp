@@ -17,7 +17,6 @@
     <!-- 引入样式表文件 -->
     <link rel="stylesheet" type="text/css" href="css/VehicleStatus_style.css"/>
 </head>
-<body>
 
 <h1>车辆状态监控</h1>
 
@@ -28,40 +27,26 @@
         <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
         <button id="GetStatus-btn" type="submit">获取状态</button>
     </form>
+    <table class="Status-Container">
+        <thead>
+        <tr>
+            <th>维护状态</th>
+            <th>剩余维护时间</th>
+            <th>故障状态</th>
+            <th>上次维护时间</th>
+            <th>维护次数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>${Data1}</td>
+            <td>${Data2}</td>
+            <td>${Data3}</td>
+            <td>${Data4}</td>
+            <td>${Data5}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
-<div class="Status-Container">
-    <!-- 状态信息将在此显示 -->
-    ${jsonData}
-    <script>
-        // 可以在这里添加JavaScript代码进行一些动态操作
-    </script>
-</div>
-
-<%--动态更新Status-Container（注释部分的Ajax代码）--%>
-<%--<script type="text/javascript">
-    function updateData() {
-        // 使用jQuery的ajax方法向服务器发送请求
-        var formData = $('#VehicleStatusForm').serialize();
-
-        $.ajax({
-            url: '/api/VehicleStatus/latestData',
-            method: 'POST',
-            data: formData,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            success: function (Data) {
-                // 处理成功响应，更新显示状态信息
-                var jsonObj = eval(Data);
-                var display = document.getElementById('Status-Container');
-                display.innerHTML = '<p>车辆编号：' + jsonObj[0] + '</p>';
-            },
-            error: function (error) {
-                // 处理错误响应
-                alert('ERROR');
-            }
-        });
-    }
-</script>--%>
-</body>
 </html>
