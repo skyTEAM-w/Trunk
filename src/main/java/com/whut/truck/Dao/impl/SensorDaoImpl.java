@@ -4,9 +4,7 @@ import com.whut.truck.entity.Sensor;
 import com.whut.truck.utils.JDBC_UTL;
 import com.whut.truck.Dao.SensorDao;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,13 +12,12 @@ import java.sql.SQLException;
 
 public class SensorDaoImpl implements SensorDao{
     @Override
-    public Integer csvSave(Sensor sensor) throws IOException {                   //将csv保存进数据库
+    public Integer csvSave(InputStream inputStream) throws IOException {                   //将csv保存进数据库
         Connection connection = JDBC_UTL.getconnection();
         String sql_check = "SELECT * FROM `game`.`传感器数据` where `车辆id` = ? and `运行轮数` = ?";
         PreparedStatement statement_check = null;
         Integer result = null;
 
-        String csvFile = "D:/000001/1/train_FD001.csv";
         String line;
         String csvSplitBy = ",";
         String[] data = new String[0];
@@ -31,7 +28,7 @@ public class SensorDaoImpl implements SensorDao{
         PreparedStatement updateStmt = null;
         String count1 = null;
         String count2 = null;
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             while ((line = br.readLine()) != null && counter < 9) {
                 String id = null;
                 String times = null;
