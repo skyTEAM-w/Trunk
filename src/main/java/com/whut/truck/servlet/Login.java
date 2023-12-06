@@ -61,6 +61,7 @@ public class Login extends HttpServlet {
                 printWriter.println("<p>" + username + "</p>");
                 printWriter.println("<p>" + password + "</p>");
                 req.getSession().setAttribute("systemAdmin", username);
+                req.getSession().setAttribute("componentName", "default");
                 resp.sendRedirect("Hall.jsp");
             }
         }

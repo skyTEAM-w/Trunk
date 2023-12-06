@@ -2,7 +2,7 @@ package com.whut.truck.VSDetect;
 
 import javax.servlet.http.HttpServlet;
 
-public class VSDetective extends  HttpServlet {
+public class VSDetective extends HttpServlet {
 
     private String vehicleNumber;
     private String maintenanceStatus;
@@ -19,6 +19,7 @@ public class VSDetective extends  HttpServlet {
     public VSDetective() {
 //留空
     }
+
     public String getVehicleNumber() {
         return vehicleNumber;
     }

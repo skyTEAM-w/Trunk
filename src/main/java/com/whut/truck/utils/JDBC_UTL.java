@@ -2,11 +2,7 @@ package com.whut.truck.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 
@@ -21,6 +17,7 @@ public class JDBC_UTL {
             throw new RuntimeException(e);
         }
     }
+
     public static Connection getconnection() throws IOException {
         InputStream inputStream = JDBC_UTL.class.getClassLoader().getResourceAsStream("db_connect.xml");
         Properties properties = new Properties();

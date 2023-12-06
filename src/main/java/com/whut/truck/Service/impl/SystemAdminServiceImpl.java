@@ -1,15 +1,16 @@
 package com.whut.truck.Service.impl;
 
+import com.whut.truck.Dao.SystemAdminDao;
+import com.whut.truck.Dao.impl.SystemAdminDaoImpl;
 import com.whut.truck.Dto.SystemAdminDto;
 import com.whut.truck.Service.SystemAdminService;
 import com.whut.truck.entity.SystemAdmin;
-import com.whut.truck.Dao.SystemAdminDao;
-import com.whut.truck.Dao.impl.SystemAdminDaoImpl;
 
 import java.io.IOException;
 
 public class SystemAdminServiceImpl implements SystemAdminService {
     private SystemAdminDao systemAdminDao = new SystemAdminDaoImpl();
+
     @Override
     public SystemAdminDto login(String username, String password) throws IOException {       //登录
 
@@ -48,7 +49,7 @@ public class SystemAdminServiceImpl implements SystemAdminService {
     @Override
     public SystemAdminDto save(SystemAdmin systemAdmin) throws IOException {        //注册
         Integer save = this.systemAdminDao.save(systemAdmin);
-        if(save != 1) throw new RuntimeException("注册信息添加失败");
+        if (save != 1) throw new RuntimeException("注册信息添加失败");
         return null;
     }
 }

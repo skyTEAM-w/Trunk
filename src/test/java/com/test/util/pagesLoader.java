@@ -17,8 +17,9 @@ public class pagesLoader {
     public void main() {
         System.out.println(getUnprotectedPages());
     }
+
     public static List<String> getUnprotectedPages() {
-        List<String>  unprotectedPages = new ArrayList<>();
+        List<String> unprotectedPages = new ArrayList<>();
         try {
             InputStream inputStream = unprotectedPagesLoader.class.getClassLoader().getResourceAsStream("excluded_pages.xml");
 
@@ -34,7 +35,7 @@ public class pagesLoader {
                 String pagePath = pageElement.getTextContent();
                 unprotectedPages.add(pagePath);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

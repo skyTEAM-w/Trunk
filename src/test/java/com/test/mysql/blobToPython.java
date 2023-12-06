@@ -8,7 +8,6 @@ import com.whut.truck.utils.HttpCommunicationLayer;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.sql.Blob;
 import java.sql.SQLException;
 
 public class blobToPython {

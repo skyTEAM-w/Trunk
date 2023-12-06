@@ -2,4 +2,5 @@
 <unprotected-pages>
     <page>/Register.jsp</page>
     <page>/Fuckyou.jsp</page>
+    <page>/default.jsp</page>
 </unprotected-pages>

@@ -1,14 +1,11 @@
 package com.whut.truck.Dao.impl;
 
 import com.whut.truck.Dao.VehicleStatusDao;
-import com.whut.truck.utils.JDBC_UTL;
 import com.whut.truck.entity.VehicleStatus;
+import com.whut.truck.utils.JDBC_UTL;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.sql.*;
 
 public class VehicleStatusDaoImpl implements VehicleStatusDao {
@@ -16,13 +13,13 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
     //查询车辆id
     public VehicleStatus findByVehicle_id(String vehicle_id) throws IOException {          //用vehicle_id进行查询
         Connection connection = JDBC_UTL.getconnection();
-        String sql_v = "SELECT * FROM `game`.`车辆状态` where `车辆id` = '"+vehicle_id+"'";
+        String sql_v = "SELECT * FROM `game`.`车辆状态` where `车辆id` = '" + vehicle_id + "'";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             statement = connection.prepareStatement(sql_v);
             resultSet = statement.executeQuery();
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 vehicle_id = resultSet.getString(1);
                 String maintenance_status = resultSet.getString(2);
                 Integer estimated_maintenance_time = resultSet.getInt(3);
@@ -33,9 +30,9 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
 
                 return new VehicleStatus(vehicle_id, maintenance_status, estimated_maintenance_time, previous_failure_status, Last_Maintenance_date, Maintenance_Frequency, Vehicle_file);
             }
-        }catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
+        } finally {
             JDBC_UTL.release(connection, statement, resultSet);
         }
         return null;
@@ -60,7 +57,7 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
             result = statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             JDBC_UTL.release(connection, statement, null);
         }
         return result;

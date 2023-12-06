@@ -1,12 +1,8 @@
 package com.whut.truck.servlet;
 
-import java.sql.Blob;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.whut.truck.Dto.VehicleStatusDto;
 import com.whut.truck.Service.VehicleStatusService;
 import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
-import com.whut.truck.Dto.VehicleStatusDto;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,15 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.sql.Blob;
+import java.util.List;
 
 @WebServlet(name = "VehicleStatusController", value = "/VehicleStatusController")
 public class VehicleStatusController extends HttpServlet {
     private VehicleStatusService vehicleStatusService = new VehicleStatusServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从请求参数中获取车辆编号
@@ -55,21 +49,22 @@ public class VehicleStatusController extends HttpServlet {
                 Blob Vehicle_file = vehicleStatusDto.getVehicleStatus().getVehicle_file();
 
                 String result = Maintenance_status + "\n";
-                request.setAttribute("Data1",result);
+                request.setAttribute("Data1", result);
                 result = Maintenance_time + "\n";
-                request.setAttribute("Data2",result);
+                request.setAttribute("Data2", result);
                 result = Failure_status + "\n";
-                request.setAttribute("Data3",result);
+                request.setAttribute("Data3", result);
                 result = Last_Maintenance_date + "\n";
-                request.setAttribute("Data4",result);
+                request.setAttribute("Data4", result);
                 result = Maintenance_Frequency;
-                request.setAttribute("Data5",result);
+                request.setAttribute("Data5", result);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/VehicleStatus.jsp");
-                dispatcher.forward(request,response);
+                dispatcher.forward(request, response);
 
             }
         }
     }
+
     private String convertDataToJson(List<Object> data) {
         //将数据转换为json
         StringBuilder jsonData = new StringBuilder("[");

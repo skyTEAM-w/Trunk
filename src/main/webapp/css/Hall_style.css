@@ -178,7 +178,7 @@ header {
     display: none;
 }
 
-.menu-box>label {
+.menu-box > label {
     position: absolute;
     top: 48%;
     right: 0;
@@ -195,7 +195,7 @@ header {
     overflow: hidden;
 }
 
-.menu-box>label>i {
+.menu-box > label > i {
     font-weight: 900;
     text-indent: -3px;
     font-size: 20px;
@@ -203,12 +203,12 @@ header {
     transform: rotate(0deg);
 }
 
-.menu-box>label:hover {
+.menu-box > label:hover {
     box-shadow: 0px 0px 2px 0px #000;
     color: var(--font-color-mi-hover);
 }
 
-.menu-box>input#menu-btn:checked+label>i {
+.menu-box > input#menu-btn:checked + label > i {
     transform: rotate(180deg);
 }
 
@@ -222,7 +222,7 @@ header {
     color: var(--font-color-mi);
 }
 
-.menu-box>input#menu-btn:checked~.menu {
+.menu-box > input#menu-btn:checked ~ .menu {
     width: 0;
 }
 
@@ -231,7 +231,7 @@ header {
     margin-bottom: 10px;
 }
 
-.menu-item>label {
+.menu-item > label {
     position: relative;
     width: 100%;
     height: 50px;
@@ -240,21 +240,21 @@ header {
     align-items: center;
 }
 
-.menu-item>label:hover {
+.menu-item > label:hover {
     color: var(--font-color-mi-hover);
 }
 
-.menu-item>label>i:first-child {
+.menu-item > label > i:first-child {
     flex: none;
     margin-right: 6px;
     font-size: 24px;
 }
 
-.menu-item>label>span {
+.menu-item > label > span {
     flex: 1;
 }
 
-.menu-item>label>i:last-child {
+.menu-item > label > i:last-child {
     flex: none;
     font-size: 20px;
     font-weight: 900;
@@ -262,7 +262,7 @@ header {
     transition: transform var(--transition-menu-time);
 }
 
-.menu-item>input:checked+label>i:last-child {
+.menu-item > input:checked + label > i:last-child {
     transform: rotate(180deg);
 }
 
@@ -276,26 +276,26 @@ header {
 }
 
 /* 选项，若 n 项，就 n * 40px */
-.menu-item>input#menu-item1:checked~.menu-content {
+.menu-item > input#menu-item1:checked ~ .menu-content {
     height: calc(4 * 40px);
 }
 
-.menu-item>input#menu-item2:checked~.menu-content {
+.menu-item > input#menu-item2:checked ~ .menu-content {
     height: calc(2 * 40px);
 }
 
-.menu-item>input#menu-item3:checked~.menu-content {
+.menu-item > input#menu-item3:checked ~ .menu-content {
     height: calc(3 * 40px);
 }
 
-.menu-content>span {
+.menu-content > span {
     width: 100%;
     text-indent: 20px;
     line-height: 40px;
     border-radius: var(--border-radius-mi);
 }
 
-.menu-content>span:hover {
+.menu-content > span:hover {
     background-color: var(--color-bg-mi-hover);
     color: var(--font-color-mi-hover);
 }
@@ -315,7 +315,7 @@ header {
 /*}*/
 
 /* 侧栏收起时调整空白区域大小 */
-.menu-box input[type="checkbox"]:checked~.component {
+.menu-box input[type="checkbox"]:checked ~ .component {
     margin-left: 60px; /* 侧栏宽度 */
 }
 
@@ -339,5 +339,5 @@ header {
     top: 0;
     right: 0;
     border-radius: 5px;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 }

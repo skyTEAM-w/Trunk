@@ -1,6 +1,5 @@
 package com.whut.truck.Dto;
 
-import com.whut.truck.entity.SystemAdmin;
 import com.whut.truck.entity.VehicleStatus;
 
 public class VehicleStatusDto {

@@ -18,7 +18,7 @@
 <body>
 <div class="longevity-container" method="">
     <h3>预计使用寿命:</h3>
-<%--    使用寿命将在此显示--%>
+    <%--    使用寿命将在此显示--%>
     <p th:text="${msg}" style="color: red"></p>
 </div>
 </body>

@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -61,10 +60,10 @@ public class HttpCommunicationLayer {
      *                    <p> 例如：20200101_000000_1.txt
      * @param fileType    预测类型。
      *                    <p>
-     *                          预测性维护： "predict"
+     *                    预测性维护： "predict"
      *                    </p>
      *                    <p>
-     *                          故障预测："classify"
+     *                    故障预测："classify"
      *                    </p>
      * @return 代表从 Python 服务器接收到的响应的 JsonObject。
      * @throws IOException 如果在从 InputStream 读取或与服务器通信时发生 I/O 错误。

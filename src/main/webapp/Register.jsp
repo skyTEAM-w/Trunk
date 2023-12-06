@@ -27,7 +27,7 @@
     </form>
     <form action="ReBackToLo" method="get">
         <input type="submit" value="点击回到登录页面"
-               <%--按钮属性，改了按钮就会错位！-From DDD--%>
+        <%--按钮属性，改了按钮就会错位！-From DDD--%>
                style="padding: 10px;
                     border: none;
                     border-radius: 5px;

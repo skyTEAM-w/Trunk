@@ -44,7 +44,7 @@ form ol {
 }
 
 form li,
-div>p {
+div > p {
     background: #eee;
     display: flex;
     justify-content: space-between;

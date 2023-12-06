@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -13,7 +13,7 @@ body {
 }
 
 .login-container {
-    background-color: whitesmoke;/* 登录框背景色 */
+    background-color: whitesmoke; /* 登录框背景色 */
     padding: 100px 300px;
     border-radius: 10px;
     margin:200px auto;
@@ -53,9 +53,9 @@ input {
 
 #Register-btn {
     background-color: #4285f4;
-    color:white;
+    color: white;
     border: none;
-    padding:10px;
+    padding: 10px;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;

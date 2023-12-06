@@ -158,6 +158,7 @@
     <!-- 导入阿里的图标样式文件 -->
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/Hall_style.css">
+    <script src="<%=path%>/js/Hall.js"></script>
 </head>
 
 <body>
@@ -193,18 +194,19 @@
                         <i class="menu-item-last iconfont icon-down"></i>
                     </label>
                     <div class="menu-content">
-                        <span>状态更新</span>
+                        <span onclick="updateComponent('Detection')">状态更新</span>
                         <span>故障检测</span>
                         <span>预测性维护</span>
-                        <span>车辆信息监控</span>
+                        <span onclick="updateComponent('VehicleStatus')">车辆信息监控</span>
                     </div>
                 </div>
                 <!-- 其他导航项可以继续添加 -->
 
             </div>
         </div>
-        <div class="component">
-            <jsp:include page="VehicleStatus.jsp"/>
+        <div class="component" >
+            <iframe id="componentContainer" style="height: 100%; width: 100%;border: 0;" src="Detection.jsp"></iframe>
+
         </div>
     </div>
 </div>
@@ -230,6 +232,20 @@
             }
         };
         xhr.send();
+    }
+
+    function updateComponent(componentName) {
+        // var xhr = new XMLHttpRequest();
+        var iframe = document.getElementById("componentContainer");
+        iframe.src = componentName + ".jsp";
+        // xhr.onreadystatechange = function () {
+        //     if (this.readyState === 4 && this.status === 200) {
+        //        iframe.src = this.responseText;
+        //        console.log(this.responseText);
+        //     }
+        // }
+        // xhr.open("GET", "HallServlet?componentName=" + componentName, true)
+        // xhr.send();
     }
 </script>
 

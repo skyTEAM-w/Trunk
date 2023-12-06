@@ -1,5 +1,7 @@
 package com.whut.truck.controller;
 
+import com.whut.truck.utils.unprotectedPagesLoader;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -7,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
-
-import com.whut.truck.utils.unprotectedPagesLoader;
 
 /**
  * 访问过滤器，用于控制对JSP页面的访问权限。

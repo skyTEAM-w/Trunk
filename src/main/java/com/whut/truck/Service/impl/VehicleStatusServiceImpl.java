@@ -5,13 +5,14 @@ import com.whut.truck.Dao.impl.VehicleStatusDaoImpl;
 import com.whut.truck.Dto.SystemAdminDto;
 import com.whut.truck.Dto.VehicleStatusDto;
 import com.whut.truck.Service.VehicleStatusService;
-import com.whut.truck.entity.SystemAdmin;
 import com.whut.truck.entity.VehicleStatus;
+
 import java.io.IOException;
 import java.io.InputStream;
 
 public class VehicleStatusServiceImpl implements VehicleStatusService {       //根据车辆id查找车辆数据
     private VehicleStatusDao vehicleStatusDao = new VehicleStatusDaoImpl();
+
     @Override
     public VehicleStatusDto find(String vehicle_id) throws IOException {             //通过vehicle_id进行查询
         VehicleStatus vehicleStatus = this.vehicleStatusDao.findByVehicle_id(vehicle_id);
@@ -29,7 +30,7 @@ public class VehicleStatusServiceImpl implements VehicleStatusService {       //
     @Override
     public VehicleStatusDto save(VehicleStatus vehicleStatus) throws IOException {    //添加车辆数据
         Integer save = this.vehicleStatusDao.save(vehicleStatus);
-        if(save != 1) throw new RuntimeException("车辆信息添加失败");
+        if (save != 1) throw new RuntimeException("车辆信息添加失败");
         return null;
     }
 
@@ -37,7 +38,7 @@ public class VehicleStatusServiceImpl implements VehicleStatusService {       //
     public VehicleStatusDto Insertfile(Integer id, InputStream inputStream) throws IOException {     //根据车辆id插入数据文件
         Integer Insert = this.vehicleStatusDao.Insert_file(id, inputStream);
         SystemAdminDto systemAdminDto = new SystemAdminDto();
-        if(Insert != 1) throw new RuntimeException("文件信息添加失败");
+        if (Insert != 1) throw new RuntimeException("文件信息添加失败");
         return null;
     }
 
