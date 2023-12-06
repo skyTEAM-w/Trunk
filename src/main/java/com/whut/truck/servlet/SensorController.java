@@ -11,8 +11,7 @@ import java.util.Scanner;
 
 public class SensorController {
     private SensorService sensorService = new SensorServiceImpl();
-    protected void csv_save() throws IOException {                //添加csv
-        InputStream inputStream = new FileInputStream("D:/000001/1/train_FD001.csv");
+    protected void csv_save(InputStream inputStream) throws IOException {                //添加csv
         this.sensorService.csv_save(inputStream);
         System.out.println("插入成功");
     }
