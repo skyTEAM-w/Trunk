@@ -117,7 +117,7 @@
 :root {
     --color-bg: #e7e7e7;
     --color-menu-bg: #232324;
-    --font-color-mi: #c9cdd4;
+    --font-color-mi: #F3B61F;
     --font-color-mi-hover: #a649d1;
     --color-bg-mi-hover: #303030;
     --border-radius-mi: 2px;
@@ -219,7 +219,7 @@ header {
     cursor: pointer;
     overflow: hidden;
     transition: width var(--transition-menu-time);
-    color: var(--font-color-mi);
+    color: #F3B61F;
 }
 
 .menu-box > input#menu-btn:checked ~ .menu {
@@ -328,11 +328,12 @@ header {
 .mainbody {
     height: 92vh;
     position: relative;
+    background-color:  #F3B61F;
 }
 
 .component {
-    height: 92vh;
-    width: calc(100% - 250px);
+    height: 91.5vh;
+    width: calc(98% - 250px);
     /* 动态计算宽度 */
     /* 与侧边栏宽度相同 */
     position: absolute;
