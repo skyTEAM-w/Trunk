@@ -7,13 +7,14 @@ body {
     display: flex;
     text-align: center;
     height: 100vh;
-    background: linear-gradient(to right, #DE6262, #FFB88C);
+    background: linear-gradient(to bottom, #000428, #004e92);
     color: #fff; /* 文字颜色 - 白色 */
     font-family: 'Arial', sans-serif;
 }
 
 .login-container {
     background-color: whitesmoke; /* 登录框背景色 */
+    background-color: rgba(255,255,255,0.7);
     padding: 100px 300px;
     border-radius: 10px;
     margin:200px auto;

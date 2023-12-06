@@ -165,7 +165,7 @@
 <div class="content">
     <!-- Header 开始 -->
     <header>
-        <p id="username"><%= getUserName(httpSession)%>
+        <p id="username">欢迎您！<%= getUserName(httpSession)%>
         </p>
         <div id="logoutButtonContainer">
             <button id="logoutButton" onclick="logout()">退出登录</button>

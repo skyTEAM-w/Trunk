@@ -9,22 +9,23 @@ body {
     text-align: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(to right, #DE6262, #FFB88C);
+    background: linear-gradient(to bottom, #000428, #004e92);
 }
 
-h1 {
-    color: #333;
+/*h1 {
+    color: white;
     top: 180px;
     margin-bottom: 10px;
     font-size: 50px;
     white-space: nowrap;
-}
+}*/
 
 label {
     display: block;
     margin: 10px 20px;
+    font-size: 50px;
     text-align: left;
-    font-size: large;
+    color: white;
 }
 
 input {
