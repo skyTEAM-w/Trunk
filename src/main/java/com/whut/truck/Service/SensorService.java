@@ -4,6 +4,7 @@ import com.whut.truck.Dto.SensorDto;
 import com.whut.truck.entity.Sensor;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public interface SensorService {
     //通过id查找数据库的csv数据
@@ -20,11 +21,11 @@ public interface SensorService {
 
     /**
      *
-     * @param sensor Sensor类
+     * @param inputStream 文件流
      * @return SensorDto错误信息
      * @throws IOException
      */
-    public SensorDto csv_save(Sensor sensor) throws IOException;
+    public SensorDto csv_save(InputStream inputStream) throws IOException;
 
 
     //将CSV文件中数据从数据库删除

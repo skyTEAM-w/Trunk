@@ -7,6 +7,7 @@ import com.whut.truck.Service.SensorService;
 import com.whut.truck.entity.Sensor;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public class SensorServiceImpl implements SensorService {
     private SensorDao sensorDao = new SensorDaoImpl();
@@ -21,8 +22,8 @@ public class SensorServiceImpl implements SensorService {
     }
 
     @Override
-    public SensorDto csv_save(Sensor sensor) throws IOException {          //将CSV文件中数据保存到数据库
-        Integer Insert = this.sensorDao.csvSave(sensor);
+    public SensorDto csv_save(InputStream inputStream) throws IOException {          //将CSV文件中数据保存到数据库
+        Integer Insert = this.sensorDao.csvSave(inputStream);
         SensorDto sensorDto = new SensorDto();
         if (Insert != 1) throw new RuntimeException("传感器信息添加失败");
         return sensorDto;

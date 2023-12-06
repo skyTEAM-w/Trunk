@@ -5,16 +5,15 @@ import com.whut.truck.Service.impl.SensorServiceImpl;
 import com.whut.truck.entity.Sensor;
 import com.whut.truck.Service.SensorService;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class SensorController {
     private SensorService sensorService = new SensorServiceImpl();
     protected void csv_save() throws IOException {                //添加csv
-        this.sensorService.csv_save(null);
+        InputStream inputStream = new FileInputStream("D:/000001/1/train_FD001.csv");
+        this.sensorService.csv_save(inputStream);
         System.out.println("插入成功");
     }
 
