@@ -20,10 +20,8 @@ public class blobToPython {
             vehicleStatusDto = statusService.Insertfile(1, blobToPython.class.getClassLoader().getResourceAsStream("jsonTest.txt"));
             vehicleStatusDto = statusService.find(String.valueOf(1));
             vehicleStatus = vehicleStatusDto.getVehicleStatus();
-            if (vehicleStatusDto != null) {
-                HttpCommunicationLayer communicationLayer = new HttpCommunicationLayer();
-                communicationLayer.connectToPython(vehicleStatus.getVehicle_file().getBinaryStream(), "20231205_120000_1.txt", "test");
-            }
+            HttpCommunicationLayer communicationLayer = new HttpCommunicationLayer();
+            communicationLayer.connectToPython(vehicleStatus.getVehicle_file().getBinaryStream(), "20231205_120000_1.txt", "test");
         } catch (Exception e) {
             e.printStackTrace();
         }

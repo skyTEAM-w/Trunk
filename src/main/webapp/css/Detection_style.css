@@ -4,7 +4,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #DE6262, #FFB88C);
+    background: linear-gradient(to bottom, #000428, #004e92);
 }
 
 h1 {
@@ -22,6 +22,7 @@ h1 {
     margin: 200px auto;
     /* 调整垂直居中的位置 */
     border-radius: 15px;
+    background-color: rgba(255,255,255,0.7);
 }
 
 .detection-container .VehicleData {

@@ -126,6 +126,17 @@
             <artifactId>spring-web</artifactId>
             <version>6.0.6</version> <!-- 请替换为最新版本 -->
         </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.javacsv</groupId>
+            <artifactId>javacsv</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>

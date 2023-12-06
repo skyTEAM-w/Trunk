@@ -1,140 +1,4 @@
-﻿<%--<%@ page import="jakarta.servlet.http.HttpSession" %>--%>
-<%--<%@ page import="java.util.Objects" %>--%>
-<%--<!DOCTYPE html>--%>
-<%--<html lang="en">--%>
-
-<%--<head>--%>
-<%--    <meta charset="UTF-8">--%>
-<%--    <meta name="viewport" content="width=device-width, initial-scale=1.0">--%>
-<%--    <title></title>--%>
-
-<%--    <!-- 引入样式表文件 -->--%>
-<%--    <link rel="stylesheet" type="text/css" href="css/Hall_style.css" />--%>
-<%--</head>--%>
-
-<%--<body>--%>
-
-<%--<!-- 顶部横向的 header -->--%>
-<%--<header>--%>
-<%--    <p id="username">--%>
-<%--    <div id="logoutButtonContainer">--%>
-<%--        <button id="logoutButton" onclick="logout()">退出登录</button>--%>
-<%--    </div>--%>
-<%--</header>--%>
-
-<%--<div class="wrapper">--%>
-<%--    <!-- 侧边栏导航 -->--%>
-<%--    <nav id="sidebar">--%>
-<%--        <ul class="list-unstyled components">--%>
-<%--            <li>--%>
-<%--                <a href="#faultDetectionSubMenu" data-toggle="collapse" aria-expanded="false"--%>
-<%--                   class="dropdown-toggle">故障检测和预测性维护</a>--%>
-<%--                <ul class="collapse list-unstyled" id="faultDetectionSubMenu">--%>
-<%--                    <li><a href="Detection.jsp">功能1</a></li>--%>
-<%--                    <li><a href="#">选项1</a></li>--%>
-<%--                    <li><a href="#">选项2</a></li>--%>
-<%--                    <!-- 可以添加更多子菜单项 -->--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li>--%>
-<%--                <a href="VehicleStatus.jsp">车辆信息监控</a>--%>
-<%--            </li>--%>
-<%--            <!-- 可以添加更多导航项 -->--%>
-<%--        </ul>--%>
-<%--    </nav>--%>
-
-<%--    <!-- 功能内容区域 -->--%>
-<%--    <div id="content">--%>
-<%--        <!-- 这里将显示所选功能的内容 -->--%>
-<%--        <!-- 默认显示欢迎信息或其他内容 -->--%>
-<%--        <h2>Welcome to Intelligent Vehicle Hall!</h2>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
-<%--<script>--%>
-<%--    var sidebar = document.getElementById('sidebar');--%>
-<%--    var content = document.getElementById('content');--%>
-
-<%--    sidebar.addEventListener('click', function (event) {--%>
-<%--        event.preventDefault();--%>
-<%--        var pageHref = event.target.getAttribute('href');--%>
-
-<%--        if (event.target.parentElement.classList.contains('dropdown-toggle')) {--%>
-<%--            handleDropdownItemClick(event);--%>
-<%--        } else {--%>
-<%--            loadPageContent(pageHref);--%>
-<%--        }--%>
-<%--    });--%>
-
-<%--    function loadPageContent(pageHref) {--%>
-<%--        fetch(pageHref)--%>
-<%--            .then(function (response) {--%>
-<%--                return response.text();--%>
-<%--            })--%>
-<%--            .then(function (contentHTML) {--%>
-<%--                content.innerHTML = contentHTML;--%>
-<%--                initializeStyles();--%>
-<%--            })--%>
-<%--            .catch(function (error) {--%>
-<%--                console.error('Error loading page content:', error);--%>
-<%--            });--%>
-<%--    }--%>
-
-<%--    function initializeStyles() {--%>
-<%--        initializeSidebarStyles();--%>
-<%--        // 可以添加其他样式初始化逻辑--%>
-<%--    }--%>
-
-<%--    function initializeSidebarStyles() {--%>
-<%--        // 添加点击事件监听器--%>
-<%--        sidebar.addEventListener('click', function (event) {--%>
-<%--            event.preventDefault();--%>
-<%--            var pageHref = event.target.getAttribute('href');--%>
-<%--            if (event.target.parentElement.classList.contains('dropdown-toggle')) {--%>
-<%--                handleDropdownItemClick(event);--%>
-<%--            } else {--%>
-<%--                loadPageContent(pageHref);--%>
-<%--            }--%>
-<%--        });--%>
-
-<%--        // 可以添加其他侧边栏样式初始化逻辑--%>
-<%--    }--%>
-
-<%--    function handleDropdownItemClick(event) {--%>
-<%--        var dropdownItemHref = event.target.getAttribute('href');--%>
-<%--        loadPageContent(dropdownItemHref);--%>
-<%--    }--%>
-
-<%--    function logout() {--%>
-<%--        var xhr = new XMLHttpRequest();--%>
-<%--        xhr.open("GET", "Logout", true);--%>
-<%--        xhr.onload = function () {--%>
-<%--            if (xhr.status === 200) {--%>
-<%--                console.log("Logout successful");--%>
-<%--                window.location.href = "Login.jsp";--%>
-<%--            } else {--%>
-<%--                console.error("Logout failed");--%>
-<%--            }--%>
-<%--        };--%>
-<%--        xhr.send();--%>
-<%--    }--%>
-
-<%--    document.addEventListener("DOMContentLoaded", function () {--%>
-<%--        initializeStyles();--%>
-<%--    });--%>
-<%--</script>--%>
-
-<%--<%!--%>
-<%--    String getUserName(HttpSession session) {--%>
-<%--        String systemAdmin = (String) session.getAttribute("systemAdmin");--%>
-<%--        return Objects.requireNonNullElse(systemAdmin, "游客");--%>
-<%--    }--%>
-<%--%>--%>
-
-<%--</body>--%>
-
-<%--</html>--%>
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
+﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
 <%@page import="com.whut.truck.entity.SystemAdmin" %>
 <%@page import="java.lang.String" %>
 <%@page import="javax.servlet.http.HttpSession" %>
@@ -165,7 +29,7 @@
 <div class="content">
     <!-- Header 开始 -->
     <header>
-        <p id="username"><%= getUserName(httpSession)%>
+        <p id="username">欢迎您！<%= getUserName(httpSession)%>
         </p>
         <div id="logoutButtonContainer">
             <button id="logoutButton" onclick="logout()">退出登录</button>
@@ -195,8 +59,8 @@
                     </label>
                     <div class="menu-content">
                         <span onclick="updateComponent('Detection')">状态更新</span>
-                        <span>故障检测</span>
-                        <span>预测性维护</span>
+                        <span onclick="updateComponent('Fix')">故障检测</span>
+                        <span onclick="updateComponent('Longevity')">预测性维护</span>
                         <span onclick="updateComponent('VehicleStatus')">车辆信息监控</span>
                     </div>
                 </div>
@@ -205,8 +69,7 @@
             </div>
         </div>
         <div class="component" >
-            <iframe id="componentContainer" style="height: 100%; width: 100%;border: 0;" src="Detection.jsp"></iframe>
-
+            <iframe id="componentContainer" style="height: 100%; width: 100%;border: 0;" src="default.jsp"></iframe>
         </div>
     </div>
 </div>
@@ -219,34 +82,5 @@
     }
 %>
 
-<script>
-    function logout() {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "Logout", true);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                console.log("Logout successful");
-                window.location.href = "Login.jsp";
-            } else {
-                console.error("Logout failed");
-            }
-        };
-        xhr.send();
-    }
-
-    function updateComponent(componentName) {
-        // var xhr = new XMLHttpRequest();
-        var iframe = document.getElementById("componentContainer");
-        iframe.src = componentName + ".jsp";
-        // xhr.onreadystatechange = function () {
-        //     if (this.readyState === 4 && this.status === 200) {
-        //        iframe.src = this.responseText;
-        //        console.log(this.responseText);
-        //     }
-        // }
-        // xhr.open("GET", "HallServlet?componentName=" + componentName, true)
-        // xhr.send();
-    }
-</script>
 
 </html>
