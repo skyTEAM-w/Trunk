@@ -13,12 +13,7 @@ function logout() {
 }
 
 function updateComponent(componentName) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-            document.getElementById(componentName).innerHTML = this.responseText;
-        }
-    }
-    xhr.open("GET", "HallServlet?componentName=" + componentName, true)
-    xhr.send();
+    var iframe = document.getElementById("componentContainer");
+    iframe.src = componentName + ".jsp";
+
 }
