@@ -1,7 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
-<% String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-            + request.getServerPort() + path + "/"; %>
+<% String path=request.getContextPath(); String basePath=request.getScheme() + "://" + request.getServerName() + ":"
+        + request.getServerPort() + path + "/" ; %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>故障检测和预测性维护</title>
     <link rel="stylesheet" href="css/Detection_style.css">
-<%--    <script src="<%=path%>/js/detection.js" type="text/javascript"></script>--%>
 </head>
 
 <body>
@@ -27,9 +25,9 @@
         <form id="uploadForm" enctype="multipart/form-data">
             <!-- 文件上传部分 -->
             <div>
-                <select class="select" name="selectName">
-                    <option value="sensor">传感器数据</option>
-                    <option value="vibration">振动数据</option>
+                <select class="select">
+                    <option value="1">传感器数据</option>
+                    <option value="2">震动数据</option>
                 </select>
                 <!-- 文件选择标签 -->
                 <label for="upload">请选择要上传的数据：(.txt)</label>
@@ -53,65 +51,19 @@
     </div>
 </div>
 
+<!-- JavaScript部分 -->
 <script>
-    function Detection() {
-        window.location.href = "Longevity.jsp";
-    }
-
-    // 跳转到预测性维护页面
-    function Fix() {
-        window.location.href = "Fix.jsp";
-    }
+    console.log('Detection.jsp JavaScript code executed');
 
     // 获取页面中的文件上传元素和预览元素
-    const input = document.querySelector('input');
     const input = document.querySelector('#upload');
     const preview = document.querySelector('.preview');
 
     // 获取提交按钮元素
     const submitBtn = document.querySelector('#File-btn');
 
-
     // 将文件上传元素设为不可见
     input.style.opacity = 0;
-
-    // 获取表单元素
-    const form = document.querySelector('form');
-
-    // 添加表单提交事件监听器
-    form.addEventListener('submit', function (event) {
-        // 获取当前选择的文件列表
-        const curFiles = input.files;
-
-        // 如果没有选择文件，阻止表单提交
-        if (curFiles.length === 0) {
-            alert('请先选择要上传的文件！');
-            event.preventDefault(); // 阻止提交
-        } else {
-            // 遍历选择的文件列表
-            for (const file of curFiles) {
-                // 检查文件类型是否为text/plain
-                if (!validFileType(file)) {
-                    alert('只能上传.txt文件');
-                    event.preventDefault(); // 阻止提交
-                    break; // 如果一个文件不合要求就不再检查其他文件
-                }
-                if (!validFileName(file.name)) {
-                    alert('文件名格式必须为YYYYmmDD_hhMMss_id.txt');
-                    event.preventDefault(); // 阻止提交
-                    break; // 如果一个文件不合要求就不再检查其他文件'
-                }
-            }
-            // 在文件上传成功后执行
-            if (uploadSuccess) {
-                // 设置成功消息显示
-                document.getElementById('successMessage').style.display = 'block';
-            }
-
-
-
-        }
-    });
 
     // 添加文件选择变化事件监听器
     input.addEventListener('change', updateImageDisplay);
@@ -144,10 +96,6 @@
                 if (validFileType(file)) {
                     // 如果文件类型有效，显示文件名和大小
                     para.textContent = '文件名：' + file.name + ', 文件大小：' + returnFileSize(file.size) + '.';
-                    //const image = document.createElement('img');
-                    //image.src = URL.createObjectURL(file);
-
-                    // 将图像元素添加到列表项
                     listItem.appendChild(para);
                 } else {
                     // 如果文件类型无效，显示提示信息
@@ -167,13 +115,6 @@
     // 检查文件类型是否合法的函数
     function validFileType(file) {
         return fileTypes.includes(file.type);
-    }
-
-    // 检查文件名是否符合特定格式的函数
-    function validFileName(fileName) {
-        // 使用正则表达式匹配特定格式
-        const regex = /^\d{8}_\d{6}_\w{1,10}\.txt$/;
-        return regex.test(fileName);
     }
 
     // 返回文件大小的格式化字符串的函数
@@ -215,9 +156,6 @@
         xhr.send(formData);
     });
 </script>
-
-<!-- JavaScript部分 -->
-
 </body>
 
 </html>
