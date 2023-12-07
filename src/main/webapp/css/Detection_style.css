@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color:  #F3B61F;
+    background: #F3B61F;
 }
 
 h1 {
@@ -22,7 +22,6 @@ h1 {
     margin: 200px auto;
     /* 调整垂直居中的位置 */
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.7);
 }
 
 .detection-container .VehicleData {
@@ -45,7 +44,7 @@ form ol {
 }
 
 form li,
-div > p {
+div>p {
     background: #eee;
     display: flex;
     justify-content: space-between;
