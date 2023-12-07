@@ -31,7 +31,7 @@ public class SensorDaoImpl implements SensorDao{
         String count1 = null;
         String count2 = null;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-            while ((line = br.readLine()) != null && counter < 9) {
+            while ((line = br.readLine()) != null && counter < 30) {
                 String id = null;
                 String times = null;
                 if (counter != 0) {

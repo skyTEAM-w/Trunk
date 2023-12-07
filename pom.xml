@@ -137,6 +137,11 @@
             <artifactId>commons-net</artifactId>
             <version>3.9.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>three</artifactId>
+            <version>0.155.0</version>
+        </dependency>
     </dependencies>
 
     <build>

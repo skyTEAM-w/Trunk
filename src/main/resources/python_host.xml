@@ -2,5 +2,5 @@
 <python-host>
     <url>http://localhost:</url>
     <port>11200</port>
-    <router>/app</router>
+    <router>/test</router>
 </python-host>

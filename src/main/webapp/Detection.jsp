@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>故障检测和预测性维护</title>
     <link rel="stylesheet" href="css/Detection_style.css">
-    <script src="<%=path%>/js/detection.js"></script>
+<%--    <script src="<%=path%>/js/detection.js" type="text/javascript"></script>--%>
 </head>
 
 <body>
@@ -53,7 +53,6 @@
     </div>
 </div>
 
-<!-- JavaScript部分 -->
 <script>
     console.log('Detection.jsp JavaScript code executed');
 
@@ -158,6 +157,9 @@
         xhr.send(formData);
     });
 </script>
+
+<!-- JavaScript部分 -->
+
 </body>
 
 </html>
