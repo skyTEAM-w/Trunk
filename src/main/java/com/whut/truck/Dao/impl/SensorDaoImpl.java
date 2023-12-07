@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SensorDaoImpl implements SensorDao{
     @Override
@@ -83,34 +85,35 @@ public class SensorDaoImpl implements SensorDao{
 
 
     @Override
-    public Sensor findBysensorline(String line) throws IOException {
+    public List<Sensor> findBysensorid(String id) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
-        String sql = "SELECT * FROM `game`.`传感器数据` where `列数` = '"+line+"'";    //根据列数查找数据库的csv数据
+        String sql = "SELECT * FROM `game`.`传感器数据` where `车辆id` =  '"+id+"' ORDER BY RAND() LIMIT 30";    //车辆id
         PreparedStatement statement = null;
+        List<Sensor> List = new ArrayList<>();
         ResultSet resultSet = null;
         try {
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
-            if(resultSet.next()) {
+            while (resultSet.next()) {
                 String[] values = new String[27];
                 for (int i = 1; i <= 27; i++) {
                     values[i-1]=resultSet.getString(i);
-                    System.out.println(values[i-1]);
                 }
-                return new Sensor(values[0],values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8], values[9], values[10], values[11], values[12], values[13], values[14], values[15], values[16], values[17], values[18], values[19], values[20],values[21], values[22], values[23],values[24],values[25],values[26]);    //封装
+                List.add(new Sensor(values[0],values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8], values[9], values[10], values[11], values[12], values[13], values[14], values[15], values[16], values[17], values[18], values[19], values[20],values[21], values[22], values[23],values[24],values[25],values[26]));    //封装   // 将每个结果添加到结果集中
             }
-        }catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
+        } finally {
             JDBC_UTL.release(connection, statement, resultSet);
         }
-        return null;
+        return List;
     }
 
     @Override
     public Integer csvDelete(Sensor sensor) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
-        String sql = "DELETE FROM `game`.`传感器数据` where `车辆id` between '0' and '30'";    //删除数据库中csv的前30行
+        //String sql = "DELETE FROM `game`.`传感器数据` where `车辆id` between '0' and '30'";    //删除数据库中csv的前30行
+        String sql = "truncate table `game`.`传感器数据`";
         PreparedStatement statement = null;
         Integer result = null;
         try {

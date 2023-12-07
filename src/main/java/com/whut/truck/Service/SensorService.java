@@ -11,11 +11,11 @@ public interface SensorService {
 
     /**
      *
-     * @param line 列数
+     * @param id 列数
      * @return SensorDto错误信息
      * @throws IOException
      */
-    public SensorDto csv_find(String line) throws IOException;
+    public SensorDto csv_find(String id) throws IOException;
 
     //将CSV文件中数据保存到数据库
 

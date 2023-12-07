@@ -8,16 +8,18 @@ import com.whut.truck.entity.Sensor;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class SensorServiceImpl implements SensorService {
     private SensorDao sensorDao = new SensorDaoImpl();
 
 
     @Override
-    public SensorDto csv_find(String line) throws IOException {           //通过列数查找数据库的csv数据
-        Sensor sensor = this.sensorDao.findBysensorline(line);
+    public SensorDto csv_find(String id) throws IOException {           //通过列数查找数据库的csv数据
+        List<Sensor> adminList  =null;
+        adminList = this.sensorDao.findBysensorid(id);
         SensorDto sensorDto = new SensorDto();
-        sensorDto.setSensor(sensor);
+        sensorDto.setList_SystemAdmin(adminList);
         return sensorDto;
     }
 
