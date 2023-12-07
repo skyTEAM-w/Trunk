@@ -4,6 +4,7 @@ import com.whut.truck.entity.Sensor;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public interface SensorDao {
     // 将CSV文件中数据保存到数据库
@@ -17,11 +18,11 @@ public interface SensorDao {
     // 根据传感器列数查找对应的传感器对象
     /**
      *
-     * @param line 列数
-     * @return Sensor类
+     * @param id 列数
+     * @return List<Sensor>类
      * @throws IOException
      */
-    public Sensor findBysensorline(String line) throws IOException;
+    public List<Sensor> findBysensorid(String id) throws IOException;
     // 从数据库删除CSV数据
     /**
      *
