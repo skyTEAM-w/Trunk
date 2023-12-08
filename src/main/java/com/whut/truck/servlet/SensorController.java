@@ -16,15 +16,19 @@ public class SensorController {
         System.out.println("插入成功");
     }
 
-    public void csv_find(String id) throws IOException {         //查询csv
+    /**
+     * 按车辆编号查询传感器数据，以CSVStream形式输出
+     * @param id 需要查询的车辆编号
+     * @return CSV输入流
+     * @throws IOException
+     */
+    public InputStream csv_find(String id) throws IOException {         //查询csv
        /* System.out.print("请输入需要查找的id：");
         Scanner scanner_quantity = new Scanner(System.in);
         String input_id = scanner_quantity.nextLine();*/
         SensorDto sensorDto = this.sensorService.csv_find(id);
 
-        for (Sensor admin : sensorDto.getList_Sensor()) {
-            System.out.println(admin.getLine() + " " + admin.getSensor_id() + " " + admin.getDescribe() + " " + admin.getSetting1() + " " + admin.getSetting2() + " " + admin.getSetting3() + " " + admin.getS1() + " " + admin.getS2() + " " + admin.getS3() + " " + admin.getS4() + " " + admin.getS5() + " " + admin.getS6() + " " + admin.getS7() + " " + admin.getS8() + " " + admin.getS9() + " " + admin.getS10() + " " + admin.getS11() + " " + admin.getS12() + " " + admin.getS13() + " " + admin.getS14() + " " + admin.getS15() + " " + admin.getS16() + " " + admin.getS17() + " " + admin.getS18() + " " + admin.getS19() + " " + admin.getS20() + " " + admin.getS21());
-        }
+        return sensorDto.getSensorStream();
     }
 
     public void delete_csv() throws IOException {           //删除全部传感器数据

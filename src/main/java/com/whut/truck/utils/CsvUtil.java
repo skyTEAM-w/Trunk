@@ -1,4 +1,4 @@
-package com.test.util;
+package com.whut.truck.utils;
 
 import com.opencsv.CSVWriter;
 
@@ -10,7 +10,16 @@ import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Csv工具类
+ * <p>用于获取数据库数据并转换成Csv形式的InputStream</p>
+ */
 public class CsvUtil {
+    /**
+     * ResultSet转CSV的InputStream
+     * @param resultSet 数据库获取后的ResultSet
+     * @return CSV内容的InputStream
+     */
     public static InputStream resultSetToCSV(ResultSet resultSet) {
         StringBuilder csvData = new StringBuilder();
         try (CSVWriter csvWriter = new CSVWriter(new OutputStreamWriter(System.out))) {
@@ -31,6 +40,13 @@ public class CsvUtil {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 获取表头
+     * @param resultSet 数据库查询结果集合
+     * @return 表头
+     * @throws SQLException
+     */
     private static String[] getColumnHeaders(ResultSet resultSet) throws SQLException {
         int columnCount = resultSet.getMetaData().getColumnCount();
         String[] columnHeaders = new String[columnCount];
@@ -40,6 +56,12 @@ public class CsvUtil {
         return columnHeaders;
     }
 
+    /**
+     * 行数据获取
+     * @param resultSet 数据库查询集合
+     * @return 列数据数据
+     * @throws SQLException
+     */
     private static String[] getRowData(ResultSet resultSet) throws SQLException {
         int columnCount = resultSet.getMetaData().getColumnCount();
         String[] rowData = new String[columnCount];

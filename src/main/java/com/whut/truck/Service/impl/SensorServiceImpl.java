@@ -16,10 +16,11 @@ public class SensorServiceImpl implements SensorService {
 
     @Override
     public SensorDto csv_find(String id) throws IOException {           //通过列数查找数据库的csv数据
-        List<Sensor> adminList  =null;
-        adminList = this.sensorDao.findBysensorid(id);
+//        List<Sensor> adminList  =null;
+//        adminList = this.sensorDao.findBysensorid(id);
         SensorDto sensorDto = new SensorDto();
-        sensorDto.setList_SystemAdmin(adminList);
+        sensorDto.setSensorStream(this.sensorDao.findBysensorid(id));
+//        sensorDto.setList_SystemAdmin(adminList);
         return sensorDto;
     }
 

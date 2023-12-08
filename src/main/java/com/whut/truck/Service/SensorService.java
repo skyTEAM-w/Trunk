@@ -11,7 +11,7 @@ public interface SensorService {
 
     /**
      *
-     * @param id 列数
+     * @param id 车辆id
      * @return SensorDto错误信息
      * @throws IOException
      */

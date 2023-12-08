@@ -2,6 +2,7 @@ package com.whut.truck.Dto;
 
 import com.whut.truck.entity.Sensor;
 
+import java.io.InputStream;
 import java.util.List;
 
 public class SensorDto {
@@ -10,6 +11,16 @@ public class SensorDto {
     // 传感器对象
     private Sensor Sensor;
     private List<Sensor> List_Sensor;
+
+    private InputStream sensorStream;
+
+    public InputStream getSensorStream() {
+        return sensorStream;
+    }
+
+    public void setSensorStream(InputStream sensorStream) {
+        this.sensorStream = sensorStream;
+    }
 
     public Integer getMsg() {
         return msg;

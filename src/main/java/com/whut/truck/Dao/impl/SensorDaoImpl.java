@@ -1,6 +1,7 @@
 package com.whut.truck.Dao.impl;
 
 import com.whut.truck.entity.Sensor;
+import com.whut.truck.utils.CsvUtil;
 import com.whut.truck.utils.JDBC_UTL;
 import com.whut.truck.Dao.SensorDao;
 
@@ -85,7 +86,7 @@ public class SensorDaoImpl implements SensorDao{
 
 
     @Override
-    public List<Sensor> findBysensorid(String id) throws IOException {
+    public InputStream findBysensorid(String id) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
         String sql = "SELECT * FROM `game`.`传感器数据` where `车辆id` =  '"+id+"' ORDER BY `列数` DESC LIMIT 30";     //车辆id
         PreparedStatement statement = null;
@@ -94,19 +95,13 @@ public class SensorDaoImpl implements SensorDao{
         try {
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                String[] values = new String[27];
-                for (int i = 1; i <= 27; i++) {
-                    values[i-1]=resultSet.getString(i);
-                }
-                List.add(new Sensor(values[0],values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8], values[9], values[10], values[11], values[12], values[13], values[14], values[15], values[16], values[17], values[18], values[19], values[20],values[21], values[22], values[23],values[24],values[25],values[26]));    //封装   // 将每个结果添加到结果集中
-            }
+            return CsvUtil.resultSetToCSV(resultSet);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
             JDBC_UTL.release(connection, statement, resultSet);
         }
-        return List;
+        return null;
     }
 
     @Override
