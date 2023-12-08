@@ -6,6 +6,8 @@
 body {
     display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     background: #F3B61F;
     color: #fff; /* 文字颜色 - 白色 */
