@@ -24,6 +24,8 @@ public class SensorServiceImpl implements SensorService {
         return sensorDto;
     }
 
+
+
     @Override
     public SensorDto csv_save(InputStream inputStream) throws IOException {          //将CSV文件中数据保存到数据库
         Integer Insert = this.sensorDao.csvSave(inputStream);
@@ -37,6 +39,14 @@ public class SensorServiceImpl implements SensorService {
         Integer Insert = this.sensorDao.csvDelete(sensor);
         SensorDto sensorDto = new SensorDto();
         if (Insert == 0) throw new RuntimeException("传感器信息删除失败");
+        return sensorDto;
+    }
+
+    @Override
+    public SensorDto csv_output_one_line(String id, String cycle) throws IOException {
+        SensorDto sensorDto = new SensorDto();
+        sensorDto.setSensor(this.sensorDao.findByid_output_oneline(id, cycle));
+//        sensorDto.setList_SystemAdmin(adminList);
         return sensorDto;
     }
 }

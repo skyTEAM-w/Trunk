@@ -31,6 +31,10 @@ public class SensorController {
         return sensorDto.getSensorStream();
     }
 
+    /**
+     * @return null
+     * @throws IOException
+     */
     public void delete_csv() throws IOException {           //删除全部传感器数据
         /*System.out.print("请输入需要查找的id：");
         Scanner scanner_quantity = new Scanner(System.in);
@@ -38,5 +42,45 @@ public class SensorController {
 
         SensorDto systemAdminDto = this.sensorService.csv_delete(null);
         System.out.println("删除成功");
+    }
+
+    /**
+     *
+     * @param id
+     * @return data字符组
+     * @throws IOException
+     */
+    public String[] output_one_lineBY_id(String id,String cycle) throws IOException {
+        SensorDto sensorDto = this.sensorService.csv_output_one_line(id, cycle);
+        String[] data = new String[27];
+        data[0] = sensorDto.getSensor().getLine();
+        data[1] = sensorDto.getSensor().getSensor_id();
+        data[2] = sensorDto.getSensor().getDescribe();
+        data[3] = sensorDto.getSensor().getSetting1();
+        data[4] = sensorDto.getSensor().getSetting2();
+        data[5] = sensorDto.getSensor().getSetting3();
+        data[6] = sensorDto.getSensor().getS1();
+        data[7] = sensorDto.getSensor().getS2();
+        data[8] = sensorDto.getSensor().getS3();
+        data[9] = sensorDto.getSensor().getS4();
+        data[10] = sensorDto.getSensor().getS5();
+        data[11] = sensorDto.getSensor().getS6();
+        data[12] = sensorDto.getSensor().getS7();
+        data[13] = sensorDto.getSensor().getS8();
+        data[14] = sensorDto.getSensor().getS9();
+        data[15] = sensorDto.getSensor().getS10();
+        data[16] = sensorDto.getSensor().getS11();
+        data[17] = sensorDto.getSensor().getS12();
+        data[18] = sensorDto.getSensor().getS13();
+        data[19] = sensorDto.getSensor().getS14();
+        data[20] = sensorDto.getSensor().getS15();
+        data[21] = sensorDto.getSensor().getS16();
+        data[22] = sensorDto.getSensor().getS17();
+        data[23] = sensorDto.getSensor().getS18();
+        data[24] = sensorDto.getSensor().getS19();
+        data[25] = sensorDto.getSensor().getS20();
+        data[26] = sensorDto.getSensor().getS21();
+        System.out.println("查询成功");
+        return data;
     }
 }

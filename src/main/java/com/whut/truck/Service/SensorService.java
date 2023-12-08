@@ -37,4 +37,12 @@ public interface SensorService {
      * @throws IOException
      */
     public SensorDto csv_delete(Sensor sensor) throws IOException;
+
+    /**
+     *
+     * @param id   id查找数据库对应行               输出一行数据
+     * @return SensorDto错误信息
+     * @throws IOException
+     */
+    public SensorDto csv_output_one_line(String id, String cycle) throws IOException;
 }
