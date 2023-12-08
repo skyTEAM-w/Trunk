@@ -11,15 +11,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>预测故障</title>
-    <link rel="stylesheet" href="css/Fix_style.css">
+    <title>预计使用寿命</title>
+    <!-- 外部CSS链接 -->
+    <link rel="stylesheet" href="css/Longevity_style.css">
 </head>
 
 <body>
-<div class="fix-container" method="">
-    <h3>预测故障为:</h3>
-    <%--    预测的故障将在此显示--%>
-    <p th:text="${msg}" style="color: red"></p>
+<div class="longevity-container">
+    <div class="page-header">
+        <p>id:123</p>
+        <button id="File-btn" type="button">检测</button>
+    </div>
+    <div class="paragraph-container">
+        <p>故障类型：</p>
+    </div>
 </div>
 </body>
 

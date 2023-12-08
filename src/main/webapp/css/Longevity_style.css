@@ -1,3 +1,4 @@
+/* 重置全局样式 */
 * {
     margin: 0;
     padding: 0;
@@ -5,17 +6,68 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: #F3B61F;
+    background-color: #F3B61F;
 }
 
 .longevity-container {
-    height: 200px;
+    height: 300px;
     width: 500px;
     background-color: whitesmoke;
-    margin: 250px auto;
+    margin: 200px auto;
     border-radius: 15px;
 }
 
-.longevity-container h3 {
-    padding: 80px 20px;
+/* 页面头部样式 */
+.page-header {
+    position: relative;
+}
+
+.page-header p {
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.page-header button {
+    position: absolute;
+    right: 30px;
+    top: 46px;
+    display: block;
+    background-color: whitesmoke;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px ridge black;
+    font-size: 0.8rem;
+    height: auto;
+}
+
+.page-header button:hover {
+    background-color: #4285f4;
+    color: white;
+}
+
+
+.page-header button:active {
+    background-color: #0D3F8F;
+    color: white;
+}
+
+/* 段落容器样式 */
+.paragraph-container {
+    position: relative;
+}
+
+.paragraph-container p {
+    position: absolute;
+    left: 30px;
+    top: 150px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    font-size: 30px;
 }
