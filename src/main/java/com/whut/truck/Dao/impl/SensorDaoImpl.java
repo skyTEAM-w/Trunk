@@ -122,4 +122,31 @@ public class SensorDaoImpl implements SensorDao{
         System.out.println(result);
         return  result;
     }
+
+    @Override
+    public Sensor findByid_output_oneline(String id, String cycle) throws IOException {
+        Connection connection = JDBC_UTL.getconnection();
+        String sql = "SELECT * FROM `game`.`传感器数据` where `车辆id` = ? and `运行轮数` = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1,id);
+            statement.setString(2,cycle);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String[] values = new String[27];
+                for (int i = 1; i <= 27; i++) {
+                    values[i - 1] = resultSet.getString(i);
+                }
+                return new Sensor(values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8], values[9], values[10], values[11], values[12], values[13], values[14], values[15], values[16], values[17], values[18], values[19], values[20], values[21], values[22], values[23], values[24], values[25], values[26]);    //封装   // 将每个结果添加到结果集中
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBC_UTL.release(connection, statement, resultSet);
+        }
+        return null;
+    }
 }

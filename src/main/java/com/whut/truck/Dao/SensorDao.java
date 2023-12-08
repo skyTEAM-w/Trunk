@@ -29,4 +29,13 @@ public interface SensorDao {
      * @throws IOException
      */
     public Integer csvDelete(Sensor sensor) throws IOException;
+
+    /**
+     *
+     * @param id  车辆id
+     * @param cycle 轮数
+     * @return Sensor类
+     * @throws IOException
+     */
+    public Sensor findByid_output_oneline(String id, String cycle) throws IOException;
 }
