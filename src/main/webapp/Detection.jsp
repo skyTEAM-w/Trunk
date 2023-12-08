@@ -25,9 +25,9 @@
         <form id="uploadForm" enctype="multipart/form-data">
             <!-- 文件上传部分 -->
             <div>
-                <select class="select">
-                    <option value="1">传感器数据</option>
-                    <option value="2">震动数据</option>
+                <select class="select" name="selectName">
+                    <option value="sensor">传感器数据</option>
+                    <option value="vibration">震动数据</option>
                 </select>
                 <!-- 文件选择标签 -->
                 <label for="upload">请选择要上传的数据：(.txt)</label>

@@ -33,13 +33,14 @@ public class DetectionTest extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String selectName = request.getParameter("selectName");
-//        System.out.println(selectName);
+        String selectName = request.getParameter("selectName");
+        System.out.println(selectName);
         // 创建HttpCommunicationLayer对象，用于与后台通信
         HttpCommunicationLayer connection = new HttpCommunicationLayer();
 
         // 获取上传的文件
         List<Part> fileParts = (List<Part>) request.getParts();
+        System.out.println(fileParts);
 
         // 标记是否所有文件上传成功
         boolean uploadSuccess = true;

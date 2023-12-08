@@ -44,7 +44,7 @@ public class HttpCommunicationLayer {
             // 拼接python服务器url
             this.PYTHON_SERVER_URL = pythonHost + pythonPort + Route;
 
-            System.out.println(this.PYTHON_SERVER_URL);
+            System.out.println("python host: " + this.PYTHON_SERVER_URL);
         } catch (Exception e) {
             e.printStackTrace();
         }
