@@ -17,7 +17,7 @@ public interface SensorDao {
     // 根据传感器列数查找对应的传感器对象
     /**
      * @param id 列数
-     * @return List<Sensor>类
+     * @return 错误参数
      * @throws IOException
      */
     public InputStream findBysensorid(String id) throws IOException;

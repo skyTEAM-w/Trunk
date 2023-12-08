@@ -35,6 +35,9 @@ public class DetectionTest extends HttpServlet {
             throws ServletException, IOException {
         String selectName = request.getParameter("selectName");
         System.out.println(selectName);
+
+        //TODO: 实现根据选择类型调用不同的数据库连接方法将文件信息载入数据库
+
         // 创建HttpCommunicationLayer对象，用于与后台通信
         HttpCommunicationLayer connection = new HttpCommunicationLayer();
 
@@ -126,4 +129,5 @@ public class DetectionTest extends HttpServlet {
             return fileContent;
         }
     }
+
 }
