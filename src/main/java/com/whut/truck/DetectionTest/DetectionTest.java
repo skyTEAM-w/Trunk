@@ -13,6 +13,7 @@ import javax.servlet.http.Part;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "DetectionTest", value = "/DetectionTest")
@@ -42,8 +43,12 @@ public class DetectionTest extends HttpServlet {
         HttpCommunicationLayer connection = new HttpCommunicationLayer();
 
         // 获取上传的文件
-        List<Part> fileParts = (List<Part>) request.getParts();
-        System.out.println(fileParts);
+        List<Part> fileParts = new ArrayList<>();
+        for (Part part : request.getParts()) {
+            if (part.getName().equals("upload")) {
+                fileParts.add(part);
+            }
+        }
 
         // 标记是否所有文件上传成功
         boolean uploadSuccess = true;
@@ -97,13 +102,20 @@ public class DetectionTest extends HttpServlet {
      */
     private String getFileName(final Part part) {
         final String partHeader = part.getHeader("content-disposition");
-        for (String content : partHeader.split(";")) {
-            if (content.trim().startsWith("filename")) {
-                return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+        System.out.println(partHeader);
+
+        // 检查是否为文件上传的部分
+        if (part.getName().equals("upload")) {
+            for (String content : partHeader.split(";")) {
+                if (content.trim().startsWith("filename")) {
+                    return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+                }
             }
         }
+
         return null;
     }
+
 
     /**
      * 读取文件内容到字节数组。
