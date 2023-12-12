@@ -178,7 +178,7 @@ header {
 
 /* 选项，若 n 项，就 n * 40px */
 .menu-item > input#menu-item1:checked ~ .menu-content {
-    height: calc(4 * 40px);
+    height: calc(5 * 40px);
 }
 
 .menu-item > input#menu-item2:checked ~ .menu-content {
