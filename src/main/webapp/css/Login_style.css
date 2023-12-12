@@ -3,6 +3,7 @@
     padding: 0;
 }
 
+
 body {
     display: flex;
     text-align: center;
@@ -12,6 +13,7 @@ body {
     background: #F3B61F;
     color: #fff; /* 文字颜色 - 白色 */
     font-family: 'Arial', sans-serif;
+
 }
 
 .login-container {

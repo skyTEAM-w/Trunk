@@ -62,6 +62,7 @@
                         <span onclick="updateComponent('Fix')">故障检测</span>
                         <span onclick="updateComponent('Longevity')">预测性维护</span>
                         <span onclick="updateComponent('VehicleStatus')">车辆信息监控</span>
+                        <span onclick="updateComponent('VehicleSensor')">车辆传感器信息查询</span>
                     </div>
                 </div>
                 <!-- 其他导航项可以继续添加 -->
