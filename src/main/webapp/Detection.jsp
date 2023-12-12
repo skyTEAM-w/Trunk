@@ -53,8 +53,6 @@
 
 <!-- JavaScript部分 -->
 <script>
-    console.log('Detection.jsp JavaScript code executed');
-
     // 获取页面中的文件上传元素和预览元素
     const input = document.querySelector('#upload');
     const preview = document.querySelector('.preview');
@@ -67,38 +65,6 @@
 
     // 获取表单元素
     const form = document.querySelector('#uploadForm');
-
-    // 添加表单提交事件监听器
-    form.addEventListener('submit', function (event) {
-        // 获取当前选择的文件列表
-        const curFiles = input.files;
-
-        // 如果没有选择文件，阻止表单提交
-        if (curFiles.length === 0) {
-            alert('请先选择要上传的文件！');
-            event.preventDefault(); // 阻止提交
-        } else {
-            // 遍历选择的文件列表
-            for (const file of curFiles) {
-                // 检查文件类型是否为text/plain
-                if (!validFileType(file)) {
-                    alert('只能上传.txt文件');
-                    event.preventDefault(); // 阻止提交
-                    break; // 如果一个文件不合要求就不再检查其他文件
-                }
-                if (!validFileName(file.name)) {
-                    alert('文件名格式必须为YYYYmmDD_hhMMss_id.txt');
-                    event.preventDefault(); // 阻止提交
-                    break; // 如果一个文件不合要求就不再检查其他文件
-                }
-            }
-            // 在文件上传成功后执行
-            if (form.dataset.uploadSuccess === 'true') {
-                // 设置成功消息显示
-                document.getElementById('successMessage').style.display = 'block';
-            }
-        }
-    });
 
     // 添加文件选择变化事件监听器
     input.addEventListener('change', updateImageDisplay);
@@ -128,15 +94,15 @@
                 const listItem = document.createElement('li');
                 const para = document.createElement('p');
 
-                if (validFileType(file)) {
-                    // 如果文件类型有效，显示文件名和大小
+                if (validFileType(file) && validFileName(file.name)) {
+                    // 如果文件类型和文件名都有效，显示文件名和大小
                     para.textContent = '文件名：' + file.name + ', 文件大小：' + returnFileSize(file.size) + '.';
                     listItem.appendChild(para);
                     // 设置上传成功标志
                     form.dataset.uploadSuccess = 'true';
                 } else {
-                    // 如果文件类型无效，显示提示信息
-                    para.textContent = '文件' + file.name + '为非有效文件类型';
+                    // 如果文件类型或文件名无效，显示提示信息
+                    para.textContent = '文件' + file.name + '不符合要求';
                     listItem.appendChild(para);
                     // 重置上传成功标志
                     form.dataset.uploadSuccess = 'false';
@@ -174,33 +140,65 @@
         }
     }
 
+    // 添加表单提交事件监听器
+    form.addEventListener('submit', function (event) {
+        // 获取当前选择的文件列表
+        const curFiles = input.files;
+
+        // 遍历选择的文件列表
+        for (const file of curFiles) {
+            // 检查文件类型是否为text/plain
+            if (!validFileType(file) || !validFileName(file.name)) {
+                alert('文件类型或文件名不合法，请检查！');
+                event.preventDefault(); // 阻止提交
+                return; // 如果一个文件不合要求就直接返回
+            }
+        }
+
+        // 在文件上传成功后执行
+        if (form.dataset.uploadSuccess !== 'true') {
+            // 如果没有选择文件或文件上传失败，输出错误信息或采取其他适当的措施
+            alert('请选择有效文件并确保上传成功！');
+            event.preventDefault(); // 阻止提交
+        } else {
+            // 设置成功消息显示
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    });
+
     // 添加提交按钮点击事件监听器
     submitBtn.addEventListener('click', function () {
-        // 创建FormData对象，用于包装表单数据
-        const formData = new FormData(document.getElementById('uploadForm'));
+        if (form.dataset.uploadSuccess === 'true') {
+            // 创建FormData对象，用于包装表单数据
+            const formData = new FormData(document.getElementById('uploadForm'));
 
-        // 使用Ajax发送文件
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'DetectionTest', true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                // 处理后台响应
-                if (xhr.status === 200) {
-                    // 获取后台返回的数据
-                    const responseData = xhr.responseText;
+            // 使用Ajax发送文件
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'DetectionTest', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    // 处理后台响应
+                    if (xhr.status === 200) {
+                        // 获取后台返回的数据
+                        const responseData = xhr.responseText;
 
-                    // 在页面上显示上传成功的消息
-                    document.getElementById('successMessage').style.display = 'block';
-                } else {
-                    // 处理其他错误情况
-                    console.error('上传失败');
+                        // 在页面上显示上传成功的消息
+                        document.getElementById('successMessage').style.display = 'block';
+                    } else {
+                        // 处理其他错误情况
+                        console.error('上传失败');
+                    }
                 }
-            }
-        };
+            };
 
-        // 发送FormData对象
-        xhr.send(formData);
+            // 发送FormData对象
+            xhr.send(formData);
+        } else {
+            // 如果没有选择文件或文件上传失败，输出错误信息或采取其他适当的措施
+            console.error('请选择有效文件并确保上传成功！');
+        }
     });
+
 </script>
 </body>
 

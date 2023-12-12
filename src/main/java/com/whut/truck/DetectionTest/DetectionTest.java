@@ -13,6 +13,7 @@ import javax.servlet.http.Part;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,8 @@ public class DetectionTest extends HttpServlet {
             // 读取文件内容到字节数组，创建ByteArrayInputStream对象传递给connectToPython方法
             byte[] fileContent = getFileContent(filePart);
             ByteArrayInputStream inputStream = new ByteArrayInputStream(fileContent);
+            System.out.println(new String(fileContent, StandardCharsets.UTF_8));
+
 
             // 通过connectToPython方法获取后台处理结果
             JsonObject result = connection.connectToPython(inputStream, fileName, "detection");
