@@ -17,44 +17,40 @@ body {
     border-radius: 15px;
 }
 
-/* 页面头部样式 */
-.page-header {
-    position: relative;
-}
 
-.page-header p {
-    position: absolute;
-    left: 30px;
-    top: 50px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-    font-size: 30px;
-}
-
-.page-header button {
-    position: absolute;
-    right: 30px;
-    top: 46px;
+.longevity-container label {
+    float: left;
     display: block;
-    background-color: whitesmoke;
-    margin: 0 auto;
-    padding: 10px 20px;
+    margin: 43px 50px;
+    font-size: 20px;
+    text-align: left;
+    color: #000;
+}
+
+.longevity-container input {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    margin: 35px 0;
+    box-sizing: border-box;
+}
+
+#GetStatus-btn {
+    float: left;
+    background-color: #1784af;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 34px 10px;
+    cursor: pointer;
     border-radius: 5px;
-    border: 1px ridge black;
-    font-size: 0.8rem;
-    height: auto;
 }
 
-.page-header button:hover {
-    background-color: #4285f4;
-    color: white;
-}
-
-
-.page-header button:active {
-    background-color: #0D3F8F;
-    color: white;
+#GetStatus-btn:hover {
+    background-color: deepskyblue;
 }
 
 /* 段落容器样式 */
