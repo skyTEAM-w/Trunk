@@ -1,0 +1,78 @@
+* {
+    margin: 0 10px 0 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    background: #F3B61F;
+}
+
+/*h1 {
+    color: white;
+    top: 180px;
+    margin-bottom: 10px;
+    font-size: 50px;
+    white-space: nowrap;
+}*/
+
+label {
+    display: block;
+    margin: 10px 20px;
+    font-size: 50px;
+    text-align: left;
+    color: white;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.Status-Container {
+    /*margin: 20px;*/
+    /*
+    padding: 20px 100px;
+    */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+#GetStatus-btn {
+    background-color: #1784af;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#GetStatus-btn:hover {
+    background-color: deepskyblue;
+}
+
+.Text-Container {
+    background-color: whitesmoke; /* 登录框背景色 */
+    padding: 100px 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* 模拟光晕效果 */
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}
