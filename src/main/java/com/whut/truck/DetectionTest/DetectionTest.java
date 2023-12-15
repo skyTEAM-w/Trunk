@@ -10,7 +10,6 @@ import com.whut.truck.entity.VehicleStatus;
 import com.whut.truck.servlet.SensorController;
 import com.whut.truck.servlet.VehicleStatusController;
 import com.whut.truck.utils.HttpCommunicationLayer;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
