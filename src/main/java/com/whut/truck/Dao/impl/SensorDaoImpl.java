@@ -91,7 +91,7 @@ public class SensorDaoImpl implements SensorDao{
     @Override
     public InputStream findBysensorid(String id) throws IOException {
         Connection connection = JDBC_UTL.getconnection();
-        String sql = "SELECT * FROM `game`.`传感器数据` where `车辆id` =  '"+id+"' ORDER BY `列数` DESC LIMIT 30";     //车辆id
+        String sql = "SELECT * FROM `game`.`传感器数据` where `车辆id` =  '"+id+"' ORDER BY `运行轮数` DESC LIMIT 30";     //车辆id
         PreparedStatement statement = null;
         List<Sensor> List = new ArrayList<>();
         ResultSet resultSet = null;
