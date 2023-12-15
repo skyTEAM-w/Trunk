@@ -1,8 +1,15 @@
 package com.whut.truck.DetectionTest;
 
 import com.google.gson.JsonObject;
+import com.whut.truck.Dto.VehicleStatusDto;
+import com.whut.truck.Service.SystemAdminService;
+import com.whut.truck.Service.VehicleStatusService;
+import com.whut.truck.Service.impl.SystemAdminServiceImpl;
+import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
+import com.whut.truck.entity.VehicleStatus;
+import com.whut.truck.servlet.SensorController;
+import com.whut.truck.servlet.VehicleStatusController;
 import com.whut.truck.utils.HttpCommunicationLayer;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +22,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Arrays;
+
 
 @WebServlet(name = "DetectionTest", value = "/DetectionTest")
 @MultipartConfig(
@@ -25,6 +34,7 @@ import java.util.List;
 )
 public class DetectionTest extends HttpServlet {
 
+    private VehicleStatusService vehicleStatusService = new VehicleStatusServiceImpl();
     /**
      * 处理POST请求，接收上传的文件并调用后台处理方法。
      *
@@ -59,29 +69,40 @@ public class DetectionTest extends HttpServlet {
             // 获取文件名
             String fileName = getFileName(filePart);
             System.out.println(fileName);
+            String id = null;
+
+            String[] parts = fileName.split("_");
+            if (parts.length >= 3) {
+                id = parts[2].substring(0, parts[2].indexOf("."));
+                //System.out.println("ID: " + id);
+            } else {
+                System.out.println("文件命名格式错误");
+            }
 
             // 读取文件内容到字节数组，创建ByteArrayInputStream对象传递给connectToPython方法
             byte[] fileContent = getFileContent(filePart);
             ByteArrayInputStream inputStream = new ByteArrayInputStream(fileContent);
-            System.out.println(new String(fileContent, StandardCharsets.UTF_8));
 
+            /*System.out.println(Arrays.toString(fileContent));
+            System.out.println(new String(fileContent, StandardCharsets.UTF_8));*/
 
-            // 通过connectToPython方法获取后台处理结果
-            JsonObject result = connection.connectToPython(inputStream, fileName, "detection");
-
-            // 检查处理结果中是否包含成功标志
-            if (result.has("success") && !result.get("success").isJsonNull()) {
-                boolean success = result.get("success").getAsBoolean();
-
-                // 如果有一个文件上传失败，则设置uploadSuccess为false
-                if (!success) {
-                    uploadSuccess = false;
-                    break;
+            if(selectName.equals("sensor")){
+                SensorController sensorController = new SensorController();
+                sensorController.csv_save(inputStream);
+            }else if(selectName.equals("vibration")){
+                VehicleStatusService vehicleStatusService = new VehicleStatusServiceImpl();
+                VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(id);
+                if(vehicleStatusDto.getMsg()==0){
+                    VehicleStatus vehicleStatus = new VehicleStatus(id, "null", 1, "null", "null", "null", null);
+                    vehicleStatusService.save(vehicleStatus);
+                    vehicleStatusService.Insertfile(id, inputStream);
+                    System.out.println("创建并插入文件成功");
+                }else{
+                    vehicleStatusService.Insertfile(id, inputStream);
+                    System.out.println("插入文件成功");
                 }
-            } else {
-                // 如果处理结果中不存在成功标志，则视为失败
-                uploadSuccess = false;
-                break;
+            }else{
+                System.out.println("插入失败");
             }
         }
 

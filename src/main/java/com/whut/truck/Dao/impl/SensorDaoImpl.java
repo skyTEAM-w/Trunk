@@ -6,6 +6,7 @@ import com.whut.truck.utils.JDBC_UTL;
 import com.whut.truck.Dao.SensorDao;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,23 +23,24 @@ public class SensorDaoImpl implements SensorDao{
         Integer result = null;
 
         String line;
-        String csvSplitBy = ",";
+        String csvSplitBy = " ";
         String[] data = new String[0];
 
-        int counter = 0; // 计数器，用于限制读取的行数
+        int counter = 1; // 计数器，用于限制读取的行数
 
         PreparedStatement statement = null;
         PreparedStatement updateStmt = null;
         String count1 = null;
         String count2 = null;
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-            while ((line = br.readLine()) != null && counter < 30) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            while ((line = br.readLine()) != null ) {
+                System.out.println(line);
                 String id = null;
                 String times = null;
                 if (counter != 0) {
                     data = line.split(csvSplitBy);
-                    id = data[1];
-                    times = data[2];
+                    id = data[0];
+                    times = data[1];
                     statement_check = connection.prepareStatement(sql_check);
                     statement_check.setString(1, id);
                     statement_check.setString(2, times);
@@ -62,11 +64,12 @@ public class SensorDaoImpl implements SensorDao{
                         updateStmt.setString(28, times);
 
                         for (int i = 1; i <= 26; i++) {
-                            updateStmt.setString(i, data[i]);
+                            updateStmt.setString(i, data[i-1]);
                         }
                         result = updateStmt.executeUpdate();
                     }
                 }
+                System.out.println("插入了" + counter + "行");
                 counter++;
             }
         } catch (IOException e) {

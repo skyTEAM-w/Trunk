@@ -33,6 +33,6 @@ public interface VehicleStatusService {
      * @return VehicleStatusDto 错误信息
      * @throws IOException
      */
-    public VehicleStatusDto Insertfile(Integer id, InputStream inputStream) throws IOException;
+    public VehicleStatusDto Insertfile(String id, InputStream inputStream) throws IOException;
 
 }

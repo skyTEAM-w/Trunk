@@ -25,7 +25,7 @@ public class blobToPython {
         VehicleStatusDto vehicleStatusDto = null;
         VehicleStatus vehicleStatus = null;
         try {
-            vehicleStatusDto = statusService.Insertfile(1, blobToPython.class.getClassLoader().getResourceAsStream("jsonTest.txt"));
+            vehicleStatusDto = statusService.Insertfile(String.valueOf(1), blobToPython.class.getClassLoader().getResourceAsStream("jsonTest.txt"));
             vehicleStatusDto = statusService.find(String.valueOf(1));
             vehicleStatus = vehicleStatusDto.getVehicleStatus();
             HttpCommunicationLayer communicationLayer = new HttpCommunicationLayer();
