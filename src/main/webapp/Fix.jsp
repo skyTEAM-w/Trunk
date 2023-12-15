@@ -1,10 +1,6 @@
-﻿<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
+﻿<!-- @page language="java" contentType="text/html; charset=UTF-8" pageEncoding="utf-8" %>
+String path=request.getContextPath(); String basePath=request.getScheme() + "://" + request.getServerName() + ":"
++ request.getServerPort() + path + "/" ;  -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,10 +14,11 @@
 
 <body>
 <div class="longevity-container">
-    <div class="page-header">
-        <p>id:123</p>
-        <button id="File-btn" type="button">检测</button>
-    </div>
+    <form action="" method="post">
+        <label for="VehicleID">请输入车辆id：</label>
+        <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆id">
+        <button id="GetStatus-btn" type="submit">检测</button>
+    </form>
     <div class="paragraph-container">
         <p>故障类型：</p>
     </div>
