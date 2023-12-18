@@ -25,6 +25,7 @@ public class VehicleStatusController extends HttpServlet {
         doPost(request, response);
     }
 
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException, ServletException {
         request.setCharacterEncoding("utf-8");
