@@ -21,6 +21,10 @@ import java.util.Scanner;
 @WebServlet(name = "SensorController", value = "/SensorController")
 public class SensorController extends HttpServlet {
     private SensorService sensorService = new SensorServiceImpl();
+    public void csv_save(InputStream inputStream) throws IOException {                //添加csv
+        this.sensorService.csv_save(inputStream);
+        System.out.println("插入成功");
+    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从请求参数中获取车辆编号

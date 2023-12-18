@@ -18,33 +18,37 @@
     <link rel="stylesheet" type="text/css" href="css/VehicleStatus_style.css"/>
 </head>
 
-<div>
-        <!-- 表单用于输入车辆编号 -->
-        <form action="VehicleStatusController" method="post">
-            <label for="VehicleID">输入车辆编号：</label>
-            <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
-            <button id="GetStatus-btn" type="submit">获取状态</button>
-        </form>
-        <table class="Status-Container">
-            <thead>
-            <tr>
-                <th>维护状态</th>
-                <th>剩余维护时间</th>
-                <th>故障状态</th>
-                <th>上次维护时间</th>
-                <th>维护次数</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>${Data1}</td>
-                <td>${Data2}</td>
-                <td>${Data3}</td>
-                <td>${Data4}</td>
-                <td>${Data5}</td>
-            </tr>
-            </tbody>
-        </table>
+<div class="Back-Container">
+    <div class="Head-Container">
+            <!-- 表单用于输入车辆编号 -->
+            <form action="VehicleStatusController" method="post">
+                <label for="VehicleID">请输入车辆编号：</label>
+                <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号">
+                <button id="GetStatus-btn" type="submit">获取状态</button>
+            </form>
+    </div>
+    <div class="Body-Container" style="overflow-y: scroll; margin-top: 30px;">
+            <table class="Status-Container">
+                <thead>
+                <tr>
+                    <th>维护状态</th>
+                    <th>剩余维护时间</th>
+                    <th>故障状态</th>
+                    <th>上次维护时间</th>
+                    <th>维护次数</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>${Data1}</td>
+                    <td>${Data2}</td>
+                    <td>${Data3}</td>
+                    <td>${Data4}</td>
+                    <td>${Data5}</td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
 </div>
 
 </html>
