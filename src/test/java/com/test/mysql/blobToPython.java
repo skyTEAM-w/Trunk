@@ -9,8 +9,12 @@ import com.whut.truck.utils.CsvUtil;
 import com.whut.truck.utils.HttpCommunicationLayer;
 import com.whut.truck.utils.JDBC_UTL;
 import org.junit.Test;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.csv.Csv;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,6 +43,7 @@ public class blobToPython {
     @Test
     public void TestFind30() throws IOException {
         Connection connection = JDBC_UTL.getconnection();
+        HttpCommunicationLayer communicationLayer = new HttpCommunicationLayer();
         String sql = "SELECT * FROM `game`.`传感器数据` where `车辆id` =  '"+1+"' ORDER BY `运行轮数` DESC LIMIT 30";     //车辆id
         PreparedStatement statement = null;
         List<Sensor> List = new ArrayList<>();
@@ -47,7 +52,11 @@ public class blobToPython {
         try {
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
-            System.out.println(CsvUtil.resultSetToCSV(resultSet));
+//            CsvUtil.resultSetToCSV(resultSet);
+//            System.out.println(CsvUtil.resultSetToCSV(resultSet));
+            InputStream inputStream = new BufferedInputStream(CsvUtil.resultSetToCSV(resultSet));
+            System.out.println(inputStream);
+            communicationLayer.connectToPython(inputStream, "20231205_120000_1.txt", "predict");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CsvUtil {
-    public static InputStream resultSetToCSV(ResultSet resultSet) {
+    public static String resultSetToCSV(ResultSet resultSet) {
         StringBuilder csvData = new StringBuilder();
         try (CSVWriter csvWriter = new CSVWriter(new OutputStreamWriter(System.out))) {
             // Write column headers
@@ -25,8 +25,9 @@ public class CsvUtil {
             }
 
             // Convert CSV data to InputStream
-            csvData.append(csvWriter);
-            return new ByteArrayInputStream(csvData.toString().getBytes(StandardCharsets.UTF_8));
+            csvData.append(csvWriter.toString());
+//            return new ByteArrayInputStream(csvData.toString().getBytes(StandardCharsets.UTF_8));
+            return csvData.toString();
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
