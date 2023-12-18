@@ -1,14 +1,10 @@
-package com.whut.truck.DetectionTest;
+package com.whut.truck.servlet;
 
 import com.google.gson.JsonObject;
 import com.whut.truck.Dto.VehicleStatusDto;
-import com.whut.truck.Service.SystemAdminService;
 import com.whut.truck.Service.VehicleStatusService;
-import com.whut.truck.Service.impl.SystemAdminServiceImpl;
 import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
 import com.whut.truck.entity.VehicleStatus;
-import com.whut.truck.servlet.SensorController;
-import com.whut.truck.servlet.VehicleStatusController;
 import com.whut.truck.utils.HttpCommunicationLayer;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -20,11 +16,8 @@ import javax.servlet.http.Part;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
-import java.util.Arrays;
 
 
 @WebServlet(name = "DetectionTest", value = "/DetectionTest")
@@ -33,7 +26,7 @@ import java.util.Arrays;
         maxFileSize = 1024 * 1024 * 20,        // 20MB
         maxRequestSize = 1024 * 1024 * 50      // 50MB
 )
-public class DetectionTest extends HttpServlet {
+public class Detection extends HttpServlet {
 
     private VehicleStatusService vehicleStatusService = new VehicleStatusServiceImpl();
     /**

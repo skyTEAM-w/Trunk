@@ -21,7 +21,7 @@
 
     <servlet>
         <servlet-name>DetectionTest</servlet-name>
-        <servlet-class>com.whut.truck.DetectionTest.DetectionTest</servlet-class>
+        <servlet-class>com.whut.truck.servlet.Detection</servlet-class>
     </servlet>
 
     <servlet>
