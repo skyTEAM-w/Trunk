@@ -2,13 +2,11 @@ package com.whut.truck.utils;
 
 import com.opencsv.CSVWriter;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 /**
  * Csv工具类
@@ -22,20 +20,30 @@ public class CsvUtil {
      */
     public static InputStream resultSetToCSV(ResultSet resultSet) {
         StringBuilder csvData = new StringBuilder();
-        try (CSVWriter csvWriter = new CSVWriter(new OutputStreamWriter(System.out))) {
+        StringWriter stringWriter = new StringWriter();
+        try (CSVWriter csvWriter = new CSVWriter(stringWriter)) {
             // Write column headers
             String[] columnHeaders = getColumnHeaders(resultSet);
+//            System.out.println(Arrays.toString(columnHeaders));
             csvWriter.writeNext(columnHeaders);
 
             // Write data rows
             while (resultSet.next()) {
                 String[] rowData = getRowData(resultSet);
+//                System.out.println(Arrays.toString(rowData));
                 csvWriter.writeNext(rowData);
+            }
+            try {
+                stringWriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
 
             // Convert CSV data to InputStream
             csvData.append(csvWriter);
-            return new ByteArrayInputStream(csvData.toString().getBytes(StandardCharsets.UTF_8));
+            String csvString = stringWriter.toString();
+//            System.out.println(csvString);
+            return new ByteArrayInputStream(csvString.getBytes(StandardCharsets.UTF_8));
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
