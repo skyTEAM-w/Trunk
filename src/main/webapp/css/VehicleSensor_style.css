@@ -44,17 +44,16 @@ input {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     width: 100%;
-    overflow-x: scroll;
     white-space: nowrap;
 }
 
 /* 设置表格容器的宽度和高度，并添加 y 方向的滚动条 */
 .table-container {
-    width: 100%;
+    width: 70%;
+    margin-left: 25%;
     height: 500px;
     white-space: nowrap;
-    background-color: #cccccc;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 }
 
 /* 设置表格的显示方式为 grid，并定义两列 */
@@ -65,7 +64,6 @@ input {
 
 /* 设置表头的背景色，并垂直居中 */
 .table-header {
-    background-color: #f0f0f0;
     width: fit-content;
     display: flex;
     align-items: center;
@@ -96,7 +94,7 @@ input {
 }
 
 .Text-Container {
-    background-color: whitesmoke; /* 登录框背景色 */
+    background-color: whitesmoke; /* 框背景色 */
     padding: 100px 300px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* 模拟光晕效果 */
@@ -104,4 +102,13 @@ input {
     text-align: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+/*实现表格要一行深一行浅*/
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #c0c0c0;
 }
