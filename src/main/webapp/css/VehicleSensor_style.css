@@ -48,6 +48,35 @@ input {
     white-space: nowrap;
 }
 
+/* 设置表格容器的宽度和高度，并添加 y 方向的滚动条 */
+.table-container {
+    width: 100%;
+    height: 500px;
+    white-space: nowrap;
+    background-color: #cccccc;
+    overflow-y: auto;
+}
+
+/* 设置表格的显示方式为 grid，并定义两列 */
+.table-grid {
+    display: grid;
+    grid-template-columns: 100px auto;
+}
+
+/* 设置表头的背景色，并垂直居中 */
+.table-header {
+    background-color: #f0f0f0;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+/* 设置数据的背景色，并水平居中 */
+.table-data {
+    background-color: #ffffff;
+    text-align: center;
+}
+
 #GetStatus-btn {
     background-color: #1784af;
     color: white;
