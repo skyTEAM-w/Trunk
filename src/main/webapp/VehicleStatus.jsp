@@ -33,9 +33,9 @@
             <!-- 表单用于输入车辆编号 -->
             <form action="VehicleStatusController" method="post" class="d-flex justify-content-center align-items-center">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
+
                     <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号" class="form-control" aria-label="VehicleID" aria-describedby="basic-addon1">
-                    <button id="GetStatus-btn" type="submit" class="btn btn-primary"><i class="fa fa-search"></i> 获取状态</button>
+                    <button id="GetStatus-btn" type="submit" class="btn btn-primary"> 获取状态</button>
                 </div>
             </form>
         </div>

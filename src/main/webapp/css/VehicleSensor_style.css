@@ -9,7 +9,7 @@ body {
     text-align: center;
     justify-content: center;
     height: 100vh;
-    background: #F3B61F;
+    background: whitesmoke;
 }
 
 /*h1 {
@@ -50,7 +50,7 @@ input {
 /* 设置表格容器的宽度和高度，并添加 y 方向的滚动条 */
 .table-container {
     width: 70%;
-    margin-left: 25%;
+    margin-left: 0%;
     height: 500px;
     white-space: nowrap;
     /*overflow-y: auto;*/

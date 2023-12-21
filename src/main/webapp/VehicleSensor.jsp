@@ -31,7 +31,7 @@
             <form action="SensorController" method="post" class="d-flex justify-content-center align-items-center">
                 <div class="input-group mb-3">
                     <input type="text" id="VehicleID" name="VehicleName" placeholder="车辆编号" class="form-control" aria-label="VehicleID" aria-describedby="basic-addon1">
-                    <span class="input-group-text" id="basic-addon2"></span>
+
                     <input type="text" id="cycle" name="cycle" placeholder="运行轮数" class="form-control" aria-label="cycle" aria-describedby="basic-addon2">
                     <button id="GetStatus-btn" type="submit" class="btn btn-primary">查询</button>
                 </div>
