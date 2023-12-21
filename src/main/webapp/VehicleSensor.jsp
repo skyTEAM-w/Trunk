@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>车辆状态监控</title>
+    <title>车辆传感器信息查询</title>
 
     <!-- 引入 Bootstrap 样式表文件 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center mt-4 mb-4">车辆状态监控</h1>
+            <h1 class="text-center mt-4 mb-4">车辆传感器信息查询</h1>
         </div>
     </div>
     <div class="row">

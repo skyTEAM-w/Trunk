@@ -14,13 +14,13 @@ String path=request.getContextPath(); String basePath=request.getScheme() + "://
 
 <body>
 <div class="longevity-container">
-    <form action="" method="post">
+    <form action="Fix" method="post">
         <label for="VehicleID">请输入车辆id：</label>
         <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆id">
         <button id="GetStatus-btn" type="submit">检测</button>
     </form>
     <div class="paragraph-container">
-        <p>故障类型：</p>
+        <p>故障类型：${Wrong}</p>
     </div>
 </div>
 </body>

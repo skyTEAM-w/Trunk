@@ -35,8 +35,18 @@
     </servlet>
 
     <servlet>
+        <servlet-name>Longevity</servlet-name>
+        <servlet-class>com.whut.truck.servlet.Longevity</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>HallServlet</servlet-name>
         <servlet-class>com.whut.truck.servlet.HallServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Fix</servlet-name>
+        <servlet-class>com.whut.truck.servlet.Fix</servlet-class>
     </servlet>
 
     <filter>
@@ -77,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>HallServlet</servlet-name>
         <url-pattern>/HallServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Longevity</servlet-name>
+        <url-pattern>/Longevity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Fix</servlet-name>
+        <url-pattern>/Fix</url-pattern>
     </servlet-mapping>
 
     <filter-mapping>
