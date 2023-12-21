@@ -4,7 +4,9 @@ import com.whut.truck.Dao.VehicleStatusDao;
 import com.whut.truck.Dao.impl.VehicleStatusDaoImpl;
 import com.whut.truck.Dto.SensorDto;
 import com.whut.truck.Dto.VehicleStatusDto;
+import com.whut.truck.Service.VehicleStatusService;
 import com.whut.truck.Service.impl.SensorServiceImpl;
+import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
 import com.whut.truck.entity.Sensor;
 import com.whut.truck.Service.SensorService;
 
@@ -16,12 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
 import java.io.*;
+import java.sql.Blob;
 import java.util.Arrays;
 import java.util.Scanner;
 @WebServlet(name = "SensorController", value = "/SensorController")
 public class SensorController extends HttpServlet {
     private SensorService sensorService = new SensorServiceImpl();
-
+    private VehicleStatusService vehicleStatusService = new VehicleStatusServiceImpl();
     public void csv_save(InputStream inputStream) throws IOException {                //添加csv
         this.sensorService.csv_save(inputStream);
         System.out.println("插入成功");
@@ -36,8 +39,15 @@ public class SensorController extends HttpServlet {
 
         String VehicleID = request.getParameter("VehicleName");
         String cycle = request.getParameter("cycle");
-        String[] data = new String[27];
+        String[] data = new String[32];
         System.arraycopy(output_one_lineBY_id(VehicleID, cycle),0,data,0,27);
+
+        VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(VehicleID);
+        data[27] = vehicleStatusDto.getVehicleStatus().getMaintenance_status();
+        data[28] = String.valueOf(vehicleStatusDto.getVehicleStatus().getEstimated_maintenance_time());
+        data[29] = vehicleStatusDto.getVehicleStatus().getPrevious_failure_status();
+        data[30] = vehicleStatusDto.getVehicleStatus().getLast_Maintenance_date();
+        data[31] = vehicleStatusDto.getVehicleStatus().getMaintenance_Frequency();
 
         String result = data[0] + "\n";
         request.setAttribute("Data0", result);
@@ -93,6 +103,16 @@ public class SensorController extends HttpServlet {
         request.setAttribute("Data25", result);
         result = data[26] + "\n";
         request.setAttribute("Data26", result);
+        result = data[27] + "\n";
+        request.setAttribute("Data27", result);
+        result = data[28] + "\n";
+        request.setAttribute("Data28", result);
+        result = data[29] + "\n";
+        request.setAttribute("Data29", result);
+        result = data[30] + "\n";
+        request.setAttribute("Data30", result);
+        result = data[31] + "\n";
+        request.setAttribute("Data31", result);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/VehicleSensor.jsp");
         dispatcher.forward(request, response);
     }

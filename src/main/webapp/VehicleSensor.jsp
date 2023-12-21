@@ -55,6 +55,26 @@
                         <td class="table-data">${Data1}</td>
                     </tr>
                     <tr>
+                        <th class="table-header" style="text-align: left;">维护状态</th>
+                        <td class="table-data">${Data27}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-header" style="text-align: left;">剩余维护时间</th>
+                        <td class="table-data">${Data28}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-header" style="text-align: left;">故障状态</th>
+                        <td class="table-data">${Data29}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-header" style="text-align: left;">上次维护时间</th>
+                        <td class="table-data">${Data30}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-header" style="text-align: left;">维护次数</th>
+                        <td class="table-data">${Data31}</td>
+                    </tr>
+                    <tr>
                         <th class="table-header" style="text-align: left;">运行轮数</th>
                         <td class="table-data">${Data2}</td>
                     </tr>
