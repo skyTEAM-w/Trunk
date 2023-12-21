@@ -27,6 +27,7 @@
 /*}*/
 
 header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
     background-color: var(--color-menu-bg);
     padding: 10px;
     display: flex;
@@ -64,6 +65,7 @@ header {
 }
 
 .menu-box {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 0.5px;
     font-weight: 600;
@@ -242,4 +244,9 @@ header {
     right: 0;
     border-radius: 5px;
     /*overflow-y: auto;*/
+}
+
+
+::-webkit-scrollbar {
+    display: none;
 }

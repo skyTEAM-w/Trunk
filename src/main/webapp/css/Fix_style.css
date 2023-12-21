@@ -5,6 +5,7 @@
 }
 
 body {
+    overflow: hidden;
     font-family: 'Arial', sans-serif;
     background-color: rgb(239,238,253);
 }
@@ -15,7 +16,7 @@ body {
     background-color: rgb(35,35,36);
     margin: 200px auto;
     border-radius: 15px;
-    border:2px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 
