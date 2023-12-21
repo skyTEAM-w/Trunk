@@ -4,7 +4,8 @@
 }
 
 body {
-    background: whitesmoke;
+    overflow: hidden;
+    background: rgb(239,238,253);
 }
 
 h1 {
@@ -18,11 +19,11 @@ h1 {
     height: 300px;
     /* 调整容器高度 */
     width: 500px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     background-color: whitesmoke;
     margin: 200px auto;
     /* 调整垂直居中的位置 */
     border-radius: 15px;
-    border: 2px solid black;
 }
 
 .detection-container .VehicleData {
@@ -116,3 +117,4 @@ form button:active {
     z-index: 2;
     margin-bottom: 15px;
 }
+

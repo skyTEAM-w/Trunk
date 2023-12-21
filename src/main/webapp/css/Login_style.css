@@ -10,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #5D5E60;
+    background: rgb(239,238,253);
     color: #fff; /* 文字颜色 - 白色 */
     font-family: 'Arial', sans-serif;
 
