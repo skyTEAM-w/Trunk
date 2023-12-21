@@ -6,15 +6,16 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F3B61F;
+    background-color: whitesmoke;
 }
 
 .longevity-container {
     height: 300px;
     width: 500px;
-    background-color: whitesmoke;
+    background-color: rgb(35,35,36);
     margin: 200px auto;
     border-radius: 15px;
+    border:2px solid black;
 }
 
 
