@@ -19,7 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
 import java.io.*;
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 @WebServlet(name = "SensorController", value = "/SensorController")
 public class SensorController extends HttpServlet {
@@ -29,7 +31,6 @@ public class SensorController extends HttpServlet {
         this.sensorService.csv_save(inputStream);
         System.out.println("插入成功");
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从请求参数中获取车辆编号
@@ -37,85 +38,44 @@ public class SensorController extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
+        PrintWriter out = response.getWriter();
+        List<String> dataList = new ArrayList<>();
         String VehicleID = request.getParameter("VehicleName");
-        String cycle = request.getParameter("cycle");
-        String[] data = new String[32];
-        System.arraycopy(output_one_lineBY_id(VehicleID, cycle),0,data,0,27);
+        if(sensorService.csv_output_one_line(VehicleID, String.valueOf(1)).getMsg() == 0){
+            request.setAttribute("VehicleIDError", "id不存在");
+            out.flush();
+            out.println("<script>alert('id不存在，请重新输入');history.back();</script>");
+        }
+        String[] data = new String[27];
+        String[] cycle = new String[30];
+        int count_cycle;
+        int count_data;
 
-        VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(VehicleID);
-        data[27] = vehicleStatusDto.getVehicleStatus().getMaintenance_status();
-        data[28] = String.valueOf(vehicleStatusDto.getVehicleStatus().getEstimated_maintenance_time());
-        data[29] = vehicleStatusDto.getVehicleStatus().getPrevious_failure_status();
-        data[30] = vehicleStatusDto.getVehicleStatus().getLast_Maintenance_date();
-        data[31] = vehicleStatusDto.getVehicleStatus().getMaintenance_Frequency();
+        for (int i = 0; i < cycle.length; i++) {
+            cycle[i] = String.valueOf(i + 1);
+            System.out.println(cycle[i]);
+        }
 
-        String result = data[0] + "\n";
-        request.setAttribute("Data0", result);
-        result = data[1] + "\n";
-        request.setAttribute("Data1", result);
-        result = data[2] + "\n";
-        request.setAttribute("Data2", result);
-        result = data[3] + "\n";
-        request.setAttribute("Data3", result);
-        result = data[4] + "\n";
-        request.setAttribute("Data4", result);
-        result = data[5] + "\n";
-        request.setAttribute("Data5", result);
-        result = data[6] + "\n";
-        request.setAttribute("Data6", result);
-        result = data[7] + "\n";
-        request.setAttribute("Data7", result);
-        result = data[8] + "\n";
-        request.setAttribute("Data8", result);
-        result = data[9] + "\n";
-        request.setAttribute("Data9", result);
-        result = data[10] + "\n";
-        request.setAttribute("Data10", result);
-        result = data[11] + "\n";
-        request.setAttribute("Data11", result);
-        result = data[12] + "\n";
-        request.setAttribute("Data12", result);
-        result = data[13] + "\n";
-        request.setAttribute("Data13", result);
-        result = data[14] + "\n";
-        request.setAttribute("Data14", result);
-        result = data[15] + "\n";
-        request.setAttribute("Data15", result);
-        result = data[16] + "\n";
-        request.setAttribute("Data16", result);
-        result = data[17] + "\n";
-        request.setAttribute("Data17", result);
-        result = data[18] + "\n";
-        request.setAttribute("Data18", result);
-        result = data[19] + "\n";
-        request.setAttribute("Data19", result);
-        result = data[20] + "\n";
-        request.setAttribute("Data20", result);
-        result = data[21] + "\n";
-        request.setAttribute("Data21", result);
-        result = data[22] + "\n";
-        request.setAttribute("Data22", result);
-        result = data[23] + "\n";
-        request.setAttribute("Data23", result);
-        result = data[24] + "\n";
-        request.setAttribute("Data24", result);
-        result = data[25] + "\n";
-        request.setAttribute("Data25", result);
-        result = data[26] + "\n";
-        request.setAttribute("Data26", result);
-        result = data[27] + "\n";
-        request.setAttribute("Data27", result);
-        result = data[28] + "\n";
-        request.setAttribute("Data28", result);
-        result = data[29] + "\n";
-        request.setAttribute("Data29", result);
-        result = data[30] + "\n";
-        request.setAttribute("Data30", result);
-        result = data[31] + "\n";
-        request.setAttribute("Data31", result);
+        for(count_cycle = 0; count_cycle < 30; count_cycle++){
+            System.arraycopy(output_one_lineBY_id(VehicleID, cycle[count_cycle]),0,data,0,27);
+            for (count_data = 2; count_data < 27; count_data++){
+                String result;
+                if(count_data!= 26){
+                    result = data[count_data];
+                }else {
+                    result = data[count_data] + "\n";
+                }
+                dataList.add(result);
+            }
+        }
+
+        request.setAttribute("dataList", dataList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/VehicleSensor.jsp");
         dispatcher.forward(request, response);
     }
+
+
+
 
     /**
      * 按车辆编号查询传感器数据，以CSVStream形式输出

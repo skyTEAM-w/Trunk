@@ -45,8 +45,12 @@ public class SensorServiceImpl implements SensorService {
     @Override
     public SensorDto csv_output_one_line(String id, String cycle) throws IOException {
         SensorDto sensorDto = new SensorDto();
-        sensorDto.setSensor(this.sensorDao.findByid_output_oneline(id, cycle));
-//        sensorDto.setList_SystemAdmin(adminList);
+        if(this.sensorDao.findByid_output_oneline(id, cycle)!=null) {
+            sensorDto.setSensor(this.sensorDao.findByid_output_oneline(id, cycle));
+            sensorDto.setMsg(1);
+        }else{
+            sensorDto.setMsg(0);
+        }
         return sensorDto;
     }
 }

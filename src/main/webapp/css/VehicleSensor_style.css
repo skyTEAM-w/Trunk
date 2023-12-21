@@ -49,11 +49,10 @@ input {
 
 /* 设置表格容器的宽度和高度，并添加 y 方向的滚动条 */
 .table-container {
-    width: 70%;
+    width: 98%;
     margin-left: 0%;
     height: 500px;
     white-space: nowrap;
-    /*overflow-y: auto;*/
 }
 
 /* 设置表格的显示方式为 grid，并定义两列 */
