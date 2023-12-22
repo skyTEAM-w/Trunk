@@ -42,18 +42,20 @@ public class VehicleStatusDaoImpl implements VehicleStatusDao {
     public Integer save(VehicleStatus vehicleStatus) throws IOException {                 //添加车辆信息
         Connection connection = JDBC_UTL.getconnection();
         //String alterQuery = "SELECT MAX(用户id) + 1 FROM `game`.`用户`";
-        String sql = "insert into `game`.`车辆状态`(车辆id,维护状态, 剩余维护时间（分钟）, 故障状态, 上次维护时间, 维护次数, 数据文件)values (?,?,?,?,?,?,?)";
+        String sql = "UPDATE game.车辆状态 " +
+                "SET 维护状态=?, 剩余维护时间（分钟）=?, 故障状态=?, 上次维护时间=?, 维护次数=?, 数据文件=? " +
+                "WHERE 车辆id=?";
         PreparedStatement statement = null;
         Integer result = null;
         try {
             statement = connection.prepareStatement(sql);
-            statement.setString(1, vehicleStatus.getVehicle_id());
-            statement.setString(2, vehicleStatus.getMaintenance_status());
-            statement.setInt(3, vehicleStatus.getEstimated_maintenance_time());
-            statement.setString(4, vehicleStatus.getPrevious_failure_status());
-            statement.setString(5, vehicleStatus.getLast_Maintenance_date());
-            statement.setString(6, vehicleStatus.getMaintenance_Frequency());
-            statement.setBlob(7, vehicleStatus.getVehicle_file());
+            statement.setString(7, vehicleStatus.getVehicle_id());
+            statement.setString(1, vehicleStatus.getMaintenance_status());
+            statement.setInt(2, vehicleStatus.getEstimated_maintenance_time());
+            statement.setString(3, vehicleStatus.getPrevious_failure_status());
+            statement.setString(4, vehicleStatus.getLast_Maintenance_date());
+            statement.setString(5, vehicleStatus.getMaintenance_Frequency());
+            statement.setBlob(6, vehicleStatus.getVehicle_file());
 
             result = statement.executeUpdate();
         } catch (SQLException e) {

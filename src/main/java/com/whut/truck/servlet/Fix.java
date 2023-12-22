@@ -48,6 +48,16 @@ public class Fix extends HttpServlet {
         }
         System.out.println(gson);
         String wrong = gson.get("result").getAsString();
+        VehicleStatus temp = vehicleStatusDto.getVehicleStatus();
+        temp.setLast_Maintenance_date(gson.get("test_time").getAsString());
+        temp.setPrevious_failure_status(wrong);
+        temp.setMaintenance_Frequency(String.valueOf(Integer.parseInt(temp.getMaintenance_Frequency()) + 1));
+        if (Integer.parseInt(wrong) <= 2) {
+            temp.setMaintenance_status("正常");
+        } else {
+            temp.setMaintenance_status("故障");
+        }
+        this.vehicleStatusService.save(temp);
         req.setAttribute("Wrong", wrong);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/Fix.jsp");
         dispatcher.forward(req, resp);

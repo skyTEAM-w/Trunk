@@ -3,10 +3,12 @@ package com.whut.truck.servlet;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.whut.truck.Dto.SensorDto;
+import com.whut.truck.Dto.VehicleStatusDto;
 import com.whut.truck.Service.SensorService;
 import com.whut.truck.Service.VehicleStatusService;
 import com.whut.truck.Service.impl.SensorServiceImpl;
 import com.whut.truck.Service.impl.VehicleStatusServiceImpl;
+import com.whut.truck.entity.VehicleStatus;
 import com.whut.truck.utils.HttpCommunicationLayer;
 
 import javax.servlet.RequestDispatcher;
@@ -22,6 +24,7 @@ import java.time.format.DateTimeFormatter;
 @WebServlet(value = "/Longevity", name = "Longevity")
 public class Longevity extends HttpServlet {
     private SensorService sensorService = new SensorServiceImpl();
+    private VehicleStatusService vehicleStatusService = new VehicleStatusServiceImpl();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
@@ -30,6 +33,7 @@ public class Longevity extends HttpServlet {
 
         String id = req.getParameter("VehicleName");
         SensorDto sensorDto = this.sensorService.csv_find(id);
+        VehicleStatusDto vehicleStatusDto = this.vehicleStatusService.find(id);
         HttpCommunicationLayer communicationLayer = new HttpCommunicationLayer();
         LocalDateTime currentDateTime = LocalDateTime.now();
 
@@ -42,6 +46,10 @@ public class Longevity extends HttpServlet {
         JsonObject gson = communicationLayer.connectToPython(sensorDto.getSensorStream(), formattedDateTime + "_" + id + ".txt", "predict");
         System.out.println(gson);
         String Longevity = gson.get("result").getAsString();
+        VehicleStatus vehicleStatus = vehicleStatusDto.getVehicleStatus();
+        vehicleStatus.setEstimated_maintenance_time((int)Double.parseDouble(Longevity));
+        this.vehicleStatusService.save(vehicleStatus);
+
         req.setAttribute("Longevity", Longevity);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/Longevity.jsp");
         dispatcher.forward(req, resp);
