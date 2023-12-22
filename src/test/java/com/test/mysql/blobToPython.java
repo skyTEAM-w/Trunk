@@ -26,7 +26,19 @@ public class blobToPython {
     @Test
     public void Test() throws SQLException, IOException {
         VehicleStatusService statusService = new VehicleStatusServiceImpl();
+        VehicleStatusDto vehicleStatusDto = null;
+        VehicleStatus vehicleStatus = null;
+        try {
+            vehicleStatusDto = statusService.Insertfile(String.valueOf(1), blobToPython.class.getClassLoader().getResourceAsStream("jsonTest.txt"));
+            vehicleStatusDto = statusService.find(String.valueOf(1));
+            vehicleStatus = vehicleStatusDto.getVehicleStatus();
+            HttpCommunicationLayer communicationLayer = new HttpCommunicationLayer();
+            communicationLayer.connectToPython(vehicleStatus.getVehicle_file().getBinaryStream(), "20231205_120000_1.txt", "classify");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    }
 
     @Test
     public void TestFind30() throws IOException {
