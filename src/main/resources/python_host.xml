@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<python-host>
-    <url>http://localhost:</url>
-    <port>11200</port>
-    <router>/app</router>
-</python-host>

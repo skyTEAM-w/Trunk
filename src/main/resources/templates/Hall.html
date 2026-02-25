@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维护系统</title>
+    <!-- 导入阿里的图标样式文件 -->
+    <link rel="stylesheet" th:href="@{/css/iconfont.css}">
+    <link rel="stylesheet" th:href="@{/css/Hall_style.css}">
+    <script th:src="@{/js/Hall.js}"></script>
+</head>
+
+<body>
+<div class="content">
+    <!-- Header 开始 -->
+    <header>
+        <p id="username">欢迎您！<span th:text="${session.systemAdmin != null ? session.systemAdmin : '游客'}"></span>
+        </p>
+        <div id="logoutButtonContainer">
+            <button id="logoutButton" onclick="logout()">退出登录</button>
+        </div>
+    </header>
+    <!-- Header 结束 -->
+    <div class="mainbody">
+        <div class="menu-box">
+            <!-- 展示与隐藏侧边栏 开始-->
+            <input type="checkbox" id="menu-btn">
+            <label for="menu-btn"><i class="iconfont icon-yemianfanhui"></i></label>
+            <!-- 展示与隐藏侧边栏 结束-->
+            <div class="menu">
+                <!-- 侧边栏的标题 开始-->
+                <div class="menu-title">
+                    <h1>Menu</h1>
+                </div>
+                <!-- 侧边栏的标题 结束-->
+
+                <!-- 每一项导航 -->
+                <div class="menu-item">
+                    <input type="checkbox" id="menu-item1">
+                    <label for="menu-item1">
+                        <i class="menu-item-icon iconfont icon-a-01-shujuzhongxin"></i>
+                        <span>选项</span>
+                        <i class="menu-item-last iconfont icon-down"></i>
+                    </label>
+                    <div class="menu-content">
+                        <span onclick="updateComponent('detection')">状态更新</span>
+                        <span onclick="updateComponent('fix')">故障检测</span>
+                        <span onclick="updateComponent('longevity')">预测性维护</span>
+                        <span onclick="updateComponent('vehicleStatus')">车辆信息监控</span>
+                        <span onclick="updateComponent('vehicleSensor')">车辆传感器信息查询</span>
+                    </div>
+                </div>
+                <!-- 其他导航项可以继续添加 -->
+
+            </div>
+        </div>
+        <div class="component" >
+            <iframe id="componentContainer" style="height: 100%; width: 100%;border: 0;" th:src="@{/default}"></iframe>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

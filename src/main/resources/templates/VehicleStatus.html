@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车辆状态监控</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link href="https://cdn.bootcss.com/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/VehicleStatus_style.css}"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mt-4 mb-4">车辆状态监控</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form th:action="@{/VehicleStatusController}" method="post" class="d-flex justify-content-center align-items-center">
+                <div class="input-group mb-3">
+                    <input type="text" id="VehicleID" name="VehicleName" placeholder="请输入车辆编号" class="form-control" aria-label="VehicleID" aria-describedby="basic-addon1">
+                    <button id="GetStatus-btn" type="submit" class="btn btn-primary"> 获取状态</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-group">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header">维护状态</div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${Data1}"></h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                    <div class="card-header">剩余维护时间</div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${Data2}"></h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-header">故障状态</div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${Data3}"></h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header">上次维护时间</div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${Data4}"></h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">维护次数</div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${Data5}"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script th:if="${alertMessage}">
+    alert([[${alertMessage}]]);
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/Register_style.css}"/>
+</head>
+<body>
+
+<div class="registration-container">
+    <h2>注册</h2>
+    <form th:action="@{/register}" method="post">
+        <input type="text" id="username" placeholder="用户名" name="username" required>
+        <input type="email" id="email" placeholder="邮箱" name="email" required>
+        <input type="password" id="password" placeholder="密码" name="password" required>
+        <input type="password" id="confirmPassword" placeholder="确认密码" name="confirm_pass" required>
+        <button id="Register-btn" type="submit" style="width: 100%">注册</button>
+    </form>
+    <form th:action="@{/login}" method="get">
+        <input type="submit" value="点击回到登录页面"
+               style="padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #4CAF50;
+                    color: #fff;
+                    cursor: pointer;
+                    margin: 10px auto auto auto;">
+    </form>
+</div>
+<script th:if="${alertMessage}">
+    alert([[${alertMessage}]]);
+</script>
+</body>
+</html>

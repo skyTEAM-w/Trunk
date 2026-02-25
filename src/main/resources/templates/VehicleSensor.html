@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车辆传感器信息查询</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/VehicleSensor_style.css}"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mt-4 mb-4">车辆传感器信息查询</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form th:action="@{/SensorController}" method="post" class="d-flex justify-content-center align-items-center">
+                <div class="input-group mb-3">
+                    <input type="text" id="VehicleID" name="VehicleName" placeholder="车辆编号" class="form-control" aria-label="VehicleID" aria-describedby="basic-addon1">
+                    <button id="GetStatus-btn" type="submit" class="btn btn-primary">查询</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-container">
+                <table class="table table-striped table-hover table-responsive table-grid">
+                    <thead>
+                    <tr>
+                        <th>运行轮数</th>
+                        <th>setting1</th>
+                        <th>setting2</th>
+                        <th>setting3</th>
+                        <th>风扇进口总温度</th>
+                        <th>低压压气机出口总温度</th>
+                        <th>高压压气机出口总温度</th>
+                        <th>低压涡轮出口总温度</th>
+                        <th>风扇进口压强</th>
+                        <th>旁路管道总压强</th>
+                        <th>高压压气机出口总压强</th>
+                        <th>风扇物理转速</th>
+                        <th>核心机物理转速</th>
+                        <th>发动机压力比</th>
+                        <th>高压压气机出口静压（PS30）</th>
+                        <th>燃油流量与高压压气机出口静压的比率</th>
+                        <th>风扇换算转速</th>
+                        <th>核心机换算转速</th>
+                        <th>涵道比</th>
+                        <th>燃烧器油气比</th>
+                        <th>抽汽焓</th>
+                        <th>需求风扇转速</th>
+                        <th>需求风扇换算转速</th>
+                        <th>高压涡轮冷气流量</th>
+                        <th>低压涡轮冷气流量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="row : ${dataList}">
+                            <td th:each="cell : ${row}" th:text="${cell}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:if="${alertMessage}">
+    alert([[${alertMessage}]]);
+</script>
+</body>
+</html>
