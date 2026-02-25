@@ -30,6 +30,7 @@ public class SensorDaoImpl implements SensorDao {
     @Override
     public Integer csvSave(InputStream inputStream) throws IOException {
         String sql_check = "SELECT * FROM `game`.`传感器数据` where `车辆id` = ? and `运行轮数` = ?";
+        // Restore '列数' in INSERT, but we will handle the value manually
         String sql_insert = "INSERT INTO `game`.`传感器数据`(`列数`,`车辆id`, `运行轮数`, `setting1`, `setting2`, `setting3`, `风扇进口总温度`, `低压压气机出口总温度`, `高压压气机出口总温度`, `低压涡轮出口总温度`, `风扇进口压强`, `旁路管道总压强`, `高压压气机出口总压强`, `风扇物理转速`, `核心机物理转速`, `发动机压力比`, `高压压气机出口静压(Ps30)`, `燃油流量与高压压气机出口静压的比率`, `风扇换算转速`, `核心机换算转速`, `涵道比`, `燃烧器油气比`, `抽汽焓`, `需求风扇转速`, `需求风扇换算转速`, `高压涡轮冷气流量`, `低压涡轮冷气流量`) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sql_update = "UPDATE `game`.`传感器数据` set `车辆id` = ?, `运行轮数` =?, `setting1`=?, `setting2`=?, `setting3`=?, `风扇进口总温度`=?, `低压压气机出口总温度`=?, `高压压气机出口总温度`=?, `低压涡轮出口总温度`=?, `风扇进口压强`=?, `旁路管道总压强`=?, `高压压气机出口总压强`=?, `风扇物理转速`=?, `核心机物理转速`=?, `发动机压力比`=?, `高压压气机出口静压(Ps30)`=?, `燃油流量与高压压气机出口静压的比率`=?, `风扇换算转速`=?, `核心机换算转速`=?, `涵道比`=?, `燃烧器油气比`=?, `抽汽焓`=?, `需求风扇转速`=?, `需求风扇换算转速`=?, `高压涡轮冷气流量`=?, `低压涡轮冷气流量`=? where `车辆id` = ? and `运行轮数` =?";
 
@@ -37,12 +38,27 @@ public class SensorDaoImpl implements SensorDao {
         String csvSplitBy = " ";
         int counter = 1;
         Integer result = 0;
+        
+        // Get current max ID to avoid duplicate keys since '列数' is not auto-increment
+        Integer maxId = 0;
+        try {
+            Integer dbMax = jdbcTemplate.queryForObject("SELECT MAX(CAST(`列数` AS UNSIGNED)) FROM `game`.`传感器数据`", Integer.class);
+            if (dbMax != null) {
+                maxId = dbMax;
+            }
+        } catch (Exception e) {
+            // Table might be empty or column type issue. Start from 0.
+            maxId = 0;
+        }
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             while ((line = br.readLine()) != null) {
                 // System.out.println(line);
                 if (counter != 0) {
                     String[] data = line.split(csvSplitBy);
+                    // Skip empty lines or lines with insufficient data
+                    if (data.length < 26) continue;
+                    
                     String id = data[0];
                     String times = data[1];
 
@@ -57,22 +73,20 @@ public class SensorDaoImpl implements SensorDao {
                     if (checkResults.isEmpty()) {
                         // Insert
                         Object[] params = new Object[27];
-                        for (int i = 0; i < 27; i++) {
-                            params[i] = data[i];
+                        maxId++; // Increment ID
+                        params[0] = maxId; 
+                        
+                        // Map data[0] (ID) to params[1] (车辆id)
+                        // Map data[1] (Cycle) to params[2] (运行轮数)
+                        // ...
+                        for (int i = 0; i < 26; i++) {
+                            params[i+1] = data[i];
                         }
+                        
                         result = jdbcTemplate.update(sql_insert, params);
                     } else {
                         // Update
                         Object[] params = new Object[28]; // 26 params + 2 where clause
-                        // Update set parameters (26 items: id, times, settings...)
-                        // Note: Original code updates `车辆id` and `运行轮数` which are also in WHERE clause.
-                        // data[0] is id, data[1] is times.
-                        // SQL: set `车辆id` = ?, `运行轮数` =?, ... (26 items) ... where `车辆id` = ? and `运行轮数` =?
-                        
-                        // data array has 27 elements? Original code:
-                        // for (int i = 1; i <= 26; i++) { updateStmt.setString(i, data[i-1]); }
-                        // updateStmt.setString(27, id); updateStmt.setString(28, times);
-                        
                         for (int i = 0; i < 26; i++) {
                             params[i] = data[i];
                         }
